@@ -21,7 +21,7 @@ wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash g
 **本程序依照 GPLV3 协议开源**  
 ![image.png](https://storage.deepin.org/thread/202208140944423790_image.png)  
 [点此查看更多关于这个程序的介绍](https://gfdgd-xi.github.io/uengine-runner/)和[这个程序的帮助](https://gfdgd-xi.github.io/uengine-runner/Help)  
-
+[![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 ## 下载链接
 蓝奏云：[https://gfdgdxi.lanzoui.com/b01oaxnbi](https://gfdgdxi.lanzoui.com/b01oaxnbi)，密码：[2rh3](https://gfdgdxi.lanzoui.com/b01oaxnbi)  
 Github：[https://github.com/gfdgd-xi/uengine-runner](https://github.com/gfdgd-xi/uengine-runner)  
@@ -36,25 +36,27 @@ UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程
 **本程序依照 GPLV3 协议开源**  
 ![image.png](https://storage.deepin.org/thread/202208140946222834_image.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
+[![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 ## 下载链接
-Gitee：https://gitee.com/gfdgd-xi/deep-wine-runner  
-Github：https://github.com/gfdgd-xi/deep-wine-runner  
-Gitlink：https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner  
-蓝奏云：https://gfdgdxi.lanzouj.com/b01nz7y3e，密码:7oii  
+Gitee：[https://gitee.com/gfdgd-xi/deep-wine-runner](https://gitee.com/gfdgd-xi/deep-wine-runner)  
+Github：[https://github.com/gfdgd-xi/deep-wine-runner](https://github.com/gfdgd-xi/deep-wine-runner)  
+Gitlink：[https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner](https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner)  
+蓝奏云：[https://gfdgdxi.lanzouj.com/b01nz7y3e](https://gfdgdxi.lanzouj.com/b01nz7y3e)，密码:[7oii](https://gfdgdxi.lanzouj.com/b01nz7y3e)  
 软件源更新：使用方法见下  
-星火应用商店：spk://store/tools/spark-deepin-wine-runner  
+星火应用商店：[spk://store/tools/spark-deepin-wine-runner](spk://store/tools/spark-deepin-wine-runner)  
 
 # spark-webapp-runtime-runner 运行器（最新版本1.1.0）
 一个 spark-webapp-runtime（星火网页应用运行环境）图形化运行器，可以让你更加方便的使用星火网页应用运行环境  
 **本程序依照 GPLV3 协议开源**  
 ![image.png](https://storage.deepin.org/thread/202208140957462252_image.png)   
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
+[![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
 ## 下载链接
-Gitee：https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner  
-Github：https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner  
-Gitlink：https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner  
-蓝奏云：https://gfdgdxi.lanzouj.com/b01nzcuqd，密码:awcg  
-星火应用商店：spk://store/tools/spark-webapp-runtime-runner  
+Gitee：[https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner)  
+Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://github.com/gfdgd-xi/spark-webapp-runtime-runner)  
+Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner)  
+蓝奏云：[https://gfdgdxi.lanzouj.com/b01nzcuqd](https://gfdgdxi.lanzouj.com/b01nzcuqd)，密码:[awcg](https://gfdgdxi.lanzouj.com/b01nzcuqd)  
+星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
 
 # 程序最新版本更新日志
 ## UEngine 运行器（最新版本 1.8.0）
@@ -67,6 +69,7 @@ Gitlink：https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner
 7、新增主题功能   
 8、支持在安装 APK 后手动指定分类（手动指定需要在设置里手动开启）   
 ![image.png](https://storage.deepin.org/thread/202207271700065629_image.png)  
+[![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
 ## Wine 运行器（最新版本 2.0.0）
 **※1、修复了重复路径一直自动重复增加的问题**  
@@ -86,8 +89,10 @@ Gitlink：https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner
 15、支持组件/运行库下载后缓存方便下次使用（可以清理）  
 16、点击获取图标按钮后会自动读取 exe 框的程序图标（不支持相对路径和包内路径，只支持绝对路径）  
 ![image.png](https://storage.deepin.org/thread/202208131811324016_image.png)  
+[![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
 ※1、程序全部重构，语言从 Python 转 C++、GUI 从 Tkinter 转 DTK、布局大改，参考了 sgb76 大佬的 Wine 运行器设计图、zty79的桌面快捷方式编辑器的参考布局  
 ※2、程序新增打包功能  
 ![截图_选择区域_20220808172505.png](https://storage.deepin.org/thread/202208081725151597_截图_选择区域_20220808172505.png)   
+[![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
