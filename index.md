@@ -20,7 +20,7 @@ wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash g
 # UEngine 运行器（最新版本 1.8.0）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
-程序的部分工作原理可见：https://www.52pojie.cn/thread-1672077-1-1.html  
+程序的部分工作原理可见：[https://www.52pojie.cn/thread-1672077-1-1.html](https://www.52pojie.cn/thread-1672077-1-1.html)  
 ![image.png](https://storage.deepin.org/thread/202208140944423790_image.png)  
 [点此查看更多关于这个程序的介绍](https://gfdgd-xi.github.io/uengine-runner/)和[这个程序的帮助](https://gfdgd-xi.github.io/uengine-runner/Help)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
@@ -35,7 +35,7 @@ UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程
 # Wine 运行器（最新版本 2.0.0）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
-Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：https://www.52pojie.cn/thread-1675552-1-1.html  
+Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
 ![image.png](https://storage.deepin.org/thread/202208140946222834_image.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
