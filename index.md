@@ -32,12 +32,12 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.0.0-2）
+# Wine 运行器（最新版本 2.1.0）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
-![image.png](https://storage.deepin.org/thread/202208140946222834_image.png)  
+![截图_选择区域_20220826143213.png](https://storage.deepin.org/thread/202208261437088825_截图_选择区域_20220826143213.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 ## 下载链接
@@ -75,23 +75,19 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
 ## Wine 运行器（最新版本 2.0.0-2）
-**※1、修复了重复路径一直自动重复增加的问题**  
-**※2、修复了两个打包器打包错误的问题（非基于生态活动脚本的为 wine 导入错误，基于生态活动脚本的为架构有误导致打包出的 deb 无法打包）**  
-**※3、适配了部分非 i386、amd64 架构计算机的 UOS 系统使用的 wine 并支持打包非 i386、amd64 架构计算机的 UOS 系统使用的 wine 程序 deb 包**  
-**※4、支持安装 dxvk（遵守 Zlib 开源协议）**  
-**※5、运行器、打包器（包括非基于生态适配活动脚本制作的）支持使用 Wine 生态适配活动的容器清理脚本**  
-**※6、支持更加简易的安装最新版的 WineHQ**  
-**※7、增加字体商店**  
-**※8、新增查看可执行文件运行情况的功能**  
-9、支持不显示没有安装的 Wine，方便用户识别  
-10、修改了 Wine 的顺序使其更加合理  
-11、支持删除安装 exe 后在启动器的快捷方式  
-12、优化了 Wine 打包器（非基于生态活动脚本）对容器的处理  
-13、修复了 Wine 打包器（非基于生态活动脚本）打包出的 deb 安装时显示为解压缩后会消耗 0 B 的额外空间以及 postrm 的一些问题  
-14、支持删除无需使用的程序组件  
-15、支持组件/运行库下载后缓存方便下次使用（可以清理）  
-16、点击获取图标按钮后会自动读取 exe 框的程序图标（不支持相对路径和包内路径，只支持绝对路径）  
-![image.png](https://storage.deepin.org/thread/202208131811324016_image.png)  
+**※1、新增新的 Wine 安装器，并支持将安装的 Wine 打包到 Wine 程序 deb 包中**   
+**※2、Wine 打包器打包 Windows 应用支持将 Wine 打包入 deb 内，可以不依赖 Wine（一般不推荐把 Wine 打包入内，推荐用依赖的形式），并支持设置自定义依赖和生成模板**  
+**※3、开始初步多语言支持**  
+**※4、修复了在没有安装任何 Wine 的情况下使用高级功能导致程序闪退的问题**  
+**※5、支持云端自动获取数据配置 Wine 容器**  
+**※6、支持手动导入配置文件自动配置 Wine 容器**  
+**※7、新增从云端下载 Dll 的功能**  
+**※8、修复了 Dll 提取工具不会在 winecfg 中添加原装的问题**  
+9、修改错别字（图形话=>图形化）  
+10、修复评分功能名称为空也可以上传评分的问题  
+11、去除 toilet 依赖，使在 Deepin 23 Preview 上运行更佳  
+12、支持删除所有由 Wine 创建的启动器快捷方式  
+![截图_选择区域_20220826143213.png](https://storage.deepin.org/thread/202208261437088825_截图_选择区域_20220826143213.png)  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
