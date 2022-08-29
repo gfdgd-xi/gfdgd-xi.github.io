@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width" initial-scale="1" />
+<html style="height: 100%;">
+
+<head>
+    <title>Wine 运行器——程序运行情况查询</title>
+</head>
+<style>
+    .button {
+        border-style: solid;
+        background-color: orange;
+        color: lightyellow;
+        border-color: aliceblue;
+        width: 10%;
+    }
+
+    .searchDiv {
+        background-color: white;
+    }
+
+    .resultDiv {
+        background-color: white;
+    }
+
+    .showDiv {
+        width: auto;
+        margin: 0 auto;
+        background-color: white;
+        z-index: 1;
+    }
+
+    .input {
+        border-width: 1px;
+    }
+
+    .copyright {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 50px;
+        background-color: #eee;
+        z-index: 9999;
+    }
+
+    .background {
+        margin: 0%;
+        display:inline-block;
+        z-index: 2;
+    }
+
+    iframe {
+        border-style: none;
+    }
+
+    .left {
+        display:table-cell;
+    }
+
+    .toolbar {
+        border-left: solid;
+        border-bottom: solid;
+        border-right: solid;
+        margin: 0;
+        border-bottom-right-radius: 100px;
+        border-bottom-left-radius: 100px;
+        border-color: grey;
+        padding: 0;
+    }
+    
+    a{ 
+        text-decoration:none; 
+        color: black;
+    } 
+
+    a:hover{ 
+        text-decoration:none
+    }
+</style>
+
+<body style="height: 100%;margin:0;padding:0;">
+    <div class="toolbar">
+        <div class="left">
+            &nbsp;&nbsp;<img src="https://bbs.deepin.org/assets/image/raccoon/blush.gif" width="25"><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../uengine-runner-info/">UEngine运行器</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../wine-runner-info/" style="color: grey;">Wine运行器</a>
+        </div>
+        <div class="right"></div>
+    </div>
+    <br>
+    <div class="background"><img src="background.jpg" width="100%"></div>
+    <div class="showDiv" align="center">
+        <div class="seachDiv showDiv" align="center">
+            输入程序的SHA1以便查询：
+            <input id="package" style="width: 20%;" class="input">
+            <button id="send" onclick="Send();" class="button">查询</button>
+        </div>
+        <div id="resultDiv showDiv" align="center">
+            <iframe id="result" width="100%" src=""></iframe>
+        </div>
+    </div>
+    <div class="copyright">
+        <p align="center" id="copyright">©2020~2022 gfdgd xi、为什么您不喜欢熊出没和阿布呢</p>
+    </div>
+</body>
+<script>
+    // 下载量统计
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?807ee27dfca59506248e7f74c812ca3d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script>
+    window.onload = function(){
+        var d = new Date();
+        document.getElementById("copyright").innerHTML = "©2020~" + d.getFullYear() + " gfdgd xi、为什么您不喜欢熊出没和阿布呢";
+    }
+
+    function Send() {
+        document.getElementById("result").src = "https://304626p927.goho.co/spark-deepin-wine-runner/app/info.php?ID=" + document.getElementById("package").value;
+    }
+</script>
+
+</html>
