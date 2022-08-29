@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width" initial-scale="1" />
+<html style="height: 100%;">
+
+<head>
+    <title>UEngine 运行器——程序运行情况查询</title>
+</head>
+<style>
+    .button {
+        border-style: solid;
+        background-color: orange;
+        color: lightyellow;
+        border-color: aliceblue;
+        width: 10%;
+    }
+
+    .searchDiv {
+        background-color: white;
+
+    }
+
+    .resultDiv {
+        /*width: 100%;*/
+        background-color: white;
+    }
+
+    .showDiv {
+        width: auto;
+        margin: 0 auto;
+        background-color: white;
+        z-index: 1;
+    }
+
+    .input {
+        border-width: 1px;
+    }
+
+    .copyright {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 50px;
+        background-color: #eee;
+        z-index: 9999;
+    }
+
+    .background {
+        background-color: blue;
+        height: 25%;
+        width: 100%;
+        /*float: left;*/
+        margin: 0%;
+
+        padding: 0px 0px 0px 0px;
+        z-index: 2;
+    }
+
+    iframe {
+        border-style: none;
+    }
+</style>
+
+<body style="height: 100%;">
+    <div class="toolbar"></div>
+    <div class="background"></div>
+    <div class="showDiv" align="center">
+        <div class="seachDiv showDiv" align="center">
+            输入包名以便查询：
+            <input id="package" class="input">
+            <button id="send" onclick="Send();" class="button">查询</button>
+        </div>
+        <div id="resultDiv showDiv" align="center">
+            <iframe id="result" src="http://120.25.153.144/uengine-runner/app/check/info.php?ID=cn.cntv"></iframe>
+        </div>
+    </div>
+    <div class="copyright">
+        <p align="center">©2020~2022 gfdgd xi、为什么您不喜欢熊出没和阿布呢</p>
+    </div>
+</body>
+<script>
+    // 下载量统计
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?807ee27dfca59506248e7f74c812ca3d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script>
+    function Send() {
+        document.getElementById("result").src = "http://120.25.153.144/uengine-runner/app/check/info.php?ID=" + document.getElementById("package").value;
+    }
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<!--<script src="http://120.25.153.144/uengine-runner/open/1.8.0/data.txt"></script>-->
+<script src="jquery-3.6.1.min.js"></script>
+<script>
+    function handleResponse(response){
+    console.log('The responsed data is: '+response.data);
+    //处理获得的Json数据
+}
+
+    window.onload = function(){
+        
+        var script = document.createElement('script');
+script.src = 'http://120.25.153.144/uengine-runner/app/check/app.lawnchair/data.json?callback=handleResponse';
+document.body.insertBefore(script, document.body.firstChild);
+return;
+        var script = document.createElement("script");
+//script.src = "http://120.25.153.144/uengine-runner/open/1.8.0/data.txt";
+document.body.insertBefore(script, document.body.firstChild);
+        //document.getElementById("source").src = "http://120.25.153.144";
+        //alert(document.getElementById("source").contentWindow.document.body.innerHTML);
+        //setTimeout(function(){alert(document.getElementById("source").contentWindow.document.body.innerHTML);}, 3000);
+        $.getJSON("http://120.25.153.144/uengine-runner/app/check/app.lawnchair/data.json?callback=?&SameSite=Strict", function(data, status){
+            alert("aa");
+                console.log(data[0]);
+                alert(data[0]);
+                displayData(data);
+            });
+        /*$.ajax({
+            url: "http://120.25.153.144/uengine-runner/open/1.8.0/data.txt",
+            dataType: "jsonp",
+            jsonp: "callback",
+    context: document.body,
+    success: function(data) {
+        alert(data);
+    }
+        })*/
+    }
+</script>
+<body>
+    <div id="resultShow">
+
+    </div>
+    <div id="hide">
+        <iframe id="source"></iframe>
+    </div>
+</body>
