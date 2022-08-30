@@ -27,9 +27,10 @@ Github 源（国外推荐）：
 wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash github.sh && rm github.sh
 ```
 
-# UEngine 运行器（最新版本 1.8.0）
+# UEngine 运行器（最新版本 1.8.1）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
+**想要在线获取 UEngine 运行器评分功能的结果？可见：https://gfdgd-xi.github.io/uengine-runner-info**  
 程序的部分工作原理可见：[https://www.52pojie.cn/thread-1672077-1-1.html](https://www.52pojie.cn/thread-1672077-1-1.html)  
 ![image.png](https://storage.deepin.org/thread/202208140944423790_image.png)  
 [点此查看更多关于这个程序的介绍](https://gfdgd-xi.github.io/uengine-runner/)和[这个程序的帮助](https://gfdgd-xi.github.io/uengine-runner/Help)  
@@ -38,7 +39,7 @@ wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash g
 蓝奏云：[https://gfdgdxi.lanzoui.com/b01oaxnbi](https://gfdgdxi.lanzoui.com/b01oaxnbi)，密码：[2rh3](https://gfdgdxi.lanzoui.com/b01oaxnbi)  
 Github：[https://github.com/gfdgd-xi/uengine-runner](https://github.com/gfdgd-xi/uengine-runner)  
 Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/uengine-runner)  
-星火应用商店（已审核通过）：spk://store/tools/spark-uengine-runner  
+星火应用商店：spk://store/tools/spark-uengine-runner  
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
@@ -47,6 +48,7 @@ UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
+**想要在线获取 Wine 运行器评分功能的结果？可见：https://gfdgd-xi.github.io/wine-runner-info**  
 ![截图_选择区域_20220826143213.png](https://storage.deepin.org/thread/202208261437088825_截图_选择区域_20220826143213.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
@@ -72,16 +74,13 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
 
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 1.8.0）
-**※1、程序界面大部分由 Tkinter 转 PyQt5**  
-**※2、添加了自动/手动配置 UEngine 窗口大小文件（自动需要在设置里手动开启，配置窗口的配置文件需要 Root）**  
-**※3、增加了安装/卸载失败后的提示**  
-**※4、补回谢明名单**  
-**※5、支持免密安装/卸载 APK**  
-6、pip 更换华为源，提升下载速度  
-7、新增主题功能   
-8、支持在安装 APK 后手动指定分类（手动指定需要在设置里手动开启）   
-![image.png](https://storage.deepin.org/thread/202207271700065629_image.png)  
+## UEngine 运行器（最新版本 1.8.1）
+**※1、修复在 APK 详细信息中图标可能过大导致无法正常使用的问题**  
+**※2、修复 APK 路径带空格无法正常安装的问题**  
+3、修复打包器打包的 APK 带下划线“_”无法正常打包的问题  
+4、修复打包器下方命令返回过多空白行的问题  
+5、修复程序生成的默认图标任然是旧版图标的问题  
+![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
 ## Wine 运行器（最新版本 2.1.0）
