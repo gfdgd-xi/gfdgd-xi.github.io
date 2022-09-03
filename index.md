@@ -105,4 +105,21 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![截图_选择区域_20220808172505.png](https://storage.deepin.org/thread/202208081725151597_截图_选择区域_20220808172505.png)   
 [![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
 
+# Deepin Community Live CD 版本列表
+| 版本号 | tiny | mini | full | install | tiny(本地版本) | mini(本地版本) | full(本地版本) | install(本地版本) | 15.11 | 23 |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 1.4.0(待发布) | ● | ● | ● | ● | ● | ● | ● | ● | ● | × |
+| 1.3.0 |  |  | ● |  |
+| 1.2.1 |  | ● | ● | ● | | ● |
+| 1.2.0 | ● | ● | ● | ● | ● | ● | ● | ● |
+| 1.1.1 |  |  | ● |  |
+| 1.1.0 | ● | ● | ● |  | ● | ● | ● |
+| 1.0.5 |  |  | × |  |
+| 1.0.4 |  |  | ● |  |
+| 1.0.3 |  |  | ● |  |
+| 1.0.2 |  |  | ● |  |
+| 1.0.1 |  |  | ● |  |
+| 1.0.0-rc |  |  | ● |  |
+| 1.0.0-beta |  |  | ● |  |
+
 # ©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢
