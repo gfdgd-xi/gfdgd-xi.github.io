@@ -10,8 +10,8 @@ var _hmt = _hmt || [];
 
 # 作品列表
 - 自建 apt 软件源
-- UEngine 运行器（最新版本 1.8.0）
-- Wine 运行器（最新版本 2.0.0-2）
+- UEngine 运行器（最新版本 1.8.1-1）
+- Wine 运行器（最新版本 2.1.0-1）
 - ……
 
 # 自建 apt 软件源
@@ -27,7 +27,7 @@ Github 源（国外推荐）：
 wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash github.sh && rm github.sh
 ```
 
-# UEngine 运行器（最新版本 1.8.1）
+# UEngine 运行器（最新版本 1.8.1-1）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 UEngine 运行器评分功能的结果？可见：https://gfdgd-xi.github.io/uengine-runner-info**  
@@ -43,7 +43,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.1.0）
+# Wine 运行器（最新版本 2.1.0-1）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
@@ -74,7 +74,13 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
 
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 1.8.1）
+## UEngine 运行器（最新版本 1.8.1-1）
+### 1.8.1-1 更新内容
+**※1、修复缺失依赖 python3-matplotlib 导致程序无法开启的问题**  
+**※2、移除在 Ubuntu 上用于安装 UEngine 的安装工具**  
+**※3、解决了未输入密码自动回车的 bug**  
+
+### 1.8.1 更新内容
 **※1、修复在 APK 详细信息中图标可能过大导致无法正常使用的问题**  
 **※2、修复 APK 路径带空格无法正常安装的问题**  
 3、修复打包器打包的 APK 带下划线“_”无法正常打包的问题  
@@ -83,7 +89,14 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 2.1.0）
+## Wine 运行器（最新版本 2.1.0-1）
+### 2.1.0-1 更新内容
+**※1、删除多余图标**  
+**※2、修复将打包文件生成目录设置为 / 等重要目录导致删库的问题**  
+3、修复了打包器浏览按钮闪退、生成的 postrm 有误的问题  
+4、支持在输入信息时自动生成 deb 保存路径  
+
+### 2.1.0 更新内容
 **※1、新增新的 Wine 安装器，并支持将安装的 Wine 打包到 Wine 程序 deb 包中**   
 **※2、Wine 打包器打包 Windows 应用支持将 Wine 打包入 deb 内，可以不依赖 Wine（一般不推荐把 Wine 打包入内，推荐用依赖的形式），并支持设置自定义依赖和生成模板**  
 **※3、开始初步多语言支持**  
