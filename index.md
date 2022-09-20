@@ -119,20 +119,192 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 [![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
 
 # Deepin Community Live CD 版本列表
-| 版本号 | tiny | mini | full | install | tiny(本地版本) | mini(本地版本) | full(本地版本) | install(本地版本) | 15.11 | 23 |  
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |  
-| 1.4.0(待发布) | ● | ● | ● | ● | ● | ● | ● | ● | ● | × |  
-| 1.3.0 |  |  | ● |  |  |  |  |  |  |  |  
-| 1.2.1 |  | ● | ● | ● | | ● |  |  |  |  |  
-| 1.2.0 | ● | ● | ● | ● | ● | ● | ● | ● |  |  |  
-| 1.1.1 |  |  | ● |  |  |  |  |  |  |  |  
-| 1.1.0 | ● | ● | ● |  | ● | ● | ● |  |  |  |  
-| 1.0.5 |  |  | × |  |  |  |  |  |  |  |  
-| 1.0.4 |  |  | ● |  |  |  |  |  |  |  |  
-| 1.0.3 |  |  | ● |  |  |  |  |  |  |  |  
-| 1.0.2 |  |  | ● |  |  |  |  |  |  |  |  
-| 1.0.1 |  |  | ● |  |  |  |  |  |  |  |  
-| 1.0.0-rc |  |  | ● |  |  |  |  |  |  |  |  
-| 1.0.0-beta |  |  | ● |  |  |  |  |  |  |  |  
+<table>
+<thead>
+<tr>
+<th align="center">版本号</th>
+<th align="center">tiny</th>
+<th align="center">mini</th>
+<th align="center">full</th>
+<th align="center">install</th>
+<th align="center">tiny(本地版本)</th>
+<th align="center">mini(本地版本)</th>
+<th align="center">full(本地版本)</th>
+<th align="center">install(本地版本)</th>
+<th align="center">15.11</th>
+<th align="center">23</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.4.0</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">1.3.0</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.2.1</td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.2.0</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.1.1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.1.0</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.5</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">×</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.0-rc</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.0.0-beta</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+
 
 # ©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢
