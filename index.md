@@ -11,7 +11,9 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 1.8.1-1）
-- Wine 运行器（最新版本 2.1.0-1）
+- Wine 运行器（最新版本 2.1.0-2）
+- spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
+- Deepin Community Live CD（最新版本 1.4.0）
 - ……
 
 # 自建 apt 软件源
@@ -43,7 +45,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.1.0-1）
+# Wine 运行器（最新版本 2.1.0-2）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
@@ -72,7 +74,21 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner)  
 蓝奏云：[https://gfdgdxi.lanzouj.com/b01nzcuqd](https://gfdgdxi.lanzouj.com/b01nzcuqd)，密码:[awcg](https://gfdgdxi.lanzouj.com/b01nzcuqd)  
 星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
+# Deepin Community Live CD（最新版本 1.4.0）
+此 Live CD 基于 deepin 20.7 和原 Live CD 2.0 制作，安装部分维护工具（如果还有需要添加的就说），感谢 [https://bbs.deepin.org/post/166409](https://bbs.deepin.org/post/166409) 的作者   [@xchngg](https://bbs.deepin.org/user/108842)的参考文档，本 Live CD 1.2.1 及以前版本使用该方案打包，测试 Ventoy 在 Legacy 和 UEFT 模式下均可运行此 Live CD，有常用驱动（网卡、显卡、声卡），理论上能运行 deepin 20.7 均可运行  
+同时也借鉴了以下文章的内容：  
+[https://bbs.deepin.org/post/228930](https://bbs.deepin.org/post/228930) [@deepin-superuser](https://bbs.deepin.org/user/278484)  
 
+[https://bbs.deepin.org/post/228568](https://bbs.deepin.org/post/228568)  [@木一明](https://bbs.deepin.org/user/160805)  
+
+**full 用户密码（包括root密码）为：123456**  
+**tiny、mini、install root 密码未知**  
+
+![image.png](https://storage.deepin.org/thread/202209112148168591_image.png)
+
+![image.png](https://storage.deepin.org/thread/202209112150178582_image.png)
+
+![image.png](https://storage.deepin.org/thread/202209112151255384_image.png)
 # 程序最新版本更新日志
 ## UEngine 运行器（最新版本 1.8.1-1）
 ### 1.8.1-1 更新内容
@@ -89,7 +105,9 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 2.1.0-1）
+## Wine 运行器（最新版本 2.1.0-2）
+### 2.1.0-2 更新内容
+**※1、修复终端调用问题**  
 ### 2.1.0-1 更新内容
 **※1、删除多余图标**  
 **※2、修复将打包文件生成目录设置为 / 等重要目录导致删库的问题**  
@@ -117,7 +135,11 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ※2、程序新增打包功能  
 ![截图_选择区域_20220808172505.png](https://storage.deepin.org/thread/202208081725151597_截图_选择区域_20220808172505.png)   
 [![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
-
+### Deepin Community Live CD（最新版本 1.4.0）
+1、升级为基于 20.7，支持最新的 5.18.4-amd-desktop-hwe 内核  
+2、修复星火源签名问题（且换成镜像源以提高安装速度）  
+3、新增 15.11 版本  
+**full最新 1.4.0，install 最新 1.2.1，mini最新1.2.1-1，tiny最新1.2.0-1，install版暂未更新**  
 # Deepin Community Live CD 版本列表
 <table>
 <thead>
@@ -307,4 +329,8 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 </tbody></table>
 
 
-# ©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢
+<h1 id="copyright">©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢</h1>
+<script>
+var d = new Date();
+document.getElementById("copyright").innerHTML="©2020~" + d.getFullYear() + " gfdgd xi、为什么您不喜欢熊出没和阿布呢";
+</script>
