@@ -166,7 +166,7 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 <td align="center">●</td>
 <td align="center">●</td>
 <td align="center">●</td>
-<td align="center">●</td>
+<td align="center"></td>
 <td align="center">●</td>
 <td align="center">×</td>
 </tr>
