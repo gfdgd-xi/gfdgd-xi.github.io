@@ -12,7 +12,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 1.8.1-1）
-- Wine 运行器（最新版本 2.1.0-2）
+- Wine 运行器（最新版本 2.2.0）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.4.0）
 - ……
@@ -46,13 +46,13 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.1.0-2）
+# Wine 运行器（最新版本 2.2.0）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 Wine 运行器评分功能的结果？可见：https://gfdgd-xi.github.io/wine-runner-info**  
-![截图_选择区域_20220826143213.png](https://storage.deepin.org/thread/202208261437088825_截图_选择区域_20220826143213.png)  
+![image.png](https://storage.deepin.org/thread/202209242126366137_image.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 ## 下载链接
@@ -118,28 +118,25 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
 ## Wine 运行器（最新版本 2.1.0-2）
-### 2.1.0-2 更新内容
-**※1、修复终端调用问题**  
-### 2.1.0-1 更新内容
-**※1、删除多余图标**  
-**※2、修复将打包文件生成目录设置为 / 等重要目录导致删库的问题**  
-3、修复了打包器浏览按钮闪退、生成的 postrm 有误的问题  
-4、支持在输入信息时自动生成 deb 保存路径  
-
-### 2.1.0 更新内容
-**※1、新增新的 Wine 安装器，并支持将安装的 Wine 打包到 Wine 程序 deb 包中**   
-**※2、Wine 打包器打包 Windows 应用支持将 Wine 打包入 deb 内，可以不依赖 Wine（一般不推荐把 Wine 打包入内，推荐用依赖的形式），并支持设置自定义依赖和生成模板**  
-**※3、开始初步多语言支持**  
-**※4、修复了在没有安装任何 Wine 的情况下使用高级功能导致程序闪退的问题**  
-**※5、支持云端自动获取数据配置 Wine 容器**  
-**※6、支持手动导入配置文件自动配置 Wine 容器**  
-**※7、新增从云端下载 Dll 的功能**  
-**※8、修复了 Dll 提取工具不会在 winecfg 中添加原装的问题**  
-9、修改错别字（图形话=>图形化）  
-10、修复评分功能名称为空也可以上传评分的问题  
-11、去除 toilet 依赖，使在 Deepin 23 Preview 上运行更佳  
-12、支持删除所有由 Wine 创建的启动器快捷方式  
-![截图_选择区域_20220826143213.png](https://storage.deepin.org/thread/202208261437088825_截图_选择区域_20220826143213.png)  
+**※1、Dll 提取工具支持 NT 6.X 及以上版本的 Dll 提取并优化了提示文本**  
+**※2、支持卸载后自动删除缓存/配置文件（删除配置文件只限 purge 参数删除）**  
+**※3、DEBUG 模式输出更多信息以方便调试（原本只输出 pid、Err）**  
+**※4、支持安装 msi 文件**  
+**※5、修复无法正常评分的问题**  
+**※6、修复 QQ、TIM 安装后无法正常生成快捷方式的问题**  
+**※7、基于生态适配活动的打包器更换为 spark-wine-helper 以及添加自动删除残留脚本**  
+**※8、打包器支持从 deb 文件读取信息**  
+**※9、修复在 UOS 专业版（鲲鹏）无法正常运行的问题以及组件安装功能无法正常执行安装命令的问题**  
+**※10、修复出现星火应用商店和官方应用商店反复提示更新死循环的问题**  
+**※11、新增评分分数预测功能（不准）**  
+**※12、更换程序接口**  
+13、更新组件安装的离线列表  
+14、不再强制依赖深度终端，只做推荐安装  
+15、基于生态活动适配脚本的打包器在打包完成后会弹出对话框提示打包完成  
+16、优化打包器的 spark wine helper 依赖设置方式  
+17、新增 RegShot（注册表比对工具）  
+18、添加 Wine 运行器评分数据的搜索功能  
+![image.png](https://storage.deepin.org/thread/202209242126366137_image.png)  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
