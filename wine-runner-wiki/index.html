@@ -1,0 +1,106 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>文档</title>
+  <link href="./css/semantic/semantic.min.css" rel="stylesheet">
+  <link href="./css/markdown.css" rel="stylesheet">
+  <style>
+    body{padding-top:0;background:#f7f7f7}
+    body>.ui.container{width:100%;padding:0}
+    #project-title{background:#6e6e6e;width:100%;line-height:3.572rem;color:#fff;font-size:1.2rem}
+    #project-title .title-wrap{font-weight:700;padding:0 12px;width:100%;max-width:1366px!important;min-width:900px;margin:0 auto}
+    #project-title .left,#project-title right{display:inline-block}
+    #project-title .right{float:right}
+    #project-title .right .wiki-actions .menu{left:auto;right:0;margin-top:.4em!important}
+    #wiki-preview-container{width:100%;max-width:1366px!important;min-width:900px;padding:0;border:1px solid #e3e9ed;border-top:0}
+    #wiki-preview>.ui.segment{margin-top:0;padding:1rem;padding-left:0;border:0}
+    .hover-places{display:inline-block}
+    #page-detail{width:60%;margin:0 auto}
+    #page-detail .title{font-weight:700;font-size:24px;padding:12px 0;border-bottom:1px solid #ccc}
+    #page-detail .content{margin-top:15px}
+    .content p{word-wrap:break-word}
+    #wiki-parent,#wiki-title,#wikis{display:none}
+    .ui.grid{padding:0!important}
+    #ex-all{cursor:pointer;color:#537c8d}
+  </style>
+</head>
+<body>
+  <div class="ui container">
+    <div id="project-title">
+      <div class="title-wrap">
+        <div class="left">
+          <i class="icon eye"></i>
+          文档预览:
+          deepin-wine 运行器
+        </div>
+        <div class="right">
+          Export by Gitee
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container" id="wiki-preview-container">
+      <div id="wiki-preview">
+        <div class="ui segment">
+          <div id="page-detail" class="markdown-body">
+            <div class='title'>扩展方式</div><div class='content'></div><div class='title'>添加使用其他 wine 的方法（废弃）</div><div class='content'><h3>
+<a id="注意该方案已废弃方案已经修改" class="anchor" href="#%E6%B3%A8%E6%84%8F%E8%AF%A5%E6%96%B9%E6%A1%88%E5%B7%B2%E5%BA%9F%E5%BC%83%E6%96%B9%E6%A1%88%E5%B7%B2%E7%BB%8F%E4%BF%AE%E6%94%B9"></a>注意：该方案已废弃！方案已经修改</h3>
+<p>你可能会需要运行其他的 wine，因为 deepin-wine 还是有很多不完美，例如说不够新（截止更新 deepin-wine 团队已经发表 deepin-wine5,而 wine 团队发布了 wine 6）、不支持 64 位程序、其他发行版安装困难等会需要使用到其他的 wine
+这个程序可以使用其他的 wine，虽然已经写死了只能用 deepin-wine 和 deepin-wine5，但因为这是用 Python3 编写，运行的只是文本文档，因此可以修改，修改方法如下：</p>
+<p>1、使用自己熟悉的编辑器打开源码（主程序），需要有读写的权限（如是 git 获取，源码在 git 获取到的文件夹的 main.py 文件；如是安装了 deb 包，源码在 /usr/bin/deepin-wine-runner 文件）
+<img src="https://images.gitee.com/uploads/images/2021/0213/143240_50f577bb_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0213/143324_456674d4_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p>
+<p>2、找到以下代码（视实际情况而定）</p>
+<div class="markdown-code-block">
+<pre><code>o1 = tk.OptionMenu(window, o1_text, "deepin-wine", "deepin-wine5") # 创建选择框控件
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>在 "deepin-wine5" 后面添加要使用的 wine 的程序名，如下（以添加 wine64 为例）：</p>
+<div class="markdown-code-block">
+<pre><code>o1 = tk.OptionMenu(window, o1_text, "deepin-wine", "deepin-wine5", "wine64") # 创建选择框控件
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p><img src="https://images.gitee.com/uploads/images/2021/0213/143753_ad53bfda_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+然后保存</p>
+<p>3、运行查看效果
+<img src="https://images.gitee.com/uploads/images/2021/0213/143906_0fd2cfc8_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p></div><div class='title'>其他 wine</div><div class='content'></div><div class='title'>deepin-wine6-stable</div><div class='content'><p><img src="https://images.gitee.com/uploads/images/2021/0522/160804_6d8ee818_7896131.png" alt="winecfg" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/160838_a7a240b2_7896131.png" alt="winver" title="屏幕截图.png"></p></div><div class='title'>deepin-wine5-stable</div><div class='content'><p><img src="https://images.gitee.com/uploads/images/2021/0522/161030_6d1f900b_7896131.png" alt="winecfg" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/160956_10a6e252_7896131.png" alt="winver" title="屏幕截图.png"></p></div><div class='title'>deepin-wine5</div><div class='content'><p><img src="https://images.gitee.com/uploads/images/2021/0522/161128_020daa0a_7896131.png" alt="winecfg" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/161156_b44b8d6b_7896131.png" alt="winver" title="屏幕截图.png"></p></div><div class='title'>简介</div><div class='content'><h3>
+<a id="什么是-wine" class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF-wine"></a>什么是 wine</h3>
+<p>Wine （“Wine Is Not an Emulator(Wine不是一个模拟器)” 的缩写）是一个能够在多种 POSIX-compliant 操作系统（诸如 Linux，Mac OSX 及 BSD 等）上运行 Windows 应用的兼容层。另外英语单词wine是葡萄酒的意思。
+Wine (Wine Is Not an Emulator)[即Windows运行环境]是一个在Linux和UNIX之上的,Windows 3.x和 Windows API （以下简称动态接口）的实现。注意，Wine不是模拟Windows的工具，而是运用API转换技术实做出Linux对应到Windows相对应的函数来调用DLL（动态链接库）以运行Windows程序。Wine可以工作在绝大多数的UNIX版本下,包括Linux, FreeBSD, 和 Solaris。另外，也有适用于Mac OS X的Wine程序。Wine不需要Microsoft Windows系统, 因为这是一个完全由百分之百的免费代码组成的。如果有可利用的副本的话，它也可以随意地使用本地系统的DLLs。Wine的发布是完全公开源代码的，并且是免费发行的。（基于LGPL发布：GNU宽通用公共许可证）
+——百度百科</p>
+<h3>
+<a id="这个程序的目的" class="anchor" href="#%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%9B%AE%E7%9A%84"></a>这个程序的目的</h3>
+<p>让你可以不用在终端输入命令，只需鼠标点一点就可以运行部分Windows应用</p></div><div class='title'>安装 wine</div><div class='content'></div><div class='title'>安装 deepin-wine</div><div class='content'><p>1、打开终端
+<img src="https://images.gitee.com/uploads/images/2021/0522/161328_b0b1ce8b_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+2、输入<code>sudo apt install deepin-wine</code> 即可安装
+<img src="https://images.gitee.com/uploads/images/2021/0522/161351_6c042bdf_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p></div><div class='title'>安装 deepin-wine5</div><div class='content'><p>1、打开终端
+<img src="https://images.gitee.com/uploads/images/2021/0522/161328_b0b1ce8b_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+2、输入<code>sudo apt install deepin-wine5</code> 即可安装
+<img src="https://images.gitee.com/uploads/images/2021/0522/161617_3e91ef18_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p></div><div class='title'>安装 wine（wine64）</div><div class='content'><p>1、打开终端
+<img src="https://images.gitee.com/uploads/images/2021/0522/161328_b0b1ce8b_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+2、输入<code>sudo apt install wine</code> 即可安装（一般会安装 wine64）
+<img src="https://images.gitee.com/uploads/images/2021/0522/161708_7cbde2f4_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p></div><div class='title'>安装 wine64</div><div class='content'><p>1、打开终端
+<img src="https://images.gitee.com/uploads/images/2021/0522/161328_b0b1ce8b_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+2、输入<code>sudo apt install wine64</code> 即可安装
+<img src="https://images.gitee.com/uploads/images/2021/0522/162018_f5bb6d67_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p></div><div class='title'>安装 deepin-wine6-stable</div><div class='content'><p>1、打开系统应用商店
+<img src="https://images.gitee.com/uploads/images/2021/0522/162157_6b5d7e98_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+2、搜索微信然后安装
+<img src="https://images.gitee.com/uploads/images/2021/0522/162239_3cba5650_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+3、启动微信后退出，会发现释放了 deepin-wine6-stable 的文件到 ~/.deepinwine 目录中
+<img src="https://images.gitee.com/uploads/images/2021/0522/162722_5d769293_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/162834_e8b1ffaf_7896131.png" alt="输入图片说明" title="屏幕截图.png"></p></div><div class='title'>wine</div><div class='content'><p><img src="https://images.gitee.com/uploads/images/2021/0522/163037_aa262260_7896131.png" alt="winecfg" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/163009_da77be9d_7896131.png" alt="winver" title="屏幕截图.png"></p></div><div class='title'>deepin-wine</div><div class='content'><p><img src="https://images.gitee.com/uploads/images/2021/0522/163124_df612267_7896131.png" alt="winecfg" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/163200_4024137c_7896131.png" alt="winver" title="屏幕截图.png"></p></div><div class='title'>wine64</div><div class='content'><p><img src="https://images.gitee.com/uploads/images/2021/0522/163343_e3051376_7896131.png" alt="winecfg" title="屏幕截图.png">
+<img src="https://images.gitee.com/uploads/images/2021/0522/163321_414bbba6_7896131.png" alt="winver" title="屏幕截图.png"></p></div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html>
