@@ -1,4 +1,3 @@
-<title>gfdgd xi、为什么您不喜欢熊出没和阿布呢 的程序小网站</title>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -33,7 +32,7 @@ wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash g
 # UEngine 运行器（最新版本 1.8.1-1）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
-**想要在线获取 UEngine 运行器评分功能的结果？可见：https://gfdgd-xi.github.io/uengine-runner-info**  
+**想要在线获取 UEngine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/uengine-runner-info](uengine-runner-info)**  
 程序的部分工作原理可见：[https://www.52pojie.cn/thread-1672077-1-1.html](https://www.52pojie.cn/thread-1672077-1-1.html)  
 ![image.png](https://storage.deepin.org/thread/202208140944423790_image.png)  
 [点此查看更多关于这个程序的介绍](https://gfdgd-xi.github.io/uengine-runner/)和[这个程序的帮助](https://gfdgd-xi.github.io/uengine-runner/Help)  
@@ -51,7 +50,8 @@ UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
-**想要在线获取 Wine 运行器评分功能的结果？可见：https://gfdgd-xi.github.io/wine-runner-info**  
+**想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
+**程序 Wiki 可见：[https://gfdgd-xi.github.io/wine-runner-wiki](wine-runner-wiki)**  
 ![image.png](https://storage.deepin.org/thread/202209242126366137_image.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
