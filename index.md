@@ -121,6 +121,11 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![](https://gfdgd-xi.github.io/images/wine-runner.svg)
 ## UEngine 运行器
 ![](https://gfdgd-xi.github.io/images/uengine-runner.svg)
+# 程序打开量
+## Wine 运行器
+![](https://gfdgd-xi.github.io/images/wine-runner-open.svg)
+## UEngine 运行器
+![](https://gfdgd-xi.github.io/images/uengine-runner-open.svg)
 # 程序最新版本更新日志
 ## UEngine 运行器（最新版本 1.8.1-1）
 ### 1.8.1-1 更新内容
