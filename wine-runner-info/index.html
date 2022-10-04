@@ -87,14 +87,14 @@
     </div>
     <br>
     <div class="background"><img src="background.jpg" width="100%"></div>
-    <div class="showDiv" align="center">
-        <div class="seachDiv showDiv" align="center">
+    <div class="showDiv" align="center"  style="height: 100%;">
+        <div class="seachDiv showDiv" align="center" >
             输入程序的SHA1以便查询：
             <input id="package" style="width: 20%;" class="input">
             <button id="send" onclick="Send();" class="button">查询</button>
-            <button id="send" onclick="SendData();" class="button">预测查询(数值不准确，只供参考)</button>
+            <button id="send" onclick="SendData();" class="button">不准的预测查询</button>
         </div>
-        <div id="resultDiv showDiv" align="center">
+        <div id="resultDiv showDiv" align="center" style="height: 100%;">
             <iframe id="result" width="100%" src="" style="height: 100%;"></iframe>
         </div>
     </div>
