@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width" initial-scale="1" />
+<html style="height: 100%;">
+
+<head>
+    <title>Wine 运行器——程序运行情况查询</title>
+    <meta name="description" content="用于在线查询Wine运行器运行的Windows程序的网站" >
+    <meta http-equiv="content-language" content="zh-cn">
+</head>
+<style>
+    .button {
+        border-style: solid;
+        background-color: orange;
+        color: lightyellow;
+        border-color: aliceblue;
+        width: 10%;
+    }
+
+    .searchDiv {
+        background-color: white;
+    }
+
+    .resultDiv {
+        background-color: white;
+    }
+
+    .showDiv {
+        width: auto;
+        margin: 0 auto;
+        background-color: white;
+        z-index: 1;
+    }
+
+    .input {
+        border-width: 1px;
+    }
+
+    .copyright {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 50px;
+        background-color: #eee;
+        z-index: 1;
+    }
+
+    .background {
+        margin: 0%;
+        display:inline-block;
+        z-index: 2;
+    }
+
+    iframe {
+        border-style: none;
+    }
+
+    .left {
+        display:table-cell;
+    }
+
+    .toolbar {
+        border-left: solid;
+        border-bottom: solid;
+        border-right: solid;
+        margin: 0;
+        border-bottom-right-radius: 100px;
+        border-bottom-left-radius: 100px;
+        border-color: grey;
+        padding: 0;
+    }
+    
+    a{ 
+        text-decoration:none; 
+        color: black;
+    } 
+
+    a:hover{ 
+        text-decoration:none
+    }
+
+    .black {
+        opacity: 80%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        display: none;
+    }
+
+    .about {
+        top: 12.5%;
+        left: 12.5%;
+        width: 75%;
+        height: 75%;
+        background-color: white;
+        opacity: 100%;
+        position: absolute;
+        border-radius: 20px;
+        z-index: 3;
+        overflow: auto;
+        border-width: 10%;
+        padding: 1%;
+        display: none;
+    }
+
+    .downloadButton{
+        border-radius: 10px;
+        border: solid;
+        height: 30%;
+        /*width: 25%;*/
+        border-color: whitesmoke;
+        color: whitesmoke;
+        background-color: rgb(108, 108, 247);
+        font-size: large;
+    }
+</style>
+<div id="black" class="black"> 
+</div>
+<div id="about" class="about">
+    <h2 style="float: right;" align="right" onclick="CloseTips();">×</h2>
+    <h1>介绍</h1>
+    <p>Wine 运行器是一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等</p>
+    <p>同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等</p>
+    <p>Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：https://www.52pojie.cn/thread-1675552-1-1.html</p>
+    <p><b>本程序依照 GPLV3 协议开源</b></p>
+    <p align="center"><img width="95%" alt="程序截图" src="https://storage.deepin.org/thread/202210022215217037_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221002221112.png"></p>
+    <hr/>
+    <h1>下载方式</h1>
+    <h3>
+        <a target="_blank" href="https://gitee.com/gfdgd-xi/deep-wine-runner"><button class="downloadButton">Gitee</button></a>
+        <a target="_blank" href="https://github.com/gfdgd-xi/deep-wine-runner"><button class="downloadButton">Github</button></a>
+        <a target="_blank" href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner"><button class="downloadButton">Gitlink</button></a>
+        <a target="_blank" href="https://gfdgdxi.lanzouj.com/b01nz7y3e"><button class="downloadButton">蓝奏云（提取码：7oii）</button></a>
+        <button class="downloadButton" onclick="alert('在星火应用商店搜索“Wine运行器”即可');">星火应用商店</button>
+        <button class="downloadButton" onclick="alert('在深度应用商店搜索“Wine运行器”即可');">深度应用商店</button>
+    </h3>
+</div>
+<body style="overflow:hidden;height: 100%;margin:0;padding:0;">
+    
+    <div class="toolbar">
+        <div class="left">
+            &nbsp;&nbsp;<img alt="作者用户头像" src="https://bbs.deepin.org/assets/image/raccoon/blush.gif" width="25"><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../uengine-runner-info/">UEngine运行器</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../wine-runner-info/" style="color: grey;">Wine运行器</a>
+        </div>
+        <div class="right"></div>
+    </div>
+    <br>
+    <div class="background"><img alt="标题图" src="background.jpg" width="100%"></div>
+    <div class="showDiv" align="center"  style="height: 100%;">
+        <div class="seachDiv showDiv" align="center" >
+            输入程序的SHA1以便查询：
+            <input id="package" style="width: 20%;" class="input">
+            <button id="send" onclick="Send();" class="button">查询</button>
+            <button id="send" onclick="SendData();" class="button">不准的预测查询</button>
+            <button id="send" onclick="CloseTips();" class="button">关于/下载 Wine 运行器</button>
+        </div>
+        <div id="resultDiv showDiv" align="center" style="height: 100%;">
+            <iframe id="result" width="100%" src="" style="height: 100%;"></iframe>
+        </div>
+    </div>
+    <div class="copyright">
+        <p align="center" id="copyright">©2020~2022 gfdgd xi、为什么您不喜欢熊出没和阿布呢</p>
+    </div>
+    <h1></h1>
+</body>
+<script>
+    // 下载量统计
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?807ee27dfca59506248e7f74c812ca3d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script>
+    var closeTime = 0;
+    function CloseTips(){
+        closeTime += 1;
+        console.log(closeTime);
+        if(closeTime % 2){
+            document.getElementById("about").style.display = "block";
+            document.getElementById("black").style.display = "block";
+            return;
+        }
+        document.getElementById("about").style.display = "none";
+        document.getElementById("black").style.display = "none";
+    }
+
+    window.onload = function(){
+        var d = new Date();
+        document.getElementById("copyright").innerHTML = "©2020~" + d.getFullYear() + " <a href='https://gitee.com/gfdgd-xi'>gfdgd xi、<a href='https://weibo.com/u/7755040136'>为什么您不喜欢熊出没和阿布呢</a>";
+    }
+
+    function SendData() {
+        document.getElementById("result").src = "https://304626p927.goho.co/spark-deepin-wine-runner/app/AI.php?SHA1=" + document.getElementById("package").value;
+    }
+
+    function Send() {
+        document.getElementById("result").src = "https://304626p927.goho.co/spark-deepin-wine-runner/app/info.php?ID=" + document.getElementById("package").value;
+    }
+</script>
+
+</html>
