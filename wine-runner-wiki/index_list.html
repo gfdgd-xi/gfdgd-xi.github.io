@@ -1,0 +1,2529 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>文档</title>
+  <link href="./css/semantic/semantic.min.css" rel="stylesheet">
+  <link href="./css/markdown.css" rel="stylesheet">
+  <style>
+    body{padding-top:0;background:#f7f7f7}
+    body>.ui.container{width:100%;padding:0}
+    #project-title{background:#6e6e6e;width:100%;line-height:3.572rem;color:#fff;font-size:1.2rem}
+    #project-title .title-wrap{font-weight:700;padding:0 12px;width:100%;max-width:1366px!important;min-width:900px;margin:0 auto}
+    #project-title .left,#project-title right{display:inline-block}
+    #project-title .right{float:right}
+    #project-title .right .wiki-actions .menu{left:auto;right:0;margin-top:.4em!important}
+    #wiki-preview-container{width:100%;max-width:1366px!important;min-width:900px;padding:0;border:1px solid #e3e9ed;border-top:0}
+    #wiki-preview>.ui.segment{margin-top:0;padding:1rem;padding-left:0;border:0}
+    .hover-places{display:inline-block}
+    #page-detail{width:60%;margin:0 auto}
+    #page-detail .title{font-weight:700;font-size:24px;padding:12px 0;border-bottom:1px solid #ccc}
+    #page-detail .content{margin-top:15px}
+    .content p{word-wrap:break-word}
+    #wiki-parent,#wiki-title,#wikis{display:none}
+    .ui.grid{padding:0!important}
+    #ex-all{cursor:pointer;color:#537c8d}
+  </style>
+</head>
+<body>
+  <div class="ui container">
+    <div id="project-title">
+      <div class="title-wrap">
+        <div class="left">
+          <i class="icon eye"></i>
+          文档预览:
+          deepin-wine 运行器
+        </div>
+        <div class="right">
+          Export by Gitee
+        </div>
+      </div>
+    </div>
+
+    <div class="ui container" id="wiki-preview-container">
+      <div id="wiki-preview">
+        <div class="ui segment">
+          <div id="page-detail" class="markdown-body">
+            <div class='title'>Wine 运行器历代版本发布稿</div><div class='content'></div><div class='title'>2.2.0</div><div class='content'><p>这个程序用到的帖子均在程序谢明中标注，如果有遗漏请尽快与我联系添加，我对此表示深深的歉意</p>
+<p><img src="https://storage.deepin.org/thread/20220925175816540_image.png" alt="image.png"></p>
+<p><img src="https://bbs.deepin.org/assets/image/raccoon/%5Btail%5D.gif" alt="tail" title="tail"></p>
+<h1>
+<a id="介绍" class="anchor" href="#%E4%BB%8B%E7%BB%8D"></a>介绍</h1>
+<p>一个图形化了以下命令的程序</p>
+<div class="markdown-code-block">
+<pre><code>WINEPREFIX=容器路径 wine（wine的路径） 可执行文件路径
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>而打包器可以方便的把您的 wine 容器打包成 deb 包供他人使用，程序创建的 deb 构建临时文件夹目录树如下：</p>
+<div class="markdown-code-block">
+<pre><code>/XXX
+├── DEBIAN
+│   └── control
+└── opt
+└── apps
+    └── XXX
+        ├── entries
+        │   ├── applications
+        │   │   └── XXX.desktop
+        │   └── icons
+        │       └── hicolor
+        │           └── scalable
+        │               └── apps
+        │                   └── XXX.png（XXX.svg）
+        ├── files
+        │   ├── files.7z
+        │   └── run.sh
+        └── info
+
+11 directories, 6 files
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>让你可以简易方便的使用 wine<br>
+是使用 Python3 的 PyQt5 构建的<br>
+（测试平台：deepin 20.6 1030；UOS 家庭版 21.3；Ubuntu 22.04；优麒麟 22.04；deepin 23）</p>
+<h2>
+<a id="更新日志" class="anchor" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"></a>更新日志</h2>
+<p><strong>※1、Dll 提取工具支持 NT 6.X 及以上版本的 Dll 提取并优化了提示文本</strong><br>
+<strong>※2、支持卸载后自动删除缓存/配置文件（删除配置文件只限 purge 参数删除）</strong><br>
+<strong>※3、DEBUG 模式输出更多信息以方便调试（原本只输出 pid、Err）</strong><br>
+<strong>※4、支持安装 msi 文件</strong><br>
+<strong>※5、修复无法正常评分的问题</strong><br>
+<strong>※6、修复 QQ、TIM 安装后无法正常生成快捷方式的问题</strong><br>
+<strong>※7、基于生态适配活动的打包器更换为 spark-wine-helper 以及添加自动删除残留脚本</strong><br>
+<strong>※8、打包器支持从 deb 文件读取信息</strong><br>
+<strong>※9、修复在 UOS 专业版（鲲鹏）无法正常运行的问题以及组件安装功能无法正常执行安装命令的问题</strong><br>
+<strong>※10、修复出现星火应用商店和官方应用商店反复提示更新死循环的问题</strong><br>
+<strong>※11、新增评分分数预测功能（不准）</strong><br>
+<strong>※12、更换程序接口</strong><br>
+13、更新组件安装的离线列表<br>
+14、不再强制依赖深度终端，只做推荐安装<br>
+15、基于生态活动适配脚本的打包器在打包完成后会弹出对话框提示打包完成<br>
+16、优化打包器的 spark wine helper 依赖设置方式<br>
+17、新增 RegShot（注册表比对工具）<br>
+18、添加 Wine 运行器评分数据的搜索功能</p>
+<h1>
+<a id="截图" class="anchor" href="#%E6%88%AA%E5%9B%BE"></a>截图</h1>
+<p><img src="https://storage.deepin.org/thread/202209242126366137_image.png" alt="image.png"></p>
+<h2>
+<a id="使用说明" class="anchor" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"></a>使用说明</h2>
+<h3>
+<a id="均在软件的小提示里有说明" class="anchor" href="#%E5%9D%87%E5%9C%A8%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B0%8F%E6%8F%90%E7%A4%BA%E9%87%8C%E6%9C%89%E8%AF%B4%E6%98%8E"></a>均在软件的“小提示”里有说明</h3>
+<h3>
+<a id="运行器" class="anchor" href="#%E8%BF%90%E8%A1%8C%E5%99%A8"></a>运行器</h3>
+<p>1、使用终端运行该程序，可以看到 wine 以及程序本身的提示和报错;<br>
+2、wine 32 位和 64 位的容器互不兼容;<br>
+3、所有的 wine 和 winetricks 均需要自行安装（可以从 菜单栏=&gt;程序 里面进行安装）<br>
+4、本程序支持带参数运行 wine 程序（之前版本也可以），只需要按以下格式即可：</p>
+<div class="markdown-code-block">
+<pre><code>exe路径
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html> 参数 
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html>
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>即可（单引号需要输入）<br>
+5、wine 容器如果没有指定，则会默认为 ~/.wine<br>
+6、如果可执行文件比较大的话，会出现点击“获取该程序运行情况”出现假死的情况，因为正在后台读取 SHA1，只需要等一下即可（读取速度依照您电脑处理速度、读写速度、可执行文件大小等有关）<br>
+7、对于非 X86 的用户来说，请不要使用本程序自带的 Wine 安装程序和 Windows 虚拟机安装功能（检测到为非 X86 架构会自动禁用）<br>
+8、如果非 X86 的用户的 UOS 专业版用户想要使用的话，只需要在应用商店安装一个 Wine 版本微信即可在本程序选择正确的 Wine 运行程序<br>
+9、在使用 linglong 包的 Wine 应用时，必须安装至少一个 linglong 的使用 Wine 软件包才会出现该选项，而程序识别到的 Wine 是按 linglong 的使用 Wine 软件包名的字母排序第一个的 Wine，且生成的容器不在用户目录下，而是在容器的用户目录下（用户目录/.deepinwine、/tmp、桌面、下载、文档等被映射的目录除外），同理需要运行的 EXE 也必须在被映射的目录内<br>
+10、如果是使用 Deepin 23 的 Wine 安装脚本，请切记——安装过程会临时添加 Deepin 20 的 apt 源，不要中断安装以及千万不要中断后不删除源的情况下 apt upgrade ！！！中断后只需重新打开脚本输入 repair 或者随意安装一个 Wine（会自动执行恢复操作）即可。以及此脚本安装的 Wine 无法保证 100% 能使用，以及副作用是会提示</p>
+<div class="markdown-code-block">
+<pre><code>N: 鉴于仓库 'https://community-packages.deepin.com/beige beige InRelease' 不支持 'i386' 体系结构，跳过配置文件 'main/binary-i386/Packages' 的获取。
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="打包器" class="anchor" href="#%E6%89%93%E5%8C%85%E5%99%A8"></a>打包器</h3>
+<p>1、deb 打包软件包名要求：<br>
+软件包名只能含有小写字母(a-z)、数字(0-9)、加号(+)和减号(-)、以及点号(.)，软件包名最短长度两个字符；它必须以字母开头<br>
+2、如果要填写路径，有“浏览……”按钮的是要填本计算机对应文件的路径，否则就是填写安装到其他计算机使用的路径<br>
+3、输入 wine 的容器路径时最后面请不要输入“/”<br>
+4、输入可执行文件的运行路径时是以“C:/XXX/XXX.exe”的格式进行输入，默认是以 C： 为开头，不用“\”做命令的分隔，而是用“/”<br>
+5、.desktop 的图标只支持 PNG 格式和 SVG 格式，其他格式无法显示图标</p>
+<h3>
+<a id="基于统信-wine-生态适配脚本的打包器" class="anchor" href="#%E5%9F%BA%E4%BA%8E%E7%BB%9F%E4%BF%A1-wine-%E7%94%9F%E6%80%81%E9%80%82%E9%85%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%93%E5%8C%85%E5%99%A8"></a>基于统信 Wine 生态适配脚本的打包器</h3>
+<p>第一个文本框是应用程序中文名<br>
+第二个文本框是应用程序英文名<br>
+第三个文本框是最终生成的包的描述<br>
+第四个选择框是desktop文件中的分类<br>
+第五个输入框是程序在 Wine 容器的位置，以 c:\XXX 的形式，盘符必须小写，用反斜杠，如果路径带用户名的话会自动替换为$USER<br>
+而 StartupWMClass 字段将会由程序自动生成，作用如下：<br>
+desktop文件中StartupWMClass字段。用于让桌面组件将窗口类名与desktop文件相对应。这个值为实际运行的主程序EXE的文件名，wine/crossover在程序运行后会将文件名设置为窗口类名<br>
+第六个输入框是最终生成的包的包名,包名的命名规则以deepin开头，加官网域名（需要前后对调位置），如还不能区分再加上应用名<br>
+最后一个是最终生成的包的版本号，版本号命名规则：应用版本号+deepin+数字</p>
+<h1>
+<a id="下载链接" class="anchor" href="#%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"></a>下载链接</h1>
+<p>Gitee：<a href="https://gitee.com/gfdgd-xi/deep-wine-runner">https://gitee.com/gfdgd-xi/deep-wine-runner</a><br>
+Github：<a href="https://github.com/gfdgd-xi/deep-wine-runner">https://github.com/gfdgd-xi/deep-wine-runner</a><br>
+Gitlink：<a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner</a><br>
+蓝奏云：<a href="https://gfdgdxi.lanzouj.com/b01nz7y3e">https://gfdgdxi.lanzouj.com/b01nz7y3e</a>，密码:7oii<br>
+星火应用商店：spk://store/tools/spark-deepin-wine-runner<br>
+程序官网：<a href="https://gfdgd-xi.github.io/">https://gfdgd-xi.github.io/</a><br>
+支持程序自带的更新程序进行更新<br>
+<a href="https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers"><img src="https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark" alt="star"></a><br>
+<img src="https://bbs.deepin.org/assets/image/raccoon/%5Btail%5D.gif" alt="tail" title="tail"><br>
+<strong>最后说一下，如果想要在商业环境使用此APP，因为程序内附商业软件，请保证获得相关厂家授权或移除相关组件（移除用程序自带的删除组件功能即可）</strong><br>
+<strong>以及本程序在ARM架构上测试较少，可能容易翻车，建议不要在办公环境使用</strong><br>
+<strong>现在新增了通过SHA1值获取应用适配情况的功能，查看链接：<a href="https://gfdgd-xi.github.io/wine-runner-info/">https://gfdgd-xi.github.io/wine-runner-info/</a>，如何贡献自己的适配情况？在 Wine 运行器进行评分即可</strong><br>
+<strong>自动配置文件的脚本如何编写/贡献？可见：<a href="https://gitlink.org.cn/gfdgd_xi/wine-runner-list/tree/master/auto">https://gitlink.org.cn/gfdgd_xi/wine-runner-list/tree/master/auto</a> 如果想要贡献请按照下面的要求进行Pr</strong></p></div><div class='title'>2.3.0</div><div class='content'><p>这个程序用到的帖子均在程序谢明中标注，如果有遗漏请尽快与我联系添加，我对此表示深深的歉意</p>
+<p><img src="https://storage.deepin.org/thread/202210031840144283_image.png" alt="image.png"></p>
+<h1>
+<a id="介绍" class="anchor" href="#%E4%BB%8B%E7%BB%8D"></a>介绍</h1>
+<p>一个图形化了以下命令的程序</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>WINEPREFIX=容器路径 wine（wine的路径） 可执行文件路径  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>而打包器可以方便的把您的 wine 容器打包成 deb 包供他人使用，程序创建的 deb 构建临时文件夹目录树如下：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>/XXX  
+├── DEBIAN  
+│   └── control  
+└── opt  
+└── apps  
+    └── XXX  
+        ├── entries  
+        │   ├── applications  
+        │   │   └── XXX.desktop  
+        │   └── icons  
+        │       └── hicolor  
+        │           └── scalable  
+        │               └── apps  
+        │                   └── XXX.png（XXX.svg）  
+        ├── files  
+        │   ├── files.7z  
+        │   └── run.sh  
+        └── info  
+  
+11 directories, 6 files  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>让你可以简易方便的使用 wine<br>
+是使用 Python3 的 PyQt5 构建的<br>
+（测试平台：deepin 20.6 1030；UOS 家庭版 21.3；Ubuntu 22.04；优麒麟 22.04；deepin 23）</p>
+<h2>
+<a id="更新日志" class="anchor" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"></a>更新日志</h2>
+<p><strong>※1、自动配置解释器支持 bash 语法（新版底层调用 bash，旧版任然使用旧版解析引擎）</strong><br>
+<strong>※2、修复缺失 wimtools 依赖导致无法正常安装的问题</strong><br>
+<strong>※3、修复基于生态适配活动脚本打包器对话框过多影响使用的问题，并支持指定不同的包名和容器名</strong><br>
+<strong>※4、7z 文件解压不会自动替换文件然后卡死以及因此导致程序闪退的问题</strong><br>
+<strong>※5、修复安装更多 Wine 终端调用问题和图标问题</strong><br>
+<strong>※6、支持 openkylin</strong><br>
+7、支持通过 exe 路径自动生成 Wine 容器路径<br>
+8、支持禁用/启用 wine 容器是否生成快捷方式的功能以及启用/禁用程序崩溃提示对话框<br>
+9、支持设置 wine 容器代理<br>
+10、自动配置脚本支持使用 <code>--help</code> 参数查看帮助</p>
+<h1>
+<a id="截图" class="anchor" href="#%E6%88%AA%E5%9B%BE"></a>截图</h1>
+<p><img src="https://storage.deepin.org/thread/202210022215217037_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221002221112.png" alt="截图_选择区域_20221002221112.png"></p>
+<h2>
+<a id="使用说明" class="anchor" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"></a>使用说明</h2>
+<h3>
+<a id="均在软件的小提示里有说明" class="anchor" href="#%E5%9D%87%E5%9C%A8%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B0%8F%E6%8F%90%E7%A4%BA%E9%87%8C%E6%9C%89%E8%AF%B4%E6%98%8E"></a>均在软件的“小提示”里有说明</h3>
+<h3>
+<a id="运行器" class="anchor" href="#%E8%BF%90%E8%A1%8C%E5%99%A8"></a>运行器</h3>
+<p>1、使用终端运行该程序，可以看到 wine 以及程序本身的提示和报错;<br>
+2、wine 32 位和 64 位的容器互不兼容;<br>
+3、所有的 wine 和 winetricks 均需要自行安装（可以从 菜单栏=&gt;程序 里面进行安装）<br>
+4、本程序支持带参数运行 wine 程序（之前版本也可以），只需要按以下格式即可：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>exe路径
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html> 参数 
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html>  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>即可（单引号需要输入）<br>
+5、wine 容器如果没有指定，则会默认为 ~/.wine<br>
+6、如果可执行文件比较大的话，会出现点击“获取该程序运行情况”出现假死的情况，因为正在后台读取 SHA1，只需要等一下即可（读取速度依照您电脑处理速度、读写速度、可执行文件大小等有关）<br>
+7、对于非 X86 的用户来说，请不要使用本程序自带的 Wine 安装程序和 Windows 虚拟机安装功能（检测到为非 X86 架构会自动禁用）<br>
+8、如果非 X86 的用户的 UOS 专业版用户想要使用的话，只需要在应用商店安装一个 Wine 版本微信即可在本程序选择正确的 Wine 运行程序<br>
+9、在使用 linglong 包的 Wine 应用时，必须安装至少一个 linglong 的使用 Wine 软件包才会出现该选项，而程序识别到的 Wine 是按 linglong 的使用 Wine 软件包名的字母排序第一个的 Wine，且生成的容器不在用户目录下，而是在容器的用户目录下（用户目录/.deepinwine、/tmp、桌面、下载、文档等被映射的目录除外），同理需要运行的 EXE 也必须在被映射的目录内<br>
+10、如果是使用 Deepin 23 的 Wine 安装脚本，请切记——安装过程会临时添加 Deepin 20 的 apt 源，不要中断安装以及千万不要中断后不删除源的情况下 apt upgrade ！！！中断后只需重新打开脚本输入 repair 或者随意安装一个 Wine（会自动执行恢复操作）即可。以及此脚本安装的 Wine 无法保证 100% 能使用，以及副作用是会提示</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>N: 鉴于仓库 'https://community-packages.deepin.com/beige beige InRelease' 不支持 'i386' 体系结构，跳过配置文件 'main/binary-i386/Packages' 的获取。  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="打包器" class="anchor" href="#%E6%89%93%E5%8C%85%E5%99%A8"></a>打包器</h3>
+<p>1、deb 打包软件包名要求：<br>
+软件包名只能含有小写字母(a-z)、数字(0-9)、加号(+)和减号(-)、以及点号(.)，软件包名最短长度两个字符；它必须以字母开头<br>
+2、如果要填写路径，有“浏览……”按钮的是要填本计算机对应文件的路径，否则就是填写安装到其他计算机使用的路径<br>
+3、输入 wine 的容器路径时最后面请不要输入“/”<br>
+4、输入可执行文件的运行路径时是以“C:/XXX/XXX.exe”的格式进行输入，默认是以 C： 为开头，不用“\”做命令的分隔，而是用“/”<br>
+5、.desktop 的图标只支持 PNG 格式和 SVG 格式，其他格式无法显示图标</p>
+<h3>
+<a id="基于统信-wine-生态适配脚本的打包器" class="anchor" href="#%E5%9F%BA%E4%BA%8E%E7%BB%9F%E4%BF%A1-wine-%E7%94%9F%E6%80%81%E9%80%82%E9%85%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%93%E5%8C%85%E5%99%A8"></a>基于统信 Wine 生态适配脚本的打包器</h3>
+<p>第一个文本框是应用程序中文名<br>
+第二个文本框是应用程序英文名<br>
+第三个文本框是最终生成的包的描述<br>
+第四个选择框是desktop文件中的分类<br>
+第五个输入框是程序在 Wine 容器的位置，以 c:\XXX 的形式，盘符必须小写，用反斜杠，如果路径带用户名的话会自动替换为$USER<br>
+而 StartupWMClass 字段将会由程序自动生成，作用如下：<br>
+desktop文件中StartupWMClass字段。用于让桌面组件将窗口类名与desktop文件相对应。这个值为实际运行的主程序EXE的文件名，wine/crossover在程序运行后会将文件名设置为窗口类名<br>
+第六个输入框是最终生成的包的包名,包名的命名规则以deepin开头，加官网域名（需要前后对调位置），如还不能区分再加上应用名<br>
+最后一个是最终生成的包的版本号，版本号命名规则：应用版本号+deepin+数字</p>
+<h1>
+<a id="在-openkylin-安装方法" class="anchor" href="#%E5%9C%A8-openkylin-%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"></a>在 Openkylin 安装方法</h1>
+<p>首先添加作者的源：</p>
+<p>Gitlink 源（国内推荐）：</p>
+<div class="markdown-code-block">
+<pre><code>wget https://code.gitlink.org.cn/gfdgd_xi/gfdgd-xi-apt-mirrors/raw/branch/master/sources/gitlink.sh &amp;&amp; bash gitlink.sh &amp;&amp; rm gitlink.sh  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>Github 源（国外推荐）：</p>
+<div class="markdown-code-block">
+<pre><code>wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh &amp;&amp; bash github.sh &amp;&amp; rm github.sh  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>上面二选一，添加完后执行</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>sudo apt install spark-deepin-wine-runner  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>即可自动补全依赖安装（说实话 openkylin 缺的依赖好多）</p>
+<h1>
+<a id="下载链接" class="anchor" href="#%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"></a>下载链接</h1>
+<p>Gitee：<a href="https://gitee.com/gfdgd-xi/deep-wine-runner">https://gitee.com/gfdgd-xi/deep-wine-runner</a><br>
+Github：<a href="https://github.com/gfdgd-xi/deep-wine-runner">https://github.com/gfdgd-xi/deep-wine-runner</a><br>
+Gitlink：<a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner</a><br>
+蓝奏云：<a href="https://gfdgdxi.lanzouj.com/b01nz7y3e%EF%BC%8C%E5%AF%86%E7%A0%81:7oii">https://gfdgdxi.lanzouj.com/b01nz7y3e，密码:7oii</a><br>
+星火应用商店：spk://store/tools/spark-deepin-wine-runner<br>
+程序官网：<a href="https://gfdgd-xi.github.io/">https://gfdgd-xi.github.io/</a><br>
+支持程序自带的更新程序进行更新<br>
+<a href="https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers"><img src="https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark" alt="star"></a><br>
+:tail:<br>
+<strong>最后说一下，如果想要在商业环境使用此APP，因为程序内附商业软件，请保证获得相关厂家授权或移除相关组件（移除用程序自带的删除组件功能即可）</strong><br>
+<strong>以及本程序在ARM架构上测试较少，可能容易翻车，建议不要在办公环境使用</strong><br>
+<strong>现在新增了通过SHA1值获取应用适配情况的功能，查看链接：<a href="https://gfdgd-xi.github.io/wine-runner-info/%EF%BC%8C%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E9%80%82%E9%85%8D%E6%83%85%E5%86%B5%EF%BC%9F%E5%9C%A8">https://gfdgd-xi.github.io/wine-runner-info/，如何贡献自己的适配情况？在</a> Wine 运行器进行评分即可</strong><br>
+<strong>自动配置文件的脚本如何编写/贡献？可见程序 Wiki：<a href="https://gfdgd-xi.github.io/wine-runner-wiki/">https://gfdgd-xi.github.io/wine-runner-wiki/</a> 如果想要贡献请按照 Wiki 的要求进行Pr</strong></p></div><div class='title'>下载量</div><div class='content'></div><div class='title'>下载量</div><div class='content'><p><img src="https://gfdgd-xi.github.io/images/wine-runner.svg" alt=""></p></div><div class='title'>使用帮助</div><div class='content'></div><div class='title'>常见问题</div><div class='content'><h1>
+<a id="01-uos-如何在不打开开发者模式安装此程序" class="anchor" href="#01-uos-%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%8D%E6%89%93%E5%BC%80%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85%E6%AD%A4%E7%A8%8B%E5%BA%8F"></a>01. UOS 如何在不打开开发者模式安装此程序？</h1>
+<p>答：在官方应用商店安装或者下载版本号后缀为<code>-uos</code>的版本安装<br>
+<img src="https://storage.deepin.org/thread/202210012103008619_image.png" alt="image.png"><br>
+<img src="https://storage.deepin.org/thread/202210012103425666_image.png" alt="image.png"></p>
+<h1>
+<a id="02-openkylin-如何使用这个-wine-运行器" class="anchor" href="#02-openkylin-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%BF%99%E4%B8%AA-wine-%E8%BF%90%E8%A1%8C%E5%99%A8"></a>02. Openkylin 如何使用这个 Wine 运行器</h1>
+<p>答：因为 openkylin 依赖缺失较多，需要补充作者提供的 apt 源以便方便安装依赖（依赖缺失较多）<br>
+国内源（Gitlink）：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>wget https://code.gitlink.org.cn/gfdgd_xi/gfdgd-xi-apt-mirrors/raw/branch/master/sources/gitlink.sh &amp;&amp; bash gitlink.sh ; rm gitlink.sh
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>国外源（Github）：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh &amp;&amp; bash github.sh ; rm github.sh
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>加入 apt 源后只需要输入<code>sudo apt install spark-deepin-wine-runner</code>即可安装<br>
+然后安装完后再使用主程序菜单栏=&gt;“安装更多 Wine” 安装 Wine 以便使用<br>
+<img src="https://storage.deepin.org/thread/20221001210725913_image.png" alt="image.png"></p>
+<h1>
+<a id="03-ubuntuuosdeepin-如何安装这个程序" class="anchor" href="#03-ubuntuuosdeepin-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F"></a>03. Ubuntu/UOS/Deepin 如何安装这个程序？</h1>
+<p>答：从以下任意链接获取安装包：<br>
+Gitee：<a href="https://gitee.com/gfdgd-xi/deep-wine-runner">https://gitee.com/gfdgd-xi/deep-wine-runner</a><br>
+Github：<a href="https://github.com/gfdgd-xi/deep-wine-runner">https://github.com/gfdgd-xi/deep-wine-runner</a><br>
+Gitlink：<a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner</a><br>
+蓝奏云：<a href="https://gfdgdxi.lanzouj.com/b01nz7y3e">https://gfdgdxi.lanzouj.com/b01nz7y3e</a>，密码:7oii<br>
+星火应用商店：<a>spk://store/tools/spark-deepin-wine-runner</a><br>
+或者从星火应用商店下载：<br>
+<img src="https://storage.deepin.org/thread/202210012111037045_image.png" alt="image.png"></p>
+<h1>
+<a id="04-非-debian-发行版如何安装这个应用" class="anchor" href="#04-%E9%9D%9E-debian-%E5%8F%91%E8%A1%8C%E7%89%88%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E8%BF%99%E4%B8%AA%E5%BA%94%E7%94%A8"></a>04. 非 debian 发行版如何安装这个应用？</h1>
+<p>答：目前这个程序主线暂无考虑支持 debian 发行版，但可以考虑拉取源码运行</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>git clone https://gitee.com/gfdgd-xi/deep-wine-runner.git
+cd deep-wine-runner
+./mainwindow.py
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h1>
+<a id="05-我成功用-wine-运行了一个程序想要分享给其他用户怎么办" class="anchor" href="#05-%E6%88%91%E6%88%90%E5%8A%9F%E7%94%A8-wine-%E8%BF%90%E8%A1%8C%E4%BA%86%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E6%83%B3%E8%A6%81%E5%88%86%E4%BA%AB%E7%BB%99%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E6%80%8E%E4%B9%88%E5%8A%9E"></a>05. 我成功用 wine 运行了一个程序，想要分享给其他用户，怎么办？</h1>
+<p>答：可以使用程序里任意一个打包器打包成 deb 包给其他用户<br>
+<img src="https://storage.deepin.org/thread/202210012113565642_image.png" alt="image.png"><br>
+<img src="https://storage.deepin.org/thread/202210012114352239_image.png" alt="image.png"><br>
+打包出来的 deb 包可以在<a href="https://upload.deepinos.org">这里</a>投稿到星火应用商店<br>
+或者使用星火应用商店的投稿器进行投稿<br>
+<img src="https://storage.deepin.org/thread/202210041032433414_image.png" alt="image.png"><br>
+或者编写容器自动配置脚本，详细语法另文件<br>
+<img src="https://storage.deepin.org/thread/202210012116267694_image.png" alt="image.png"></p>
+<h1>
+<a id="06-wine-运行器体积过大如何解决" class="anchor" href="#06-wine-%E8%BF%90%E8%A1%8C%E5%99%A8%E4%BD%93%E7%A7%AF%E8%BF%87%E5%A4%A7%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"></a>06. Wine 运行器体积过大如何解决</h1>
+<p>答：一般是用户自行安装 Wine 导致的，解决方案如下：<br>
+在菜单栏=&gt;“安装更多 Wine”，选择要移除的 Wine 点击移除按钮<br>
+<img src="https://storage.deepin.org/thread/202210012124067221_image.png" alt="image.png"><br>
+或者卸载重新安装该应用即可</p>
+<h1>
+<a id="07-卸载这个程序需要注意什么吗" class="anchor" href="#07-%E5%8D%B8%E8%BD%BD%E8%BF%99%E4%B8%AA%E7%A8%8B%E5%BA%8F%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%E5%90%97"></a>07. 卸载这个程序需要注意什么吗？</h1>
+<p>答：<code>apt remove spark-deepin-wine-runner</code>不会移除程序用户使用配置和历史，<code>apt purge spark-deepin-wine-runner</code>则会移除程序用户使用配置和历史</p>
+<h1>
+<a id="08-我想在-deepinuos-安装自定义-apkwine-运行器支持吗" class="anchor" href="#08-%E6%88%91%E6%83%B3%E5%9C%A8-deepinuos-%E5%AE%89%E8%A3%85%E8%87%AA%E5%AE%9A%E4%B9%89-apkwine-%E8%BF%90%E8%A1%8C%E5%99%A8%E6%94%AF%E6%8C%81%E5%90%97"></a>08. 我想在 Deepin/UOS 安装自定义 APK，Wine 运行器支持吗？</h1>
+<p>答：不支持，需要使用 UEngine 运行器，项目链接：<br>
+<a href="https://gitee.com/gfdgd-xi/uengine-runner">https://gitee.com/gfdgd-xi/uengine-runner</a></p>
+<h1>
+<a id="09-wine-运行器吾爱专版和完整版有什么区别" class="anchor" href="#09-wine-%E8%BF%90%E8%A1%8C%E5%99%A8%E5%90%BE%E7%88%B1%E4%B8%93%E7%89%88%E5%92%8C%E5%AE%8C%E6%95%B4%E7%89%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"></a>09. Wine 运行器吾爱专版和完整版有什么区别？</h1>
+<p>答：吾爱专版是为了符合版规，将<em><strong>所有需要连接作者服务器的功能移除（如：评分、更新、问题反馈功能等等）</strong></em>，其它的功能没有区别<br>
+<strong>以及，完整版和吾爱专版是不能同时安装，如果要更换版本需要保证完全卸载干净，完全卸载命令如下：</strong></p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code># 完全卸载吾爱版
+sudo apt purge spark-deepin-wine-runner-52
+# 完全卸载完整版
+sudo apt purge spark-deepin-wine-runner-52
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p><em><strong>提示：完全卸载会移除程序所有配置文件，可见上“07. 卸载这个程序需要注意什么吗？”，如果不完全卸载，<code>remove</code>会出现如下情况</strong></em></p>
+<ol>
+<li>卸载吾爱版再安装完整版虽然没有提示是吾爱版，但是依旧无法连接作者服务器</li>
+<li>出现程序无法启动、程序文件丢失的情况</li>
+<li>……</li>
+</ol>
+<p>修复方法：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code># 卸载吾爱版
+sudo apt purge spark-deepin-wine-runner-52
+# 重新安装完整版
+sudo apt install ./完整版安装包
+# 如果添加了 apt 源，也可以：
+sudo apt install spark-deepin-wine-runner
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h1>
+<a id="10wine-运行器和-exepro超级-wine-是什么关系" class="anchor" href="#10wine-%E8%BF%90%E8%A1%8C%E5%99%A8%E5%92%8C-exepro%E8%B6%85%E7%BA%A7-wine-%E6%98%AF%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB"></a>10.Wine 运行器和 exepro/超级 wine 是什么关系？</h1>
+<p>答：超级 wine 于 1.0.0Alpha4 抄袭 Wine 运行器，不遵守程序 GPLV3 开源协议，exepro 是超级 wine 的衍生版本，大体功能和逻辑与 Wine 运行器相近（组件安装功能、打包器等等）<br>
+<img src="https://ucare-resources.oss-cn-shenzhen.aliyuncs.com/pro/2022/07/213ea1fc3fdcb7036ec7e5a1e2657beef6.png" alt="1.1.0截图">
+<img src="https://storage.deepin.org/thread/202208262131243161_%E6%88%AA%E5%9B%BE_main_20220826181600.png" alt="13Alpha截图"></p></div><div class='title'>简易使用帮助</div><div class='content'><p>下面是送给小白的 wine 运行器简单使用方法，先声明，wine 并 <em><strong>不能完美的运行所有 exe 文件</strong></em> ，利用此 wine 运行器简易安装可执行文件的方法如下：</p>
+<ol>
+<li>安装本程序</li>
+<li>在应用商店里随便安装一个 QQ 或者微信等基于 deepin-wine6-stable 打包的应用
+<img src="https://storage.deepin.org/thread/202207061542433333_image.png" alt="image.png">
+</li>
+<li>找到需要安装的 exe，双击或者右键=》打开方式=》wine 运行器打开
+<img src="https://storage.deepin.org/thread/202207061543443740_image.png" alt="image.png">
+</li>
+<li>点击“运行程序”即可
+<img src="https://storage.deepin.org/thread/202207191920282406_image.png" alt="image.png">
+</li>
+</ol></div><div class='title'>关于 Wine 运行器</div><div class='content'><p width="100px" align="center"><img src="https://storage.deepin.org/thread/202208031419283599_deepin-wine-runner.png"></p>
+<h1 align="center">
+<a id="wine-运行器-230" class="anchor" href="#wine-%E8%BF%90%E8%A1%8C%E5%99%A8-230"></a>Wine 运行器 2.3.0</h1>
+<hr>
+<h2>
+<a id="介绍" class="anchor" href="#%E4%BB%8B%E7%BB%8D"></a>介绍</h2>
+<p>一个图形化了以下命令的程序</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>env WINEPREFIX=容器路径 wine（wine的路径） 可执行文件路径
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>让你可以简易方便的使用 wine<br>
+是使用 Python3 的 PyQt5 构建的<br>
+（自己美术功底太差，图标只能在网络上找了）<br>
+（测试平台：deepin 20.7；UOS 家庭版 21.3.1；Ubuntu 22.04；Ubuntu 20.04；UOS 专业版 1050）<br>
+<img src="https://storage.deepin.org/thread/202210022215217037_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221002221112.png" alt="截图_选择区域_20221002221112.png"><br>
+而打包器可以方便的把您的 wine 容器打包成 deb 包供他人使用，程序创建的 deb 构建临时文件夹目录树如下：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>/XXX
+├── DEBIAN
+│   └── control
+│   └── postrm（可选）
+└── opt
+└── apps
+    └── XXX
+        ├── entries
+        │   ├── applications
+        │   │   └── XXX.desktop
+        │   └── icons
+        │       └── hicolor
+        │           └── scalable
+        │               └── apps
+        │                   └── XXX.png（XXX.svg）
+        ├── files
+        │   ├── files.7z
+        │   └── run.sh
+        └── info
+
+11 directories, 6 files
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h2>
+<a id="软件架构" class="anchor" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"></a>软件架构</h2>
+<p>i386、amd64 和 arm64，deepin-wine、deepin-wine5、wine、wine64、deepin-wine5-stable、deepin-wine6-stable、spark-wine7-devel、ukylin-wine 运行在哪就运行在哪<br>
+理论上支持全架构，如果 Python 能运行的话<br>
+非 X86 架构会利用到 <code>box86</code>、<code>exagear</code>等技术</p>
+<h2>
+<a id="分支介绍" class="anchor" href="#%E5%88%86%E6%94%AF%E4%BB%8B%E7%BB%8D"></a>分支介绍</h2>
+<h3>
+<a id="main-分支" class="anchor" href="#main-%E5%88%86%E6%94%AF"></a>main 分支</h3>
+<p>主分支，稳定分支</p>
+<h3>
+<a id="alpha-分支" class="anchor" href="#alpha-%E5%88%86%E6%94%AF"></a>Alpha 分支</h3>
+<p>开发版分支，一般不稳定，有许多 bug</p>
+<h2>
+<a id="版本区分" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%86"></a>版本区分</h2>
+<h3>
+<a id="无特殊标识" class="anchor" href="#%E6%97%A0%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AF%86"></a>无特殊标识</h3>
+<p>普通版本（一般来自 Gitee、Github、Gitlink 等渠道）</p>
+<h3>
+<a id="版本号带-spark" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E5%B8%A6-spark"></a>版本号带<code>-spark</code>
+</h3>
+<p>星火应用商店版本</p>
+<h3>
+<a id="版本号带-uos" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E5%B8%A6-uos"></a>版本号带<code>-uos</code>
+</h3>
+<p>深度应用商店版本，一般带免开开发者模式签名</p>
+<h3>
+<a id="包名带-52" class="anchor" href="#%E5%8C%85%E5%90%8D%E5%B8%A6-52"></a>包名带<code>-52</code>
+</h3>
+<p>吾爱论坛专版，只在吾爱论坛发布，功能会阉割（如更新、评分、bug反馈功能等等），一般建议使用上面的三个版本<br>
+<img src="https://storage.deepin.org/thread/202209251259142818_image.png" alt="image.png"><br>
+（没人喜欢看到这个无法连接服务器吧）</p>
+<h2>
+<a id="使用说明" class="anchor" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"></a>使用说明</h2>
+<h3>
+<a id="均在软件的小提示里有说明" class="anchor" href="#%E5%9D%87%E5%9C%A8%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B0%8F%E6%8F%90%E7%A4%BA%E9%87%8C%E6%9C%89%E8%AF%B4%E6%98%8E"></a>均在软件的“小提示”里有说明</h3>
+<h3>
+<a id="运行器" class="anchor" href="#%E8%BF%90%E8%A1%8C%E5%99%A8"></a>运行器</h3>
+<p>1、使用终端运行该程序，可以看到 wine 以及程序本身的提示和报错;<br>
+2、wine 32 位和 64 位的容器互不兼容;<br>
+3、所有的 wine 和 winetricks 均需要自行安装（可以从 菜单栏=&gt;程序 里面进行安装）<br>
+4、本程序支持带参数运行 wine 程序（之前版本也可以），只需要按以下格式即可：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>exe路径
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html> 参数 
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html>
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>即可（单引号需要输入）<br>
+5、wine 容器如果没有指定，则会默认为 ~/.wine<br>
+6、如果可执行文件比较大的话，会出现点击“获取该程序运行情况”出现假死的情况，因为正在后台读取 SHA1，只需要等一下即可（读取速度依照您电脑处理速度、读写速度、可执行文件大小等有关）<br>
+7、对于非 X86 的用户来说，请不要使用本程序自带的 Wine 安装程序和 Windows 虚拟机安装功能（检测到为非 X86 架构会自动禁用）<br>
+8、如果非 X86 的用户的 UOS 专业版用户想要使用的话，只需要在应用商店安装一个 Wine 版本微信即可在本程序选择正确的 Wine 运行程序<br>
+9、在使用 linglong 包的 Wine 应用时，必须安装至少一个 linglong 的使用 Wine 软件包才会出现该选项，而程序识别到的 Wine 是按 linglong 的使用 Wine 软件包名的字母排序第一个的 Wine，且生成的容器不在用户目录下，而是在容器的用户目录下（用户目录/.deepinwine、/tmp、桌面、下载、文档等被映射的目录除外），同理需要运行的 EXE 也必须在被映射的目录内<br>
+10、如果是使用 Deepin 23 的 Wine 安装脚本，请切记——安装过程会临时添加 Deepin 20 的 apt 源，不要中断安装以及千万不要中断后不删除源的情况下 apt upgrade ！！！中断后只需重新打开脚本输入 repair 或者随意安装一个 Wine（会自动执行恢复操作）即可。以及此脚本安装的 Wine 无法保证 100% 能使用，以及副作用是会提示</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>N: 鉴于仓库 'https://community-packages.deepin.com/beige beige InRelease' 不支持 'i386' 体系结构，跳过配置文件 'main/binary-i386/Packages' 的获取。  
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p><img src="https://storage.deepin.org/thread/202208131811324016_image.png" alt="image.png"></p>
+<h3>
+<a id="打包器" class="anchor" href="#%E6%89%93%E5%8C%85%E5%99%A8"></a>打包器</h3>
+<p>1、deb 打包软件包名要求：<br>
+软件包名只能含有小写字母(a-z)、数字(0-9)、加号(+)和减号(-)、以及点号(.)，软件包名最短长度两个字符；它必须以字母开头
+2、如果要填写路径，有“浏览……”按钮的是要填本计算机对应文件的路径，否则就是填写安装到其他计算机使用的路径<br>
+3、输入 wine 的容器路径时最后面请不要输入“/”<br>
+4、输入可执行文件的运行路径时是以“C:/XXX/XXX.exe”的格式进行输入，默认是以 C： 为开头，不用“\”做命令的分隔，而是用“/”<br>
+5、.desktop 的图标只支持 PNG 格式和 SVG 格式，其他格式无法显示图标<br>
+<img src="https://storage.deepin.org/thread/202207190820337719_image.png" alt="image.png"></p>
+<h3>
+<a id="基于统信-wine-生态适配脚本的打包器" class="anchor" href="#%E5%9F%BA%E4%BA%8E%E7%BB%9F%E4%BF%A1-wine-%E7%94%9F%E6%80%81%E9%80%82%E9%85%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E6%89%93%E5%8C%85%E5%99%A8"></a>基于统信 Wine 生态适配脚本的打包器</h3>
+<p>第一个文本框是应用程序中文名<br>
+第二个文本框是应用程序英文名<br>
+第三个文本框是最终生成的包的描述<br>
+第四个选择框是desktop文件中的分类<br>
+第五个输入框是程序在 Wine 容器的位置，以 c:\XXX 的形式，盘符必须小写，用反斜杠，如果路径带用户名的话会自动替换为$USER<br>
+而 StartupWMClass 字段将会由程序自动生成，作用如下：<br>
+desktop文件中StartupWMClass字段。用于让桌面组件将窗口类名与desktop文件相对应。这个值为实际运行的主程序EXE的文件名，wine/crossover在程序运行后会将文件名设置为窗口类名<br>
+第六个输入框是最终生成的包的包名,包名的命名规则以deepin开头，加官网域名（需要前后对调位置），如还不能区分再加上应用名<br>
+最后一个是最终生成的包的版本号，版本号命名规则：应用版本号+deepin+数字<br>
+<img src="https://storage.deepin.org/thread/202207190822204627_image.png" alt="image.png"></p>
+<h2>
+<a id="更新日志" class="anchor" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"></a>更新日志</h2>
+<h3>
+<a id="2302022年10月02日" class="anchor" href="#2302022%E5%B9%B410%E6%9C%8802%E6%97%A5"></a>2.3.0（2022年10月02日）</h3>
+<p><strong>※1、自动配置解释器支持 bash 语法（新版底层调用 bash，旧版任然使用旧版解析引擎）</strong><br>
+<strong>※2、修复缺失 wimtools 依赖导致无法正常安装的问题</strong><br>
+<strong>※3、修复基于生态适配活动脚本打包器对话框过多影响使用的问题，并支持指定不同的包名和容器名</strong><br>
+<strong>※4、7z 文件解压不会自动替换文件然后卡死以及因此导致程序闪退的问题</strong><br>
+<strong>※5、修复安装更多 Wine 终端调用问题和图标问题</strong><br>
+<strong>※6、支持 openkylin</strong><br>
+7、支持通过 exe 路径自动生成 Wine 容器路径<br>
+8、支持禁用/启用 wine 容器是否生成快捷方式的功能以及启用/禁用程序崩溃提示对话框<br>
+9、支持设置 wine 容器代理<br>
+10、自动配置脚本支持使用 <code>--help</code> 参数查看帮助<br>
+<img src="https://storage.deepin.org/thread/202210022215217037_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221002221112.png" alt="截图_选择区域_20221002221112.png"></p>
+<h3>
+<a id="2202022年09月24日" class="anchor" href="#2202022%E5%B9%B409%E6%9C%8824%E6%97%A5"></a>2.2.0（2022年09月24日）</h3>
+<p><strong>※1、Dll 提取工具支持 NT 6.X 及以上版本的 Dll 提取并优化了提示文本</strong><br>
+<strong>※2、支持卸载后自动删除缓存/配置文件（删除配置文件只限 purge 参数删除）</strong><br>
+<strong>※3、DEBUG 模式输出更多信息以方便调试（原本只输出 pid、Err）</strong><br>
+<strong>※4、支持安装 msi 文件</strong><br>
+<strong>※5、修复无法正常评分的问题</strong><br>
+<strong>※6、修复 QQ、TIM 安装后无法正常生成快捷方式的问题</strong><br>
+<strong>※7、基于生态适配活动的打包器更换为 spark-wine-helper 以及添加自动删除残留脚本</strong><br>
+<strong>※8、打包器支持从 deb 文件读取信息</strong><br>
+<strong>※9、修复在 UOS 专业版（鲲鹏）无法正常运行的问题以及组件安装功能无法正常执行安装命令的问题</strong><br>
+<strong>※10、修复出现星火应用商店和官方应用商店反复提示更新死循环的问题</strong><br>
+<strong>※11、新增评分分数预测功能（不准）</strong><br>
+<strong>※12、更换程序接口</strong><br>
+13、更新组件安装的离线列表<br>
+14、不再强制依赖深度终端，只做推荐安装<br>
+15、基于生态活动适配脚本的打包器在打包完成后会弹出对话框提示打包完成<br>
+16、优化打包器的 spark wine helper 依赖设置方式<br>
+17、新增 RegShot（注册表比对工具）<br>
+18、添加 Wine 运行器评分数据的搜索功能<br>
+<img src="https://storage.deepin.org/thread/202209242126366137_image.png" alt="image.png"></p>
+<h3>
+<a id="210-22022年09月05日" class="anchor" href="#210-22022%E5%B9%B409%E6%9C%8805%E6%97%A5"></a>2.1.0-2（2022年09月05日）</h3>
+<p><strong>※1、修复终端调用问题</strong></p>
+<h3>
+<a id="210-12022年09月03日" class="anchor" href="#210-12022%E5%B9%B409%E6%9C%8803%E6%97%A5"></a>2.1.0-1（2022年09月03日）</h3>
+<p><strong>※1、删除多余图标</strong><br>
+<strong>※2、修复将打包文件生成目录设置为 / 等重要目录导致删库的问题</strong><br>
+3、修复了打包器浏览按钮闪退、生成的 postrm 有误的问题<br>
+4、支持在输入信息时自动生成 deb 保存路径</p>
+<h3>
+<a id="2102022年08月26日" class="anchor" href="#2102022%E5%B9%B408%E6%9C%8826%E6%97%A5"></a>2.1.0（2022年08月26日）</h3>
+<p><strong>※1、新增新的 Wine 安装器，并支持将安装的 Wine 打包到 Wine 程序 deb 包中</strong><br>
+<strong>※2、Wine 打包器打包 Windows 应用支持将 Wine 打包入 deb 内，可以不依赖 Wine（一般不推荐把 Wine 打包入内，推荐用依赖的形式），并支持设置自定义依赖和生成模板</strong><br>
+<strong>※3、开始初步多语言支持</strong><br>
+<strong>※4、修复了在没有安装任何 Wine 的情况下使用高级功能导致程序闪退的问题</strong><br>
+<strong>※5、支持云端自动获取数据配置 Wine 容器</strong><br>
+<strong>※6、支持手动导入配置文件自动配置 Wine 容器</strong><br>
+<strong>※7、新增从云端下载 Dll 的功能</strong><br>
+<strong>※8、修复了 Dll 提取工具不会在 winecfg 中添加原装的问题</strong><br>
+9、修改错别字（图形话=&gt;图形化）<br>
+10、修复评分功能名称为空也可以上传评分的问题<br>
+11、去除 toilet 依赖，使在 Deepin 23 Preview 上运行更佳<br>
+12、支持删除所有由 Wine 创建的启动器快捷方式<br>
+<img src="https://storage.deepin.org/thread/202208261437088825_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20220826143213.png" alt="截图_选择区域_20220826143213.png"></p>
+<h3>
+<a id="200-22022年08月16日" class="anchor" href="#200-22022%E5%B9%B408%E6%9C%8816%E6%97%A5"></a>2.0.0-2（2022年08月16日）</h3>
+<p>修复了在 deepin 23 安装缺少<code>toilet</code>依赖导致无法安装的问题，更多更新内容请见 2.0.0</p>
+<h3>
+<a id="200-12022年08月15日" class="anchor" href="#200-12022%E5%B9%B408%E6%9C%8815%E6%97%A5"></a>2.0.0-1（2022年08月15日）</h3>
+<p>修复了缺失<code>python3-psutil</code>依赖的问题，更多更新内容请见 2.0.0</p>
+<h3>
+<a id="2002022年08月13日" class="anchor" href="#2002022%E5%B9%B408%E6%9C%8813%E6%97%A5"></a>2.0.0（2022年08月13日）</h3>
+<p><strong>※1、修复了重复路径一直自动重复增加的问题</strong><br>
+<strong>※2、修复了两个打包器打包错误的问题（非基于生态活动脚本的为 wine 导入错误，基于生态活动脚本的为架构有误导致打包出的 deb 无法打包）</strong><br>
+<strong>※3、适配了部分非 i386、amd64 架构计算机的 UOS 系统使用的 wine 并支持打包非 i386、amd64 架构计算机的 UOS 系统使用的 wine 程序 deb 包</strong><br>
+<strong>※4、支持安装 dxvk（遵守 Zlib 开源协议）</strong><br>
+<strong>※5、运行器、打包器（包括非基于生态适配活动脚本制作的）支持使用 Wine 生态适配活动的容器清理脚本</strong><br>
+<strong>※6、支持更加简易的安装最新版的 WineHQ</strong><br>
+<strong>※7、增加字体商店</strong><br>
+<strong>※8、新增查看可执行文件运行情况的功能</strong><br>
+9、支持不显示没有安装的 Wine，方便用户识别<br>
+10、修改了 Wine 的顺序使其更加合理<br>
+11、支持删除安装 exe 后在启动器的快捷方式<br>
+12、优化了 Wine 打包器（非基于生态活动脚本）对容器的处理<br>
+13、修复了 Wine 打包器（非基于生态活动脚本）打包出的 deb 安装时显示为解压缩后会消耗 0 B 的额外空间以及 postrm 的一些问题<br>
+14、支持删除无需使用的程序组件<br>
+15、支持组件/运行库下载后缓存方便下次使用（可以清理）<br>
+16、点击获取图标按钮后会自动读取 exe 框的程序图标（不支持相对路径和包内路径，只支持绝对路径）<br>
+<img src="https://storage.deepin.org/thread/202208131811324016_image.png" alt="image.png"></p>
+<h3>
+<a id="1802022年08月03日" class="anchor" href="#1802022%E5%B9%B408%E6%9C%8803%E6%97%A5"></a>1.8.0（2022年08月03日）</h3>
+<p><strong>※1、修复了打包器（非基于活动脚本） control、postrm 写入文件颠倒的问题</strong><br>
+<strong>※2、内置一个微型的 Windows 应用商店（应用来源：腾讯软件管家）</strong><br>
+<strong>※3、初步支持 deepin 23（添加基于 linglong Wine 的运行方式，需要安装一个 linglong 包的 使用 Wine 应用；添加从 Deepin 20 源获取 Wine 的安装方式）</strong><br>
+4、更新了打包器（非基于活动脚本）调用星火 spark-wine-helper 的 run.sh 脚本格式<br>
+5、修复了打包器（基于活动脚本）在 dde-top-panel 和 dde-globalmenu-service 下无法打开帮助提示的问题<br>
+6、支持屏蔽 Wine 默认的 Mono、Gecko 安装器（屏蔽方法来自星火应用商店审核组和提供的新 run.sh 标准）<br>
+<img src="https://storage.deepin.org/thread/202208031351466402_image.png" alt="image.png"><br>
+<img src="https://storage.deepin.org/thread/2022080317313975_image.png" alt="image.png"></p>
+<h3>
+<a id="1712022年07月29日" class="anchor" href="#1712022%E5%B9%B407%E6%9C%8829%E6%97%A5"></a>1.7.1（2022年07月29日）</h3>
+<p><strong>※1、更换为 @PossibleVing 提供的程序图标</strong><br>
+<strong>※2、修改了统信 Wine 生态适配活动的脚本，支持在非 UOS 系统打包</strong><br>
+<strong>※3、修复了打包器在打包应用未指定图标的情况下显示对话框后强制退出的问题</strong><br>
+4、修改 .net framework 3.5 的安装包，从在线版改为本地版<br>
+5、支持设置主题<br>
+6、添加 Geek Uninstaller 手动升级脚本</p>
+<p><img src="https://storage.deepin.org/thread/202207291533597182_image.png" alt="image.png"></p>
+<h3>
+<a id="1702022年07月19日" class="anchor" href="#1702022%E5%B9%B407%E6%9C%8819%E6%97%A5"></a>1.7.0（2022年07月19日）</h3>
+<p><b>※1、界面大改造，从使用 Tkinter 改为 Qt，参考了 @134******28 和 @sgb76 提供的设计方案和代码</b></p>
+<p><strong>※2、添加了基于 UOS 生态适配活动打包脚本的打包器，以及基于 Virtualbox 的简易 Windows 镜像安装工具</strong><br>
+<strong>※3、将 pip 由阿里源改为华为源，提升下载安装速度，并删除使用 pip 下载库的功能（已不需要，废弃）</strong><br>
+4、添加 @delsin 和 @神末shenmo 建议的 postrm 脚本<br>
+5、优化多屏窗口居中问题<br>
+6、修复 1.6.0 程序无法保存设置的问题<br>
+7、修复 1.6.0 的更新程序无法正常更新的问题<br>
+8、升级 Geek Uninstaller 版本<br>
+<img src="https://storage.deepin.org/thread/202207190819153104_image.png" alt="image.png"></p>
+<h3>
+<a id="1602022年07月10日" class="anchor" href="#1602022%E5%B9%B407%E6%9C%8810%E6%97%A5"></a>1.6.0（2022年07月10日）</h3>
+<p><strong>※1、新增程序感谢、谢明以及程序的建议和问题反馈和内置更新程序</strong><br>
+<strong>※2、支持 winetricks 指定 Wine 打开</strong><br>
+<strong>※3、新增窗口透明工具，感谢@a2035274 和 @虚幻的早晨 在论坛的讨论</strong><br>
+<strong>※4、支持在指定容器、Wine 安装 MSXML</strong><br>
+<strong>※5、支持启用/关闭 opengl（感谢@zhangs 在论坛发帖）以及支持安装/卸载 winbind</strong><br>
+<strong>※6、添加云沙箱的网站链接快捷方式</strong><br>
+<strong>※7、支持从星火应用商店源安装 Windows 常见字体</strong><br>
+8、优化窗口布局以及默认显示位置<br>
+9、支持打开指定容器、Wine 的资源管理器<br>
+<img src="https://storage.deepin.org/thread/202207101734379289_image.png" alt="image.png"></p>
+<h3>
+<a id="1532022年07月07日" class="anchor" href="#1532022%E5%B9%B407%E6%9C%8807%E6%97%A5"></a>1.5.3（2022年07月07日）</h3>
+<p><strong>※1、新增专门的程序设置，支持设置 Wine 容器架构、DEBUG 信息是否输出、默认的 Wine、默认容器路径、是否使用终端打开和 Wine 参数</strong><br>
+<strong>※2、修复了 wine 打包器的控件禁用不全和打包的 deb 用户残留的问题</strong><br>
+<strong>※3、新增暗黑主题</strong><br>
+4、合并了 deepin wine 文管设置器<br>
+<img src="https://storage.deepin.org/thread/202207072207209350_Screenshot_20220707_215916.png" alt="Screenshot_20220707_215916.png"></p>
+<h3>
+<a id="1522022年07月06日" class="anchor" href="#1522022%E5%B9%B407%E6%9C%8806%E6%97%A5"></a>1.5.2（2022年07月06日）</h3>
+<p><strong>※1、添加并翻新了 deepin-wine5 打包器，改为 wine 打包器，支持常见 wine 的打包</strong><br>
+<strong>※2、新增 Visual Studio C++ 的安装程序</strong><br>
+<strong>※3、新增从系统安装镜像提取 DLL 到 wine 容器的功能（当前只支持 Windows XP 和 Windows Server 2003 的官方安装镜像）</strong><br>
+4、修复了安装星火应用商店的 wine 运行器右键打开方式没有 wine 运行器选项的问题<br>
+5、新增脚本，优化 deepin terminal 调用本程序脚本显示不佳的问题<br>
+<img src="https://storage.deepin.org/thread/202207061004446872_image.png" alt="image.png">
+<img src="https://storage.deepin.org/thread/202207061005149959_image.png" alt="image.png">
+<img src="https://storage.deepin.org/thread/202207061005251446_image.png" alt="image.png"></p>
+<h3>
+<a id="1512022年07月04日" class="anchor" href="#1512022%E5%B9%B407%E6%9C%8804%E6%97%A5"></a>1.5.1（2022年07月04日）</h3>
+<p><strong>※1、支持打开 spark-wine7-devel 的专门缩放设置（如未安装则此按钮禁用）</strong><br>
+<strong>※2、支持提取选择的 exe 文件的图标</strong><br>
+<strong>※3、支持向指定的 wine 容器安装 mono、gecko、.net framework（此功能在菜单栏“Wine”中，卸载只需要使用程序的卸载按钮打开 Geek Uninstaller 即可）</strong><br>
+<strong>※4、支持指定特定的 wine 容器调用 winetricks</strong><br>
+<strong>※5、在没有指定 wine 容器的情况下，将自动设置为 ~/.wine</strong><br>
+6、新增 ukylin-wine<br>
+7、将默认选择的 wine 改为 deepin-wine6 stable<br>
+8、支持打开指定容器的 winecfg、winver、regedit、taskmgr<br>
+9、双击使用 wine 运行器打开 exe（不知道能不能生效）
+<img src="https://storage.deepin.org/thread/202207042234078682_image.png" alt="image.png"></p>
+<h3>
+<a id="1502022年07月03日" class="anchor" href="#1502022%E5%B9%B407%E6%9C%8803%E6%97%A5"></a>1.5.0（2022年07月03日）</h3>
+<p><strong>※1、支持显示 wine 程序运行时的返回内容</strong><br>
+<strong>※2、优化打包方式，减少从 pip 安装的库，并将 pip 源设为阿里源提升下载速度</strong><br>
+<strong>※3、新增 spark-wine7-devel</strong><br>
+<strong>※4、支持从程序启动用于安装 wine 的程序（在菜单栏的“程序”）</strong><br>
+5、优化 wine 安装脚本，在安装星火应用商店的 wine 时支持检测是否有 ss-apt-fast，如果有就调用替代 apt 提升安装速度<br>
+6、支持关闭指定 wine 的进程，以及访问对应 wine 容器的目录和字体目录<br>
+7、从生成shell脚本改为升级到desktop文件<br>
+<img src="https://storage.deepin.org/thread/202207031902414162_image.png" alt="image.png"></p>
+<h3>
+<a id="1402021年07月27日" class="anchor" href="#1402021%E5%B9%B407%E6%9C%8827%E6%97%A5"></a>1.4.0（2021年07月27日）</h3>
+<p><strong>※1、修改了 wine 选项的说明和 wine 的启动方式;</strong><br>
+<strong>※2、设置了窗口主题;</strong><br>
+<strong>※3、修改了打包以及 .desktop 文件</strong><br>
+4、删除了以前的残略调试代码;<br>
+5、优化了 wine 列表的显示流程;<br>
+6、更新了“关于”窗口<br>
+7、更新了提示内容<br>
+8、在 gitee/github 仓库上添加了 wine 安装脚本<br>
+<img src="https://images.gitee.com/uploads/images/2021/0727/151226_750579c2_7896131.png" alt=""></p>
+<h3>
+<a id="1312021年05月23日" class="anchor" href="#1312021%E5%B9%B405%E6%9C%8823%E6%97%A5"></a>1.3.1（2021年05月23日）</h3>
+<p>1、添加了历史记录，使用更加方便<br>
+2、增加“更新内容”项<br>
+3、支持浏览窗口的默认路径为上次访问的路径<br>
+4、支持清空历史记录<br>
+5、代码结构优化<br>
+6、修改了控件大小<br>
+<img src="https://images.gitee.com/uploads/images/2021/0523/155621_95e6fea5_7896131.png" alt="run" title="截图录屏_选择区域_20210523153529.png">
+<img src="https://images.gitee.com/uploads/images/2021/0523/155633_b7ab458a_7896131.png" alt="run" title="截图录屏_选择区域_20210523153548.png">
+<img src="https://images.gitee.com/uploads/images/2021/0523/155643_fc933b76_7896131.png" alt="run" title="截图录屏_选择区域_20210523153929.png">
+<img src="https://images.gitee.com/uploads/images/2021/0523/155654_90ceb8ce_7896131.png" alt="run" title="截图录屏_选择区域_20210523153947.png">
+<img src="https://images.gitee.com/uploads/images/2021/0523/155702_66841e22_7896131.png" alt="run" title="截图录屏_选择区域_20210523154007.png"></p>
+<h3>
+<a id="1302021年05月22日" class="anchor" href="#1302021%E5%B9%B405%E6%9C%8822%E6%97%A5"></a>1.3.0（2021年05月22日）</h3>
+<ol>
+<li>修改了窗口显示控件的库（从 tkinter 到 tkinter.ttk）</li>
+<li>添加了更多 wine 可以选择（deepin-wine、deepin-wine5、wine、wine64、deepin-wine5-stable、deepin-wine6-stable）</li>
+<li>修改了程序的提示信息
+<img src="https://images.gitee.com/uploads/images/2021/0522/175640_a592db4d_7896131.png" alt="输入图片说明" title="截图录屏_tk_20210522170529.png">
+</li>
+</ol>
+<h3>
+<a id="1202021年03月14日" class="anchor" href="#1202021%E5%B9%B403%E6%9C%8814%E6%97%A5"></a>1.2.0（2021年03月14日）</h3>
+<ol>
+<li>修改布局方式</li>
+<li>轻度梳理代码布局
+<img src="https://images.gitee.com/uploads/images/2021/0314/181320_cb4cbf72_7896131.png" alt="输入图片说明" title="屏幕截图.png">
+</li>
+</ol>
+<h3>
+<a id="112-未发布发行版" class="anchor" href="#112-%E6%9C%AA%E5%8F%91%E5%B8%83%E5%8F%91%E8%A1%8C%E7%89%88"></a>1.1.2 （未发布发行版）</h3>
+<ol>
+<li>进行了细节优化</li>
+</ol>
+<h3>
+<a id="1112021年01月31日" class="anchor" href="#1112021%E5%B9%B401%E6%9C%8831%E6%97%A5"></a>1.1.1（2021年01月31日）</h3>
+<ol>
+<li>使用多线程，防止界面假死</li>
+<li>添加软件图标
+<img src="https://images.gitee.com/uploads/images/2021/0131/143557_40911a67_7896131.png" alt="">
+</li>
+</ol>
+<h3>
+<a id="1102021年01月29日" class="anchor" href="#1102021%E5%B9%B401%E6%9C%8829%E6%97%A5"></a>1.1.0（2021年01月29日）</h3>
+<ol>
+<li>修改了代码的部分内容，使其支持容器路径可带空格无需“\”转义，以及支持手动保存运行脚本到桌面</li>
+</ol>
+<h3>
+<a id="1002021年01月29日" class="anchor" href="#1002021%E5%B9%B401%E6%9C%8829%E6%97%A5"></a>1.0.0（2021年01月29日）</h3>
+<ol>
+<li>实现内容</li>
+</ol>
+<h2>
+<a id="源码安装教程" class="anchor" href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B"></a>源码安装教程</h2>
+<ol>
+<li>安装需要的依赖</li>
+</ol>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>sudo apt install git make
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<ol start="2">
+<li>下载仓库</li>
+</ol>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>git clone https://gitee.com/gfdgd-xi/deep-wine-runner.git
+cd deep-wine-runner
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<ol start="3">
+<li>从源码运行程序（如果是从源码安装请跳过这一步）</li>
+</ol>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>make depend
+make run
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<ol start="4">
+<li>从源码安装程序</li>
+</ol>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>make install
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h2>
+<a id="对于-deepinuosamd64-平台小白如何使用该程序" class="anchor" href="#%E5%AF%B9%E4%BA%8E-deepinuosamd64-%E5%B9%B3%E5%8F%B0%E5%B0%8F%E7%99%BD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%AF%A5%E7%A8%8B%E5%BA%8F"></a>对于 Deepin/UOS（AMD64 平台）小白如何使用该程序？</h2>
+<p>下面是送给小白的 wine 运行器简单使用方法，先声明，wine 并<em><strong>不能完美的运行所有 exe 文件</strong></em>，利用此 wine 运行器简易安装可执行文件的方法如下：</p>
+<ol>
+<li>安装本程序</li>
+<li>在应用商店里随便安装一个 QQ 或者微信等基于 deepin-wine6-stable 打包的应用
+<img src="https://storage.deepin.org/thread/202207061542433333_image.png" alt="image.png">
+</li>
+<li>找到需要安装的 exe，双击或者右键=》打开方式=》wine 运行器打开
+<img src="https://storage.deepin.org/thread/202207061543443740_image.png" alt="image.png">
+</li>
+<li>点击“运行程序”即可
+<img src="https://storage.deepin.org/thread/202207191920282406_image.png" alt="image.png">
+</li>
+</ol>
+<h2>
+<a id="稍微讲一下目前-deepin-23-preview-运行自定义-exe-的方法wine-运行器均已支持" class="anchor" href="#%E7%A8%8D%E5%BE%AE%E8%AE%B2%E4%B8%80%E4%B8%8B%E7%9B%AE%E5%89%8D-deepin-23-preview-%E8%BF%90%E8%A1%8C%E8%87%AA%E5%AE%9A%E4%B9%89-exe-%E7%9A%84%E6%96%B9%E6%B3%95wine-%E8%BF%90%E8%A1%8C%E5%99%A8%E5%9D%87%E5%B7%B2%E6%94%AF%E6%8C%81"></a>稍微讲一下目前 deepin 23 Preview 运行自定义 exe 的方法（Wine 运行器均已支持）</h2>
+<h3>
+<a id="方法一" class="anchor" href="#%E6%96%B9%E6%B3%95%E4%B8%80"></a>方法一</h3>
+<p>随便安装一个 linglong 格式包的 wine 程序（要记住包名），然后在终端输入</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>ll-cli run 包名 --exec '/bin/deepin-wine6-stable'
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>即可，缺陷可看运行器上方小提示第 6 点</p>
+<h3>
+<a id="方法二容易翻车" class="anchor" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E5%AE%B9%E6%98%93%E7%BF%BB%E8%BD%A6"></a>方法二（容易翻车）</h3>
+<p>添加 Deepin 20 的<strong>官方源和商店源</strong>，然后输入如下的命令：<strong>切记不能sudo apt upgrade</strong>，会出现的问题可以看运行器的小提示第 7 点，以及无法保证所有 Wine 均可运行</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>sudo dpkg --add-architecture i386
+sudo apt update
+# 安装普通的 Wine
+sudo apt install wine
+# 安装 deepin-wine5-stable（本机测试 X64 的 Wine 跑不了）
+sudo apt install deepin-wine5-stable
+# 安装 deepin-wine6-stable
+sudo apt install deepin-wine6-stable
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p><strong>使用完后最好删除掉 Deepin 20 的官方源和商店源，防止出问题</strong><br>
+可以看 <a href="user/18570">@ThinkYoung</a> 写的 <a href="https://bbs.deepin.org/post/241148%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E5%80%9F%E9%89%B4">https://bbs.deepin.org/post/241148，可以参考借鉴</a></p>
+<h3>
+<a id="方法三" class="anchor" href="#%E6%96%B9%E6%B3%95%E4%B8%89"></a>方法三</h3>
+<p>我不知道了，希望能有大佬提供更好的解决方案</p>
+<h2>
+<a id="下载链接" class="anchor" href="#%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"></a>下载链接</h2>
+<p>Gitee：<a href="https://gitee.com/gfdgd-xi/deep-wine-runner">https://gitee.com/gfdgd-xi/deep-wine-runner</a><br>
+Github：<a href="https://github.com/gfdgd-xi/deep-wine-runner">https://github.com/gfdgd-xi/deep-wine-runner</a><br>
+Gitlink：<a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner</a><br>
+蓝奏云：<a href="https://gfdgdxi.lanzouj.com/b01nz7y3e%EF%BC%8C%E5%AF%86%E7%A0%81:7oii">https://gfdgdxi.lanzouj.com/b01nz7y3e，密码:7oii</a><br>
+星火应用商店：spk://store/tools/spark-deepin-wine-runner</p>
+<h2>
+<a id="更多" class="anchor" href="#%E6%9B%B4%E5%A4%9A"></a>更多</h2>
+<ul>
+<li><a href="https://gitee.com/gfdgd-xi/deep-wine-runner">https://gitee.com/gfdgd-xi/deep-wine-runner</a></li>
+<li><a href="https://github.com/gfdgd-xi/deep-wine-runner">https://github.com/gfdgd-xi/deep-wine-runner</a></li>
+<li><a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner</a></li>
+</ul>
+<h2>
+<a id="程序下载量" class="anchor" href="#%E7%A8%8B%E5%BA%8F%E4%B8%8B%E8%BD%BD%E9%87%8F"></a>程序下载量</h2>
+<p><img src="https://gfdgd-xi.github.io/images/wine-runner.svg" alt=""></p>
+<h2>
+<a id="star-一下吧" class="anchor" href="#star-%E4%B8%80%E4%B8%8B%E5%90%A7"></a>Star 一下吧</h2>
+<p>开发不易，原创艰难，给一个 Star 吧，你的 Star 是我继续开发的动力<br>
+<a href="https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers"><img src="https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark" alt="star"></a></p>
+<h1>
+<a id="2020-now" class="anchor" href="#2020-now"></a>©2020-Now</h1></div><div class='title'>容器自动配置脚本语法</div><div class='content'></div><div class='title'>容器自动配置脚本语法（Bash引擎）</div><div class='content'><h1>
+<a id="语法" class="anchor" href="#%E8%AF%AD%E6%B3%95"></a>语法</h1>
+<p>基于 Bash 制作，需要 Wine 运行器 2.3.0 及以上版本才可使用该引擎</p>
+<h3>
+<a id="查看命令帮助" class="anchor" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9"></a>查看命令帮助</h3>
+<p>这个文档可能更新不会太及时，可以通过如下命令在交互模式下获取命令帮助：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>命令 --help
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="在此引擎下新增的环境变量列表" class="anchor" href="#%E5%9C%A8%E6%AD%A4%E5%BC%95%E6%93%8E%E4%B8%8B%E6%96%B0%E5%A2%9E%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%88%97%E8%A1%A8"></a>在此引擎下新增的环境变量列表</h3>
+<p>目前的环境变量</p>
+<table>
+<thead>
+<tr>
+<th align="left">环境变量名</th>
+<th align="left">变量意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">$WINEPREFIX</td>
+<td align="left">用户指定的 Wine 容器路径</td>
+</tr>
+<tr>
+<td align="left">$WINE</td>
+<td align="left">用户指定的 Wine 版本</td>
+</tr>
+<tr>
+<td align="left">$DANGER</td>
+<td align="left">用户是否有指定<code>--system</code>参数（<code>--system</code>参数请见后）</td>
+</tr>
+<tr>
+<td align="left">$PROGRAMPATH</td>
+<td align="left">当前解释器所在文件夹（绝对路径）</td>
+</tr>
+<tr>
+<td align="left">$VERSION</td>
+<td align="left">解释器版本（Wine 运行器版本）</td>
+</tr>
+<tr>
+<td align="left">$MAKER</td>
+<td align="left">解释器作者列表</td>
+</tr>
+<tr>
+<td align="left">$COPYRIGHT</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">$PLATFORM</td>
+<td align="left">系统版本（Windows/Linux）</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="命令" class="anchor" href="#%E5%91%BD%E4%BB%A4"></a>命令</h2>
+<h3>
+<a id="命令列表" class="anchor" href="#%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"></a>命令列表</h3>
+<table>
+<thead>
+<tr>
+<th align="left">命令名</th>
+<th align="left">命令意义</th>
+<th align="left">参数数量</th>
+<th align="left">参数介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>installdll</code></td>
+<td align="left">安装指定 dll 在指定容器</td>
+<td align="left">1</td>
+<td align="left">dll名称或在从互联网获取DLL工具的编号，如 <code>7012 xolehlp.dll 平台：2003 架构：64</code> 的 <code>7012</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>stopdll</code></td>
+<td align="left">不允许指定的 dll/exe 运行</td>
+<td align="left">1</td>
+<td align="left">dll/exe 名称，如 <code>example.exe</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installfont</code></td>
+<td align="left">安装指定字体到指定容器</td>
+<td align="left">1</td>
+<td align="left">在字体商店的编号，如 <code>5 msyhbd.ttc</code> 的 <code>5</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installsparkcorefont</code></td>
+<td align="left">安装星火应用商店的“微软核心字体”<img src="https://storage.deepin.org/thread/202208300816255060_image.png" alt="image.png">
+</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>installmono</code></td>
+<td align="left">安装最新版本的 mono 到指定容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>installgecko</code></td>
+<td align="left">安装最新版本的 gecko 到指定容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>installvcpp</code></td>
+<td align="left">安装指定的 VCPP 运行库到指定容器</td>
+<td align="left">1</td>
+<td align="left">在安装 Visual Studio C++ 工具的编号，如 <code>10 Visual Studio C++ 2015、2017、2019 和 2022 X64</code> 的 <code>10</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installnet</code></td>
+<td align="left">安装指定的 .net framework 运行库到指定容器</td>
+<td align="left">1</td>
+<td align="left">在安装 .net framework 工具的编号，如 <code>3 .net framework 4.5.1 Offline Installer</code> 的 <code>3</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installmsxml</code></td>
+<td align="left">安装指定的 MSXML 运行库到指定容器</td>
+<td align="left">1</td>
+<td align="left">在安装 MSXML 工具的编号，如 <code>1、MSXML 4.0 SP3</code> 的 <code>1</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>echo</code></td>
+<td align="left">显示内容</td>
+<td align="left">≥1</td>
+<td align="left">接要显示的内容</td>
+</tr>
+<tr>
+<td align="left"><code>info</code></td>
+<td align="left">显示提示对话框</td>
+<td align="left">2</td>
+<td align="left">标题+显示内容</td>
+</tr>
+<tr>
+<td align="left"><code>error</code></td>
+<td align="left">显示错误对话框</td>
+<td align="left">2</td>
+<td align="left">标题+显示内容</td>
+</tr>
+<tr>
+<td align="left"><code>warning</code></td>
+<td align="left">显示警告对话框</td>
+<td align="left">2</td>
+<td align="left">标题+显示内容</td>
+</tr>
+<tr>
+<td align="left"><code>exit</code></td>
+<td align="left">退出程序</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>bat</code></td>
+<td align="left">执行 cmd 命令在 Wine 容器内（在 Windows 将在系统执行命令）</td>
+<td align="left">≥1</td>
+<td align="left">接要执行的命令</td>
+</tr>
+<tr>
+<td align="left"><code>version</code></td>
+<td align="left">显示解释器版本（Wine 运行器版本）</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>thank</code></td>
+<td align="left">显示谢明列表</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>pause</code></td>
+<td align="left">按回车键后继续</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>download</code></td>
+<td align="left">使用 aria2 下载文件</td>
+<td align="left">≥1 &amp;&amp; ≤3</td>
+<td align="left">下载URL+保存在的文件夹+保存的文件名</td>
+</tr>
+<tr>
+<td align="left"><code>installdxvk</code></td>
+<td align="left">安装 dxvk 到指定容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>createbotton</code></td>
+<td align="left">在指定目录创建容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>reg</code></td>
+<td align="left">导入 .reg 文件</td>
+<td align="left">1</td>
+<td align="left">reg 文件路径</td>
+</tr>
+<tr>
+<td align="left"><code>enabledopengl</code></td>
+<td align="left">开启 OpenGL</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>disbledopengl</code></td>
+<td align="left">关闭 OpenGL</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>winecfg</code></td>
+<td align="left">显示“Wine 设置”</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>winver</code></td>
+<td align="left">显示“关于 Wine”</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>changeversion</code></td>
+<td align="left">更改 Wine 容器系统版本（未实现）</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>enabledhttpproxy</code></td>
+<td align="left">设置指定容器代理</td>
+<td align="left">2</td>
+<td align="left">代理服务器地址+端口</td>
+</tr>
+<tr>
+<td align="left"><code>disbledhttpproxy</code></td>
+<td align="left">禁用指定容器代理</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>enabledwinecrashdialog</code></td>
+<td align="left">启用 Wine 容器程序崩溃提示窗口</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>disbledwinecrashdialog</code></td>
+<td align="left">禁用 Wine 容器程序崩溃提示窗口</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>disbledWinebottlecreatelink</code></td>
+<td align="left">禁止 Wine 容器生成快捷方式</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>enabledWinebottlecreatelink</code></td>
+<td align="left">允许 Wine 容器生成快捷方式</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>control</code></td>
+<td align="left">打开控制面板</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>taskmgr</code></td>
+<td align="left">打开任务管理器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>killallwineserver</code></td>
+<td align="left">杀死所有 Wine 程序</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="解释器" class="anchor" href="#%E8%A7%A3%E9%87%8A%E5%99%A8"></a>解释器</h1>
+<h2>
+<a id="调用" class="anchor" href="#%E8%B0%83%E7%94%A8"></a>调用</h2>
+<h3>
+<a id="gui-方式调用" class="anchor" href="#gui-%E6%96%B9%E5%BC%8F%E8%B0%83%E7%94%A8"></a>GUI 方式调用</h3>
+<p>如下：<br>
+<img src="https://storage.deepin.org/thread/202208300843296879_image.png" alt="image.png"><br>
+会根据脚本内容自动判断使用新旧引擎</p>
+<h3>
+<a id="命令调用" class="anchor" href="#%E5%91%BD%E4%BB%A4%E8%B0%83%E7%94%A8"></a>命令调用</h3>
+<p>安装 Wine 运行器后，解释器路径在 <code>/opt/apps/deepin-wine-runner/AutoShell/main.py</code>，执行以下命令即可：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>/opt/apps/deepin-wine-runner/AutoShell/main.py 脚本路径
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h2>
+<a id="交互环境" class="anchor" href="#%E4%BA%A4%E4%BA%92%E7%8E%AF%E5%A2%83"></a>交互环境</h2>
+<p>如果不指定脚本路径，会进入如下的交互环境</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>gfdgd_xi@gfdgdxi-PC:~$ /opt/apps/deepin-wine-runner/AutoShell/main.py  
+Wine 运行器自动配置文件解析器交互环境（基于 Bash）
+版本：2.3.0
+©2020~2022 gfdgd xi、为什么您不喜欢熊出没和阿布呢
+--------------------------------------------------------------
+gfdgd_xi@gfdgdxi-PC:~$
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>在此环境输入命令进行测试即可</p>
+<h2>
+<a id="指定解释器" class="anchor" href="#%E6%8C%87%E5%AE%9A%E8%A7%A3%E9%87%8A%E5%99%A8"></a>指定解释器</h2>
+<p>在 sh 文件头部添加以下内容即可调用（需要安装 Wine 运行器）：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>#!/usr/bin/env deepin-wine-runner-auto-install-bash
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>如：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>#!/usr/bin/env deepin-wine-runner-auto-install-bash
+installmono
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h2>
+<a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0"></a>参数</h2>
+<h3>
+<a id="读取的环境变量" class="anchor" href="#%E8%AF%BB%E5%8F%96%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"></a>读取的环境变量</h3>
+<table>
+<thead>
+<tr>
+<th align="left">环境变量</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>WINE</code></td>
+<td align="left">指定的 Wine，如<code>deepin-wine6-stable</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>WINEPREFIX</code></td>
+<td align="left">指定的 Wine 容器，如<code>/home/gfdgd_xi/.wine</code>
+</td>
+</tr>
+<tr>
+<td align="left"><strong>Tips：你可以手动指定<code>WINARCH</code>设定容器架构，如改为<code>win32</code>就会创建 32 位容器</strong></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="如何做到一个脚本可以同时做到支持旧版解析器和-bash-解析器" class="anchor" href="#%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E4%B8%80%E4%B8%AA%E8%84%9A%E6%9C%AC%E5%8F%AF%E4%BB%A5%E5%90%8C%E6%97%B6%E5%81%9A%E5%88%B0%E6%94%AF%E6%8C%81%E6%97%A7%E7%89%88%E8%A7%A3%E6%9E%90%E5%99%A8%E5%92%8C-bash-%E8%A7%A3%E6%9E%90%E5%99%A8"></a>如何做到一个脚本可以同时做到支持旧版解析器和 Bash 解析器</h2>
+<p>语法如下：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>#!/usr/bin/env deepin-wine-runner-auto-install-bash
+# 用于判断是否为 bash 解释器
+# 旧版解释器直接提示不兼容
+if [[ 1 == 2 ]]; then
+    # 旧版脚本内容，如下
+    echo 旧版解释器
+    exit   # exit 不可略过，否则会执行到下面新版解释器的内容
+fi
+# 新版脚本内容，如下
+echo 新版解释器
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p><strong>注意如果想要同时兼容的话是不能使用旧版解释器的变量语法，会导致 Bash 解释器语法错误而无法执行</strong></p>
+<h1>
+<a id="提交要求" class="anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"></a>提交要求</h1>
+<h2>
+<a id="必须遵守" class="anchor" href="#%E5%BF%85%E9%A1%BB%E9%81%B5%E5%AE%88"></a>必须遵守</h2>
+<ol>
+<li>不得含有危险的命令，如：</li>
+</ol>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>sudo rm -rf /*
+sudo chmod 000 -R /*
+rd /s /q C:\
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<ol start="2">
+<li>没有明显的 bug 或逻辑错误</li>
+<li>Pr 提交时需要更新两个文件：
+<ul>
+<li>list.json</li>
+<li>您的脚本文件<br>
+其中 list.json 更新的格式如下：<br>
+<code>["标题", "您的脚本文件文件名"]</code><br>
+需要添加到最后一个项目的末尾，按照 json 格式更新<br>
+并且更新的 <code>list.json</code> 文件和您的脚本文件需要放在<code>/auto</code>目录下才可读取：
+还无法理解？例子：
+这里是需要更新的 <code>list.json</code> 文件：</li>
+</ul>
+<div class="markdown-code-block">
+<pre lang="json" class="json"><code>[
+    ["安装所有VC运行库", "vcpp.wsh"],
+    ["安装 Microsoft Office 2013 环境", "office2013.wsh"]
+]
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+我想要添加一个标题为<code>Example</code>的脚本，脚本文件名为<code>example.wsh</code>，只需要把 <code>list.json</code> 改为
+<div class="markdown-code-block">
+<pre lang="json" class="json"><code>[
+    ["安装所有VC运行库", "vcpp.wsh"],
+    ["安装 Microsoft Office 2013 环境", "office2013.wsh"],
+    ["Example", "example.sh"]
+]
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+更新后的<code>list.json</code>文件与<code>example.sh</code>需要在同一目录才可读取</li>
+<li>提交仓库：<a href="https://gitee.com/gfdgd-xi/deep-wine-runner-auto-configuration-script">https://gitee.com/gfdgd-xi/deep-wine-runner-auto-configuration-script</a><br>
+Pr 过了后将会由开发者/仓库拥有者/仓库维护者合并到 Gitlink 仓库并上程序<br>
+<strong>注意：请勿直接 Pr 到 Gitlink 仓库！</strong>
+</li>
+<li>代码提交优先使用 Bash 新引擎的脚本</li>
+<li>……</li>
+</ol>
+<h2>
+<a id="建议遵守" class="anchor" href="#%E5%BB%BA%E8%AE%AE%E9%81%B5%E5%AE%88"></a>建议遵守</h2>
+<ol>
+<li>指定 dll 时建议用编号，或者dll命令+系统版本+位数（未实现）</li>
+<li>……</li>
+</ol>
+<h1>
+<a id="2020now-gfdgd-xi为什么您不喜欢熊出没和阿布呢" class="anchor" href="#2020now-gfdgd-xi%E4%B8%BA%E4%BB%80%E4%B9%88%E6%82%A8%E4%B8%8D%E5%96%9C%E6%AC%A2%E7%86%8A%E5%87%BA%E6%B2%A1%E5%92%8C%E9%98%BF%E5%B8%83%E5%91%A2"></a>©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢</h1></div><div class='title'>容器自动配置脚本语法（旧引擎）</div><div class='content'><h1>
+<a id="语法" class="anchor" href="#%E8%AF%AD%E6%B3%95"></a>语法</h1>
+<p>语法和 Shell 相近，目前只做了顺序结构和变量</p>
+<h2>
+<a id="变量" class="anchor" href="#%E5%8F%98%E9%87%8F"></a>变量</h2>
+<h3>
+<a id="赋值方式" class="anchor" href="#%E8%B5%8B%E5%80%BC%E6%96%B9%E5%BC%8F"></a>赋值方式</h3>
+<p>变量的赋值方式如下：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>($A)=b  # A为变量名，b为值，=左右不能有空格，#为注释，($不可省略，右括号可省略
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="使用方式" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"></a>使用方式</h3>
+<p>如以下命令即可显示<code>($WINE)</code>变量的值：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>echo ($WINE)
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="环境变量列表" class="anchor" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%88%97%E8%A1%A8"></a>环境变量列表</h3>
+<p>目前的环境变量</p>
+<table>
+<thead>
+<tr>
+<th align="left">环境变量名</th>
+<th align="left">变量意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">($WINEPREFIX)</td>
+<td align="left">用户指定的 Wine 容器路径</td>
+</tr>
+<tr>
+<td align="left">($WINE)</td>
+<td align="left">用户指定的 Wine 版本</td>
+</tr>
+<tr>
+<td align="left">($DANGER)</td>
+<td align="left">用户是否有指定<code>--system</code>参数（<code>--system</code>参数请见后）</td>
+</tr>
+<tr>
+<td align="left">($HOME)</td>
+<td align="left">用户的 home 目录</td>
+</tr>
+<tr>
+<td align="left">($PROGRAMPATH)</td>
+<td align="left">当前解释器所在文件夹（绝对路径）</td>
+</tr>
+<tr>
+<td align="left">($VERSION)</td>
+<td align="left">解释器版本（Wine 运行器版本）</td>
+</tr>
+<tr>
+<td align="left">($MAKER)</td>
+<td align="left">解释器作者列表</td>
+</tr>
+<tr>
+<td align="left">($COPYRIGHT)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">($?)</td>
+<td align="left">上一命令返回值</td>
+</tr>
+<tr>
+<td align="left">($PLATFORM)</td>
+<td align="left">系统版本（Windows/Linux）</td>
+</tr>
+<tr>
+<td align="left">($DEBUG)</td>
+<td align="left">用户是否有指定<code>--debug</code>参数（<code>--debug</code>参数请见后）</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="只读变量列表" class="anchor" href="#%E5%8F%AA%E8%AF%BB%E5%8F%98%E9%87%8F%E5%88%97%E8%A1%A8"></a>只读变量列表</h3>
+<p>以下变量无法修改：</p>
+<ul>
+<li><code>($DANGER)</code></li>
+<li><code>($HOME)</code></li>
+<li><code>($PROGRAMPATH)</code></li>
+<li><code>($VERSION)</code></li>
+<li><code>($THANK)</code></li>
+<li><code>($MAKER)</code></li>
+<li><code>($COPYRIGHT)</code></li>
+<li><code>($?)</code></li>
+<li><code>($SYSTEM)</code></li>
+<li><code>($DEBUG)</code></li>
+</ul>
+<h2>
+<a id="命令" class="anchor" href="#%E5%91%BD%E4%BB%A4"></a>命令</h2>
+<h3>
+<a id="命令列表" class="anchor" href="#%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"></a>命令列表</h3>
+<table>
+<thead>
+<tr>
+<th align="left">命令名</th>
+<th align="left">命令意义</th>
+<th align="left">参数数量</th>
+<th align="left">参数介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>installdll</code></td>
+<td align="left">安装指定 dll 在指定容器</td>
+<td align="left">1</td>
+<td align="left">dll名称或在从互联网获取DLL工具的编号，如 <code>7012 xolehlp.dll 平台：2003 架构：64</code> 的 <code>7012</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>stopdll</code></td>
+<td align="left">不允许指定的 dll/exe 运行</td>
+<td align="left">1</td>
+<td align="left">dll/exe 名称，如 <code>example.exe</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installfont</code></td>
+<td align="left">安装指定字体到指定容器</td>
+<td align="left">1</td>
+<td align="left">在字体商店的编号，如 <code>5 msyhbd.ttc</code> 的 <code>5</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installsparkcorefont</code></td>
+<td align="left">安装星火应用商店的“微软核心字体”<img src="https://storage.deepin.org/thread/202208300816255060_image.png" alt="image.png">
+</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>installmono</code></td>
+<td align="left">安装最新版本的 mono 到指定容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>installgecko</code></td>
+<td align="left">安装最新版本的 gecko 到指定容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>installvcpp</code></td>
+<td align="left">安装指定的 VCPP 运行库到指定容器</td>
+<td align="left">1</td>
+<td align="left">在安装 Visual Studio C++ 工具的编号，如 <code>10 Visual Studio C++ 2015、2017、2019 和 2022 X64</code> 的 <code>10</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installnet</code></td>
+<td align="left">安装指定的 .net framework 运行库到指定容器</td>
+<td align="left">1</td>
+<td align="left">在安装 .net framework 工具的编号，如 <code>3 .net framework 4.5.1 Offline Installer</code> 的 <code>3</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>installmsxml</code></td>
+<td align="left">安装指定的 MSXML 运行库到指定容器</td>
+<td align="left">1</td>
+<td align="left">在安装 MSXML 工具的编号，如 <code>1、MSXML 4.0 SP3</code> 的 <code>1</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>echo</code></td>
+<td align="left">显示内容</td>
+<td align="left">≥1</td>
+<td align="left">接要显示的内容</td>
+</tr>
+<tr>
+<td align="left"><code>info</code></td>
+<td align="left">显示提示对话框</td>
+<td align="left">2</td>
+<td align="left">标题+显示内容</td>
+</tr>
+<tr>
+<td align="left"><code>error</code></td>
+<td align="left">显示错误对话框</td>
+<td align="left">2</td>
+<td align="left">标题+显示内容</td>
+</tr>
+<tr>
+<td align="left"><code>warning</code></td>
+<td align="left">显示警告对话框</td>
+<td align="left">2</td>
+<td align="left">标题+显示内容</td>
+</tr>
+<tr>
+<td align="left"><code>exit</code></td>
+<td align="left">退出程序</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>bash</code></td>
+<td align="left">执行 bash 命令（在 Windows 系统将执行 cmd 命令）</td>
+<td align="left">≥1</td>
+<td align="left">接要执行的命令</td>
+</tr>
+<tr>
+<td align="left"><code>bat</code></td>
+<td align="left">执行 cmd 命令在 Wine 容器内（在 Windows 将在系统执行命令）</td>
+<td align="left">≥1</td>
+<td align="left">接要执行的命令</td>
+</tr>
+<tr>
+<td align="left"><code>version</code></td>
+<td align="left">显示解释器版本（Wine 运行器版本）</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>thank</code></td>
+<td align="left">显示谢明列表</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>pause</code></td>
+<td align="left">按回车键后继续</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>download</code></td>
+<td align="left">使用 aria2 下载文件</td>
+<td align="left">≥1 &amp;&amp; ≤3</td>
+<td align="left">下载URL+保存在的文件夹+保存的文件名</td>
+</tr>
+<tr>
+<td align="left"><code>installdxvk</code></td>
+<td align="left">安装 dxvk 到指定容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>createbotton</code></td>
+<td align="left">在指定目录创建容器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>reg</code></td>
+<td align="left">导入 .reg 文件</td>
+<td align="left">1</td>
+<td align="left">reg 文件路径</td>
+</tr>
+<tr>
+<td align="left"><code>enabledopengl</code></td>
+<td align="left">开启 OpenGL</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>disbledopengl</code></td>
+<td align="left">关闭 OpenGL</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>winecfg</code></td>
+<td align="left">显示“Wine 设置”</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>winver</code></td>
+<td align="left">显示“关于 Wine”</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>changeversion</code></td>
+<td align="left">更改 Wine 容器系统版本（未实现）</td>
+<td align="left">-</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>cat</code></td>
+<td align="left">显示指定文件（只支持显示编码为<code>UTF-8</code>的文件）</td>
+<td align="left">1</td>
+<td align="left">文件路径</td>
+</tr>
+<tr>
+<td align="left"><code>enabledhttpproxy</code></td>
+<td align="left">设置指定容器代理</td>
+<td align="left">2</td>
+<td align="left">代理服务器地址+端口</td>
+</tr>
+<tr>
+<td align="left"><code>disbledhttpproxy</code></td>
+<td align="left">禁用指定容器代理</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>enabledwinecrashdialog</code></td>
+<td align="left">启用 Wine 容器程序崩溃提示窗口</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>disbledwinecrashdialog</code></td>
+<td align="left">禁用 Wine 容器程序崩溃提示窗口</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>disbledWinebottlecreatelink</code></td>
+<td align="left">禁止 Wine 容器生成快捷方式</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>enabledWinebottlecreatelink</code></td>
+<td align="left">允许 Wine 容器生成快捷方式</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>control</code></td>
+<td align="left">打开控制面板</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>taskmgr</code></td>
+<td align="left">打开任务管理器</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>killallwineserver</code></td>
+<td align="left">杀死所有 Wine 程序</td>
+<td align="left">0</td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>killall</code></td>
+<td align="left">杀死指定进程</td>
+<td align="left">1</td>
+<td align="left">进程名</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="需要注意的命令" class="anchor" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%91%BD%E4%BB%A4"></a>需要注意的命令</h3>
+<p>以下命令需要在运行时带<code>--system</code>参数才可使用（目前 Wine 运行器 2.1.0 的图形化运行工具会添加<code>--system</code>参数，后续可能需要用户手动在设置打开）：</p>
+<ul>
+<li><code>bash</code></li>
+<li><code>bat</code></li>
+<li><code>download</code></li>
+<li><code>reg</code></li>
+</ul>
+<p>如果不加<code>--system</code>参数，执行以上命令会提示如下内容并无法运行：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>&gt;bash
+行1命令bash目前解析器不允许运行，忽略
+如果需要运行，可以在配置面板开启“允许修改系统”选项（针对GUI用户）
+或添加参数 --system（终端调用运行用户）
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h1>
+<a id="解释器" class="anchor" href="#%E8%A7%A3%E9%87%8A%E5%99%A8"></a>解释器</h1>
+<h2>
+<a id="调用" class="anchor" href="#%E8%B0%83%E7%94%A8"></a>调用</h2>
+<h3>
+<a id="gui-方式调用" class="anchor" href="#gui-%E6%96%B9%E5%BC%8F%E8%B0%83%E7%94%A8"></a>GUI 方式调用</h3>
+<p>如下：<br>
+<img src="https://storage.deepin.org/thread/202208300843296879_image.png" alt="image.png"></p>
+<h3>
+<a id="命令调用" class="anchor" href="#%E5%91%BD%E4%BB%A4%E8%B0%83%E7%94%A8"></a>命令调用</h3>
+<p>安装 Wine 运行器后，解释器路径在 <code>/opt/apps/deepin-wine-runner/ConfigLanguareRunner.py</code>，执行以下命令即可：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>/opt/apps/deepin-wine-runner/ConfigLanguareRunner.py 脚本路径
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h2>
+<a id="交互环境" class="anchor" href="#%E4%BA%A4%E4%BA%92%E7%8E%AF%E5%A2%83"></a>交互环境</h2>
+<p>如果不指定脚本路径，会进入如下的交互环境</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>gfdgd_xi@gfdgdxi-PC:~$ /opt/apps/deepin-wine-runner/ConfigLanguareRunner.py 
+Wine 运行器自动配置文件解析器交互环境
+版本：2.1.0
+©2020~2022 gfdgd xi、为什么您不喜欢熊出没和阿布呢
+--------------------------------------------------------------
+&gt;
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>在此环境输入命令进行测试即可</p>
+<h2>
+<a id="如何做到一个脚本可以同时做到支持旧版解析器和-bash-解析器" class="anchor" href="#%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E4%B8%80%E4%B8%AA%E8%84%9A%E6%9C%AC%E5%8F%AF%E4%BB%A5%E5%90%8C%E6%97%B6%E5%81%9A%E5%88%B0%E6%94%AF%E6%8C%81%E6%97%A7%E7%89%88%E8%A7%A3%E6%9E%90%E5%99%A8%E5%92%8C-bash-%E8%A7%A3%E6%9E%90%E5%99%A8"></a>如何做到一个脚本可以同时做到支持旧版解析器和 Bash 解析器</h2>
+<p>语法如下：</p>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>#!/usr/bin/env deepin-wine-runner-auto-install-bash
+# 用于判断是否为 bash 解释器
+# 旧版解释器直接提示不兼容
+if [[ 1 == 2 ]]; then
+    # 旧版脚本内容，如下
+    echo 旧版解释器
+    exit   # exit 不可略过，否则会执行到下面新版解释器的内容
+fi
+# 新版脚本内容，如下
+echo 新版解释器
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p><strong>注意如果想要同时兼容的话是不能使用旧版解释器的变量语法，会导致 Bash 解释器语法错误而无法执行</strong></p>
+<h2>
+<a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0"></a>参数</h2>
+<h3>
+<a id="读取的环境变量" class="anchor" href="#%E8%AF%BB%E5%8F%96%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"></a>读取的环境变量</h3>
+<table>
+<thead>
+<tr>
+<th align="left">环境变量</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>WINE</code></td>
+<td align="left">指定的 Wine，如<code>deepin-wine6-stable</code>
+</td>
+</tr>
+<tr>
+<td align="left"><code>WINEPREFIX</code></td>
+<td align="left">指定的 Wine 容器，如<code>/home/gfdgd_xi/.wine</code>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="解释器参数" class="anchor" href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E5%8F%82%E6%95%B0"></a>解释器参数</h3>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>--system</code></td>
+<td align="left">允许运行风险较大的命令</td>
+</tr>
+<tr>
+<td align="left"><code>--debug</code></td>
+<td align="left">输出详细报错用于开发者调试</td>
+</tr>
+</tbody>
+</table>
+<h1>
+<a id="提交要求" class="anchor" href="#%E6%8F%90%E4%BA%A4%E8%A6%81%E6%B1%82"></a>提交要求</h1>
+<h2>
+<a id="必须遵守" class="anchor" href="#%E5%BF%85%E9%A1%BB%E9%81%B5%E5%AE%88"></a>必须遵守</h2>
+<ol>
+<li>不得含有危险的命令，如：</li>
+</ol>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>bash sudo rm -rf /*
+bash chmod 000 -R /*
+bat rd /s /q C:\
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<ol start="2">
+<li>没有明显的 bug 或逻辑错误</li>
+<li>Pr 提交时需要更新两个文件：
+<ul>
+<li>list.json</li>
+<li>您的脚本文件<br>
+其中 list.json 更新的格式如下：<br>
+<code>["标题", "您的脚本文件文件名"]</code><br>
+需要添加到最后一个项目的末尾，按照 json 格式更新<br>
+并且更新的 <code>list.json</code> 文件和您的脚本文件需要放在<code>/auto</code>目录下才可读取：
+还无法理解？例子：
+这里是需要更新的 <code>list.json</code> 文件：</li>
+</ul>
+<div class="markdown-code-block">
+<pre lang="json" class="json"><code>[
+    ["安装所有VC运行库", "vcpp.wsh"],
+    ["安装 Microsoft Office 2013 环境", "office2013.wsh"]
+]
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+我想要添加一个标题为<code>Example</code>的脚本，脚本文件名为<code>example.wsh</code>，只需要把 <code>list.json</code> 改为
+<div class="markdown-code-block">
+<pre lang="json" class="json"><code>[
+    ["安装所有VC运行库", "vcpp.wsh"],
+    ["安装 Microsoft Office 2013 环境", "office2013.wsh"],
+    ["Example", "example.wsh"]
+]
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+更新后的<code>list.json</code>文件与<code>example.wsh</code>需要在同一目录才可读取</li>
+<li>提交仓库：<a href="https://gitee.com/gfdgd-xi/deep-wine-runner-auto-configuration-script">https://gitee.com/gfdgd-xi/deep-wine-runner-auto-configuration-script</a><br>
+Pr 过了后将会由开发者/仓库拥有者/仓库维护者合并到 Gitlink 仓库并上程序<br>
+<strong>注意：请勿直接 Pr 到 Gitlink 仓库！</strong>
+</li>
+<li>代码提交优先使用 Bash 新引擎的脚本</li>
+<li>……</li>
+</ol>
+<h2>
+<a id="建议遵守" class="anchor" href="#%E5%BB%BA%E8%AE%AE%E9%81%B5%E5%AE%88"></a>建议遵守</h2>
+<ol>
+<li>建议不要使用需要<code>--system</code>参数才可使用的命令</li>
+<li>指定 dll 时建议用编号，或者dll命令+系统版本+位数（未实现）</li>
+<li>……</li>
+</ol>
+<h1>
+<a id="2020now-gfdgd-xi为什么您不喜欢熊出没和阿布呢" class="anchor" href="#2020now-gfdgd-xi%E4%B8%BA%E4%BB%80%E4%B9%88%E6%82%A8%E4%B8%8D%E5%96%9C%E6%AC%A2%E7%86%8A%E5%87%BA%E6%B2%A1%E5%92%8C%E9%98%BF%E5%B8%83%E5%91%A2"></a>©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢</h1></div><div class='title'>开源协议</div><div class='content'></div><div class='title'>GPLv3</div><div class='content'><div class="markdown-code-block">
+<pre><code>                GNU GENERAL PUBLIC LICENSE
+                   Version 3, 29 June 2007
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>Copyright (C) 2007 Free Software Foundation, Inc. <a href="http://fsf.org/">http://fsf.org/</a>
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.</p>
+<div class="markdown-code-block">
+<pre><code>                        Preamble
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>The GNU General Public License is a free, copyleft license for
+software and other kinds of works.</p>
+<p>The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+the GNU General Public License is intended to guarantee your freedom to
+share and change all versions of a program--to make sure it remains free
+software for all its users.  We, the Free Software Foundation, use the
+GNU General Public License for most of our software; it applies also to
+any other work released this way by its authors.  You can apply it to
+your programs, too.</p>
+<p>When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it if you
+want it, that you can change the software or use pieces of it in new
+free programs, and that you know you can do these things.</p>
+<p>To protect your rights, we need to prevent others from denying you
+these rights or asking you to surrender the rights.  Therefore, you have
+certain responsibilities if you distribute copies of the software, or if
+you modify it: responsibilities to respect the freedom of others.</p>
+<p>For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must pass on to the recipients the same
+freedoms that you received.  You must make sure that they, too, receive
+or can get the source code.  And you must show them these terms so they
+know their rights.</p>
+<p>Developers that use the GNU GPL protect your rights with two steps:
+(1) assert copyright on the software, and (2) offer you this License
+giving you legal permission to copy, distribute and/or modify it.</p>
+<p>For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software.  For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, so that their problems will not be attributed erroneously to
+authors of previous versions.</p>
+<p>Some devices are designed to deny users access to install or run
+modified versions of the software inside them, although the manufacturer
+can do so.  This is fundamentally incompatible with the aim of
+protecting users' freedom to change the software.  The systematic
+pattern of such abuse occurs in the area of products for individuals to
+use, which is precisely where it is most unacceptable.  Therefore, we
+have designed this version of the GPL to prohibit the practice for those
+products.  If such problems arise substantially in other domains, we
+stand ready to extend this provision to those domains in future versions
+of the GPL, as needed to protect the freedom of users.</p>
+<p>Finally, every program is threatened constantly by software patents.
+States should not allow patents to restrict development and use of
+software on general-purpose computers, but in those that do, we wish to
+avoid the special danger that patents applied to a free program could
+make it effectively proprietary.  To prevent this, the GPL assures that
+patents cannot be used to render the program non-free.</p>
+<p>The precise terms and conditions for copying, distribution and
+modification follow.</p>
+<div class="markdown-code-block">
+<pre><code>                   TERMS AND CONDITIONS
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<ol start="0">
+<li>Definitions.</li>
+</ol>
+<p>"This License" refers to version 3 of the GNU General Public License.</p>
+<p>"Copyright" also means copyright-like laws that apply to other kinds of
+works, such as semiconductor masks.</p>
+<p>"The Program" refers to any copyrightable work licensed under this
+License.  Each licensee is addressed as "you".  "Licensees" and
+"recipients" may be individuals or organizations.</p>
+<p>To "modify" a work means to copy from or adapt all or part of the work
+in a fashion requiring copyright permission, other than the making of an
+exact copy.  The resulting work is called a "modified version" of the
+earlier work or a work "based on" the earlier work.</p>
+<p>A "covered work" means either the unmodified Program or a work based
+on the Program.</p>
+<p>To "propagate" a work means to do anything with it that, without
+permission, would make you directly or secondarily liable for
+infringement under applicable copyright law, except executing it on a
+computer or modifying a private copy.  Propagation includes copying,
+distribution (with or without modification), making available to the
+public, and in some countries other activities as well.</p>
+<p>To "convey" a work means any kind of propagation that enables other
+parties to make or receive copies.  Mere interaction with a user through
+a computer network, with no transfer of a copy, is not conveying.</p>
+<p>An interactive user interface displays "Appropriate Legal Notices"
+to the extent that it includes a convenient and prominently visible
+feature that (1) displays an appropriate copyright notice, and (2)
+tells the user that there is no warranty for the work (except to the
+extent that warranties are provided), that licensees may convey the
+work under this License, and how to view a copy of this License.  If
+the interface presents a list of user commands or options, such as a
+menu, a prominent item in the list meets this criterion.</p>
+<ol>
+<li>Source Code.</li>
+</ol>
+<p>The "source code" for a work means the preferred form of the work
+for making modifications to it.  "Object code" means any non-source
+form of a work.</p>
+<p>A "Standard Interface" means an interface that either is an official
+standard defined by a recognized standards body, or, in the case of
+interfaces specified for a particular programming language, one that
+is widely used among developers working in that language.</p>
+<p>The "System Libraries" of an executable work include anything, other
+than the work as a whole, that (a) is included in the normal form of
+packaging a Major Component, but which is not part of that Major
+Component, and (b) serves only to enable use of the work with that
+Major Component, or to implement a Standard Interface for which an
+implementation is available to the public in source code form.  A
+"Major Component", in this context, means a major essential component
+(kernel, window system, and so on) of the specific operating system
+(if any) on which the executable work runs, or a compiler used to
+produce the work, or an object code interpreter used to run it.</p>
+<p>The "Corresponding Source" for a work in object code form means all
+the source code needed to generate, install, and (for an executable
+work) run the object code and to modify the work, including scripts to
+control those activities.  However, it does not include the work's
+System Libraries, or general-purpose tools or generally available free
+programs which are used unmodified in performing those activities but
+which are not part of the work.  For example, Corresponding Source
+includes interface definition files associated with source files for
+the work, and the source code for shared libraries and dynamically
+linked subprograms that the work is specifically designed to require,
+such as by intimate data communication or control flow between those
+subprograms and other parts of the work.</p>
+<p>The Corresponding Source need not include anything that users
+can regenerate automatically from other parts of the Corresponding
+Source.</p>
+<p>The Corresponding Source for a work in source code form is that
+same work.</p>
+<ol start="2">
+<li>Basic Permissions.</li>
+</ol>
+<p>All rights granted under this License are granted for the term of
+copyright on the Program, and are irrevocable provided the stated
+conditions are met.  This License explicitly affirms your unlimited
+permission to run the unmodified Program.  The output from running a
+covered work is covered by this License only if the output, given its
+content, constitutes a covered work.  This License acknowledges your
+rights of fair use or other equivalent, as provided by copyright law.</p>
+<p>You may make, run and propagate covered works that you do not
+convey, without conditions so long as your license otherwise remains
+in force.  You may convey covered works to others for the sole purpose
+of having them make modifications exclusively for you, or provide you
+with facilities for running those works, provided that you comply with
+the terms of this License in conveying all material for which you do
+not control copyright.  Those thus making or running the covered works
+for you must do so exclusively on your behalf, under your direction
+and control, on terms that prohibit them from making any copies of
+your copyrighted material outside their relationship with you.</p>
+<p>Conveying under any other circumstances is permitted solely under
+the conditions stated below.  Sublicensing is not allowed; section 10
+makes it unnecessary.</p>
+<ol start="3">
+<li>Protecting Users' Legal Rights From Anti-Circumvention Law.</li>
+</ol>
+<p>No covered work shall be deemed part of an effective technological
+measure under any applicable law fulfilling obligations under article
+11 of the WIPO copyright treaty adopted on 20 December 1996, or
+similar laws prohibiting or restricting circumvention of such
+measures.</p>
+<p>When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvention
+is effected by exercising rights under this License with respect to
+the covered work, and you disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's
+users, your or third parties' legal rights to forbid circumvention of
+technological measures.</p>
+<ol start="4">
+<li>Conveying Verbatim Copies.</li>
+</ol>
+<p>You may convey verbatim copies of the Program's source code as you
+receive it, in any medium, provided that you conspicuously and
+appropriately publish on each copy an appropriate copyright notice;
+keep intact all notices stating that this License and any
+non-permissive terms added in accord with section 7 apply to the code;
+keep intact all notices of the absence of any warranty; and give all
+recipients a copy of this License along with the Program.</p>
+<p>You may charge any price or no price for each copy that you convey,
+and you may offer support or warranty protection for a fee.</p>
+<ol start="5">
+<li>Conveying Modified Source Versions.</li>
+</ol>
+<p>You may convey a work based on the Program, or the modifications to
+produce it from the Program, in the form of source code under the
+terms of section 4, provided that you also meet all of these conditions:</p>
+<div class="markdown-code-block">
+<pre><code>a) The work must carry prominent notices stating that you modified
+it, and giving a relevant date.
+
+b) The work must carry prominent notices stating that it is
+released under this License and any conditions added under section
+7.  This requirement modifies the requirement in section 4 to
+"keep intact all notices".
+
+c) You must license the entire work, as a whole, under this
+License to anyone who comes into possession of a copy.  This
+License will therefore apply, along with any applicable section 7
+additional terms, to the whole of the work, and all its parts,
+regardless of how they are packaged.  This License gives no
+permission to license the work in any other way, but it does not
+invalidate such permission if you have separately received it.
+
+d) If the work has interactive user interfaces, each must display
+Appropriate Legal Notices; however, if the Program has interactive
+interfaces that do not display Appropriate Legal Notices, your
+work need not make them do so.
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>A compilation of a covered work with other separate and independent
+works, which are not by their nature extensions of the covered work,
+and which are not combined with it such as to form a larger program,
+in or on a volume of a storage or distribution medium, is called an
+"aggregate" if the compilation and its resulting copyright are not
+used to limit the access or legal rights of the compilation's users
+beyond what the individual works permit.  Inclusion of a covered work
+in an aggregate does not cause this License to apply to the other
+parts of the aggregate.</p>
+<ol start="6">
+<li>Conveying Non-Source Forms.</li>
+</ol>
+<p>You may convey a covered work in object code form under the terms
+of sections 4 and 5, provided that you also convey the
+machine-readable Corresponding Source under the terms of this License,
+in one of these ways:</p>
+<div class="markdown-code-block">
+<pre><code>a) Convey the object code in, or embodied in, a physical product
+(including a physical distribution medium), accompanied by the
+Corresponding Source fixed on a durable physical medium
+customarily used for software interchange.
+
+b) Convey the object code in, or embodied in, a physical product
+(including a physical distribution medium), accompanied by a
+written offer, valid for at least three years and valid for as
+long as you offer spare parts or customer support for that product
+model, to give anyone who possesses the object code either (1) a
+copy of the Corresponding Source for all the software in the
+product that is covered by this License, on a durable physical
+medium customarily used for software interchange, for a price no
+more than your reasonable cost of physically performing this
+conveying of source, or (2) access to copy the
+Corresponding Source from a network server at no charge.
+
+c) Convey individual copies of the object code with a copy of the
+written offer to provide the Corresponding Source.  This
+alternative is allowed only occasionally and noncommercially, and
+only if you received the object code with such an offer, in accord
+with subsection 6b.
+
+d) Convey the object code by offering access from a designated
+place (gratis or for a charge), and offer equivalent access to the
+Corresponding Source in the same way through the same place at no
+further charge.  You need not require recipients to copy the
+Corresponding Source along with the object code.  If the place to
+copy the object code is a network server, the Corresponding Source
+may be on a different server (operated by you or a third party)
+that supports equivalent copying facilities, provided you maintain
+clear directions next to the object code saying where to find the
+Corresponding Source.  Regardless of what server hosts the
+Corresponding Source, you remain obligated to ensure that it is
+available for as long as needed to satisfy these requirements.
+
+e) Convey the object code using peer-to-peer transmission, provided
+you inform other peers where the object code and Corresponding
+Source of the work are being offered to the general public at no
+charge under subsection 6d.
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>A separable portion of the object code, whose source code is excluded
+from the Corresponding Source as a System Library, need not be
+included in conveying the object code work.</p>
+<p>A "User Product" is either (1) a "consumer product", which means any
+tangible personal property which is normally used for personal, family,
+or household purposes, or (2) anything designed or sold for incorporation
+into a dwelling.  In determining whether a product is a consumer product,
+doubtful cases shall be resolved in favor of coverage.  For a particular
+product received by a particular user, "normally used" refers to a
+typical or common use of that class of product, regardless of the status
+of the particular user or of the way in which the particular user
+actually uses, or expects or is expected to use, the product.  A product
+is a consumer product regardless of whether the product has substantial
+commercial, industrial or non-consumer uses, unless such uses represent
+the only significant mode of use of the product.</p>
+<p>"Installation Information" for a User Product means any methods,
+procedures, authorization keys, or other information required to install
+and execute modified versions of a covered work in that User Product from
+a modified version of its Corresponding Source.  The information must
+suffice to ensure that the continued functioning of the modified object
+code is in no case prevented or interfered with solely because
+modification has been made.</p>
+<p>If you convey an object code work under this section in, or with, or
+specifically for use in, a User Product, and the conveying occurs as
+part of a transaction in which the right of possession and use of the
+User Product is transferred to the recipient in perpetuity or for a
+fixed term (regardless of how the transaction is characterized), the
+Corresponding Source conveyed under this section must be accompanied
+by the Installation Information.  But this requirement does not apply
+if neither you nor any third party retains the ability to install
+modified object code on the User Product (for example, the work has
+been installed in ROM).</p>
+<p>The requirement to provide Installation Information does not include a
+requirement to continue to provide support service, warranty, or updates
+for a work that has been modified or installed by the recipient, or for
+the User Product in which it has been modified or installed.  Access to a
+network may be denied when the modification itself materially and
+adversely affects the operation of the network or violates the rules and
+protocols for communication across the network.</p>
+<p>Corresponding Source conveyed, and Installation Information provided,
+in accord with this section must be in a format that is publicly
+documented (and with an implementation available to the public in
+source code form), and must require no special password or key for
+unpacking, reading or copying.</p>
+<ol start="7">
+<li>Additional Terms.</li>
+</ol>
+<p>"Additional permissions" are terms that supplement the terms of this
+License by making exceptions from one or more of its conditions.
+Additional permissions that are applicable to the entire Program shall
+be treated as though they were included in this License, to the extent
+that they are valid under applicable law.  If additional permissions
+apply only to part of the Program, that part may be used separately
+under those permissions, but the entire Program remains governed by
+this License without regard to the additional permissions.</p>
+<p>When you convey a copy of a covered work, you may at your option
+remove any additional permissions from that copy, or from any part of
+it.  (Additional permissions may be written to require their own
+removal in certain cases when you modify the work.)  You may place
+additional permissions on material, added by you to a covered work,
+for which you have or can give appropriate copyright permission.</p>
+<p>Notwithstanding any other provision of this License, for material you
+add to a covered work, you may (if authorized by the copyright holders of
+that material) supplement the terms of this License with terms:</p>
+<div class="markdown-code-block">
+<pre><code>a) Disclaiming warranty or limiting liability differently from the
+terms of sections 15 and 16 of this License; or
+
+b) Requiring preservation of specified reasonable legal notices or
+author attributions in that material or in the Appropriate Legal
+Notices displayed by works containing it; or
+
+c) Prohibiting misrepresentation of the origin of that material, or
+requiring that modified versions of such material be marked in
+reasonable ways as different from the original version; or
+
+d) Limiting the use for publicity purposes of names of licensors or
+authors of the material; or
+
+e) Declining to grant rights under trademark law for use of some
+trade names, trademarks, or service marks; or
+
+f) Requiring indemnification of licensors and authors of that
+material by anyone who conveys the material (or modified versions of
+it) with contractual assumptions of liability to the recipient, for
+any liability that these contractual assumptions directly impose on
+those licensors and authors.
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>All other non-permissive additional terms are considered "further
+restrictions" within the meaning of section 10.  If the Program as you
+received it, or any part of it, contains a notice stating that it is
+governed by this License along with a term that is a further
+restriction, you may remove that term.  If a license document contains
+a further restriction but permits relicensing or conveying under this
+License, you may add to a covered work material governed by the terms
+of that license document, provided that the further restriction does
+not survive such relicensing or conveying.</p>
+<p>If you add terms to a covered work in accord with this section, you
+must place, in the relevant source files, a statement of the
+additional terms that apply to those files, or a notice indicating
+where to find the applicable terms.</p>
+<p>Additional terms, permissive or non-permissive, may be stated in the
+form of a separately written license, or stated as exceptions;
+the above requirements apply either way.</p>
+<ol start="8">
+<li>Termination.</li>
+</ol>
+<p>You may not propagate or modify a covered work except as expressly
+provided under this License.  Any attempt otherwise to propagate or
+modify it is void, and will automatically terminate your rights under
+this License (including any patent licenses granted under the third
+paragraph of section 11).</p>
+<p>However, if you cease all violation of this License, then your
+license from a particular copyright holder is reinstated (a)
+provisionally, unless and until the copyright holder explicitly and
+finally terminates your license, and (b) permanently, if the copyright
+holder fails to notify you of the violation by some reasonable means
+prior to 60 days after the cessation.</p>
+<p>Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.</p>
+<p>Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, you do not qualify to receive new licenses for the same
+material under section 10.</p>
+<ol start="9">
+<li>Acceptance Not Required for Having Copies.</li>
+</ol>
+<p>You are not required to accept this License in order to receive or
+run a copy of the Program.  Ancillary propagation of a covered work
+occurring solely as a consequence of using peer-to-peer transmission
+to receive a copy likewise does not require acceptance.  However,
+nothing other than this License grants you permission to propagate or
+modify any covered work.  These actions infringe copyright if you do
+not accept this License.  Therefore, by modifying or propagating a
+covered work, you indicate your acceptance of this License to do so.</p>
+<ol start="10">
+<li>Automatic Licensing of Downstream Recipients.</li>
+</ol>
+<p>Each time you convey a covered work, the recipient automatically
+receives a license from the original licensors, to run, modify and
+propagate that work, subject to this License.  You are not responsible
+for enforcing compliance by third parties with this License.</p>
+<p>An "entity transaction" is a transaction transferring control of an
+organization, or substantially all assets of one, or subdividing an
+organization, or merging organizations.  If propagation of a covered
+work results from an entity transaction, each party to that
+transaction who receives a copy of the work also receives whatever
+licenses to the work the party's predecessor in interest had or could
+give under the previous paragraph, plus a right to possession of the
+Corresponding Source of the work from the predecessor in interest, if
+the predecessor has it or can get it with reasonable efforts.</p>
+<p>You may not impose any further restrictions on the exercise of the
+rights granted or affirmed under this License.  For example, you may
+not impose a license fee, royalty, or other charge for exercise of
+rights granted under this License, and you may not initiate litigation
+(including a cross-claim or counterclaim in a lawsuit) alleging that
+any patent claim is infringed by making, using, selling, offering for
+sale, or importing the Program or any portion of it.</p>
+<ol start="11">
+<li>Patents.</li>
+</ol>
+<p>A "contributor" is a copyright holder who authorizes use under this
+License of the Program or a work on which the Program is based.  The
+work thus licensed is called the contributor's "contributor version".</p>
+<p>A contributor's "essential patent claims" are all patent claims
+owned or controlled by the contributor, whether already acquired or
+hereafter acquired, that would be infringed by some manner, permitted
+by this License, of making, using, or selling its contributor version,
+but do not include claims that would be infringed only as a
+consequence of further modification of the contributor version.  For
+purposes of this definition, "control" includes the right to grant
+patent sublicenses in a manner consistent with the requirements of
+this License.</p>
+<p>Each contributor grants you a non-exclusive, worldwide, royalty-free
+patent license under the contributor's essential patent claims, to
+make, use, sell, offer for sale, import and otherwise run, modify and
+propagate the contents of its contributor version.</p>
+<p>In the following three paragraphs, a "patent license" is any express
+agreement or commitment, however denominated, not to enforce a patent
+(such as an express permission to practice a patent or covenant not to
+sue for patent infringement).  To "grant" such a patent license to a
+party means to make such an agreement or commitment not to enforce a
+patent against the party.</p>
+<p>If you convey a covered work, knowingly relying on a patent license,
+and the Corresponding Source of the work is not available for anyone
+to copy, free of charge and under the terms of this License, through a
+publicly available network server or other readily accessible means,
+then you must either (1) cause the Corresponding Source to be so
+available, or (2) arrange to deprive yourself of the benefit of the
+patent license for this particular work, or (3) arrange, in a manner
+consistent with the requirements of this License, to extend the patent
+license to downstream recipients.  "Knowingly relying" means you have
+actual knowledge that, but for the patent license, your conveying the
+covered work in a country, or your recipient's use of the covered work
+in a country, would infringe one or more identifiable patents in that
+country that you have reason to believe are valid.</p>
+<p>If, pursuant to or in connection with a single transaction or
+arrangement, you convey, or propagate by procuring conveyance of, a
+covered work, and grant a patent license to some of the parties
+receiving the covered work authorizing them to use, propagate, modify
+or convey a specific copy of the covered work, then the patent license
+you grant is automatically extended to all recipients of the covered
+work and works based on it.</p>
+<p>A patent license is "discriminatory" if it does not include within
+the scope of its coverage, prohibits the exercise of, or is
+conditioned on the non-exercise of one or more of the rights that are
+specifically granted under this License.  You may not convey a covered
+work if you are a party to an arrangement with a third party that is
+in the business of distributing software, under which you make payment
+to the third party based on the extent of your activity of conveying
+the work, and under which the third party grants, to any of the
+parties who would receive the covered work from you, a discriminatory
+patent license (a) in connection with copies of the covered work
+conveyed by you (or copies made from those copies), or (b) primarily
+for and in connection with specific products or compilations that
+contain the covered work, unless you entered into that arrangement,
+or that patent license was granted, prior to 28 March 2007.</p>
+<p>Nothing in this License shall be construed as excluding or limiting
+any implied license or other defenses to infringement that may
+otherwise be available to you under applicable patent law.</p>
+<ol start="12">
+<li>No Surrender of Others' Freedom.</li>
+</ol>
+<p>If conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot convey a
+covered work so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you may
+not convey it at all.  For example, if you agree to terms that obligate you
+to collect a royalty for further conveying from those to whom you convey
+the Program, the only way you could satisfy both those terms and this
+License would be to refrain entirely from conveying the Program.</p>
+<ol start="13">
+<li>Use with the GNU Affero General Public License.</li>
+</ol>
+<p>Notwithstanding any other provision of this License, you have
+permission to link or combine any covered work with a work licensed
+under version 3 of the GNU Affero General Public License into a single
+combined work, and to convey the resulting work.  The terms of this
+License will continue to apply to the part which is the covered work,
+but the special requirements of the GNU Affero General Public License,
+section 13, concerning interaction through a network will apply to the
+combination as such.</p>
+<ol start="14">
+<li>Revised Versions of this License.</li>
+</ol>
+<p>The Free Software Foundation may publish revised and/or new versions of
+the GNU General Public License from time to time.  Such new versions will
+be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.</p>
+<p>Each version is given a distinguishing version number.  If the
+Program specifies that a certain numbered version of the GNU General
+Public License "or any later version" applies to it, you have the
+option of following the terms and conditions either of that numbered
+version or of any later version published by the Free Software
+Foundation.  If the Program does not specify a version number of the
+GNU General Public License, you may choose any version ever published
+by the Free Software Foundation.</p>
+<p>If the Program specifies that a proxy can decide which future
+versions of the GNU General Public License can be used, that proxy's
+public statement of acceptance of a version permanently authorizes you
+to choose that version for the Program.</p>
+<p>Later license versions may give you additional or different
+permissions.  However, no additional obligations are imposed on any
+author or copyright holder as a result of your choosing to follow a
+later version.</p>
+<ol start="15">
+<li>Disclaimer of Warranty.</li>
+</ol>
+<p>THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</p>
+<ol start="16">
+<li>Limitation of Liability.</li>
+</ol>
+<p>IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.</p>
+<ol start="17">
+<li>Interpretation of Sections 15 and 16.</li>
+</ol>
+<p>If the disclaimer of warranty and limitation of liability provided
+above cannot be given local legal effect according to their terms,
+reviewing courts shall apply local law that most closely approximates
+an absolute waiver of all civil liability in connection with the
+Program, unless a warranty or assumption of liability accompanies a
+copy of the Program in return for a fee.</p>
+<div class="markdown-code-block">
+<pre><code>                 END OF TERMS AND CONDITIONS
+
+        How to Apply These Terms to Your New Programs
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these terms.</p>
+<p>To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+state the exclusion of warranty; and each file should have at least
+the "copyright" line and a pointer to where the full notice is found.</p>
+<div class="markdown-code-block">
+<pre><code>&lt;one line to give the program's name and a brief idea of what it does.&gt;
+Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>Also add information on how to contact you by electronic and paper mail.</p>
+<p>If the program does terminal interaction, make it output a short
+notice like this when it starts in an interactive mode:</p>
+<div class="markdown-code-block">
+<pre><code>&lt;program&gt;  Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c' for details.
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>The hypothetical commands <code>show w' and </code>show c' should show the appropriate
+parts of the General Public License.  Of course, your program's commands
+might be different; for a GUI interface, you would use an "about box".</p>
+<p>You should also get your employer (if you work as a programmer) or school,
+if any, to sign a "copyright disclaimer" for the program, if necessary.
+For more information on this, and how to apply and follow the GNU GPL, see
+<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+<p>The GNU General Public License does not permit incorporating your program
+into proprietary programs.  If your program is a subroutine library, you
+may consider it more useful to permit linking proprietary applications with
+the library.  If this is what you want to do, use the GNU Lesser General
+Public License instead of this License.  But first, please read
+<a href="http://www.gnu.org/philosophy/why-not-lgpl.html">http://www.gnu.org/philosophy/why-not-lgpl.html</a>.</p></div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</body>
+</html>
