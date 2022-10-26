@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 1.8.1-1）
-- Wine 运行器（最新版本 2.3.0）
+- Wine 运行器（最新版本 2.4.0）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.4.0）
 - ……
@@ -45,7 +45,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.3.0）
+# Wine 运行器（最新版本 2.4.0）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
@@ -142,18 +142,19 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 2.3.0）
-**※1、自动配置解释器支持 bash 语法（新版底层调用 bash，旧版任然使用旧版解析引擎）**  
-**※2、修复缺失 wimtools 依赖导致无法正常安装的问题**  
-**※3、修复基于生态适配活动脚本打包器对话框过多影响使用的问题，并支持指定不同的包名和容器名**  
-**※4、7z 文件解压不会自动替换文件然后卡死以及因此导致程序闪退的问题**  
-**※5、修复安装更多 Wine 终端调用问题和图标问题**  
-**※6、支持 openkylin**  
-7、支持通过 exe 路径自动生成 Wine 容器路径  
-8、支持禁用/启用 wine 容器是否生成快捷方式的功能以及启用/禁用程序崩溃提示对话框  
-9、支持设置 wine 容器代理  
-10、自动配置脚本支持使用 `--help` 参数查看帮助  
-![截图_选择区域_20221002221112.png](https://storage.deepin.org/thread/202210022215217037_截图_选择区域_20221002221112.png)  
+## Wine 运行器（最新版本 2.4.0）
+**※1、新增 VB Runtime 组件安装工具**  
+**※2、优化自动配置容器搜索功能，搜索不区分大小写**  
+**※3、新增 Wine 容器快捷键映射功能**  
+**※4、修复在 arm 架构运行 Wine 时提示无法解压资源的问题**  
+**※5、修复右键无法找到 Wine 运行器打开方式的问题**  
+**※6、修复了容器自动配置脚本 GUI 解析器无法指定 Wine、容器以及位数的功能**  
+**※7、容器自动配置脚本支持评分功能以及脚本内容介绍功能**  
+**※8、支持添加自定义安装的 Wine**  
+**※9、打包器打包的 arm 包支持同时支持 UOS 的 box86 和 exagear**  
+**※10、提供了 Python 的自动配置脚本 API**  
+![截图_选择区域_20221026213608.png](https://storage.deepin.org/thread/202210262151486316_截图_选择区域_20221026213608.png)
+![截图_选择区域_20221026213546.png](https://storage.deepin.org/thread/202210262151481582_截图_选择区域_20221026213546.png)
 ![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
