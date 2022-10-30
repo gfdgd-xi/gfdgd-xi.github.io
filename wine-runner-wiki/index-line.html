@@ -328,7 +328,7 @@ Gitlink：<a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https:/
 <strong>最后说一下，如果想要在商业环境使用此APP，因为程序内附商业软件，请保证获得相关厂家授权或移除相关组件（移除用程序自带的删除组件功能即可）</strong><br>
 <strong>以及本程序在ARM架构上测试较少，可能容易翻车，建议不要在办公环境使用</strong><br>
 <strong>现在新增了通过SHA1值获取应用适配情况的功能，查看链接：<a href="https://gfdgd-xi.github.io/wine-runner-info/%EF%BC%8C%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E9%80%82%E9%85%8D%E6%83%85%E5%86%B5%EF%BC%9F%E5%9C%A8">https://gfdgd-xi.github.io/wine-runner-info/，如何贡献自己的适配情况？在</a> Wine 运行器进行评分即可</strong><br>
-<strong>自动配置文件的脚本如何编写/贡献？可见程序 Wiki：<a href="https://gfdgd-xi.github.io/wine-runner-wiki/">https://gfdgd-xi.github.io/wine-runner-wiki/</a> 如果想要贡献请按照 Wiki 的要求进行Pr</strong></p></div><div class='title'>下载量</div><div class='content'></div><div class='title'>下载量</div><div class='content'><p><img src="https://gfdgd-xi.github.io/images/wine-runner.svg" alt=""></p></div><div class='title'>使用帮助</div><div class='content'></div><div class='title'>常见问题</div><div class='content'><h1>
+<strong>自动配置文件的脚本如何编写/贡献？可见程序 Wiki：<a href="https://gfdgd-xi.github.io/wine-runner-wiki/">https://gfdgd-xi.github.io/wine-runner-wiki/</a> 如果想要贡献请按照 Wiki 的要求进行Pr</strong></p></div><div class='title'>使用帮助</div><div class='content'></div><div class='title'>常见问题</div><div class='content'><h1>
 <a id="01-uos-如何在不打开开发者模式安装此程序" class="anchor" href="#01-uos-%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%8D%E6%89%93%E5%BC%80%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AE%89%E8%A3%85%E6%AD%A4%E7%A8%8B%E5%BA%8F"></a>01. UOS 如何在不打开开发者模式安装此程序？</h1>
 <p>答：在官方应用商店安装或者下载版本号后缀为<code>-uos</code>的版本安装<br>
 <img src="https://storage.deepin.org/thread/202210012103008619_image.png" alt="image.png"><br>
@@ -911,7 +911,218 @@ Gitlink：<a href="https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner">https:/
 <p>开发不易，原创艰难，给一个 Star 吧，你的 Star 是我继续开发的动力<br>
 <a href="https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers"><img src="https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark" alt="star"></a></p>
 <h1>
-<a id="2020-now" class="anchor" href="#2020-now"></a>©2020-Now</h1></div><div class='title'>容器自动配置脚本语法</div><div class='content'></div><div class='title'>容器自动配置脚本语法（Bash引擎）</div><div class='content'><h1>
+<a id="2020-now" class="anchor" href="#2020-now"></a>©2020-Now</h1></div><div class='title'>容器自动配置脚本语法</div><div class='content'></div><div class='title'>容器自动配置脚本 Python API</div><div class='content'><h1>
+<a id="容器自动配置脚本-python-api" class="anchor" href="#%E5%AE%B9%E5%99%A8%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E8%84%9A%E6%9C%AC-python-api"></a>容器自动配置脚本 Python API</h1>
+<h2>
+<a id="建议先阅读" class="anchor" href="#%E5%BB%BA%E8%AE%AE%E5%85%88%E9%98%85%E8%AF%BB"></a>建议先阅读</h2>
+<p>因为这个 Python API 是在之前的脚本语法旧引擎和 Bash 引擎的基础上制作的，所以建议先阅读前面的旧引擎和 Bash 引擎的文档</p>
+<h3>
+<a id="api-要求" class="anchor" href="#api-%E8%A6%81%E6%B1%82"></a>API 要求</h3>
+<ol>
+<li>Linux 环境，需要安装 Python（≥3.6.0）</li>
+<li>安装 Wine 运行器（≥2.4.0）</li>
+</ol>
+<h2>
+<a id="调用方法" class="anchor" href="#%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"></a>调用方法</h2>
+<p>在安装 Wine 运行器（≥2.4.0）后，在默认 Python 环境输入：</p>
+<div class="markdown-code-block">
+<pre lang="python" class="python"><code>import WineRunner
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<p>即可</p>
+<h2>
+<a id="方法类介绍" class="anchor" href="#%E6%96%B9%E6%B3%95%E7%B1%BB%E4%BB%8B%E7%BB%8D"></a>方法（类）介绍</h2>
+<table>
+<thead>
+<tr>
+<th align="center">类名称</th>
+<th align="center">用途</th>
+<th align="center">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>WineRunner.Old()</code></td>
+<td align="center">调用旧版的脚本解释引擎</td>
+<td align="center"><code>(wine: str -&gt; 需要调用的Wine, wineprefix: str -&gt; 需要指定运行的容器名)</code></td>
+</tr>
+<tr>
+<td align="center"><code>WineRunner.Bash()</code></td>
+<td align="center">调用基于 Bash 的脚本解释引擎</td>
+<td align="center"><code>(wine: str -&gt; 需要调用的Wine, wineprefix: str -&gt; 需要指定运行的容器名)</code></td>
+</tr>
+<tr>
+<td align="center"><code>WineRunner.programPath: str</code></td>
+<td align="center">解释器所在路径</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="old-类内函数变量解释" class="anchor" href="#old-%E7%B1%BB%E5%86%85%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E8%A7%A3%E9%87%8A"></a>Old 类内函数/变量解释</h3>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>WineRunner.Old().runCommand(command: str -&gt; 命令)</code></td>
+<td align="center">使用旧版的解析引擎运行指定命令（命令传入为字符串形式）</td>
+</tr>
+<tr>
+<td align="center"><code>WineRunner.Old().runList(command: list -&gt; 命令)</code></td>
+<td align="center">使用旧版的解析引擎运行指定命令（命令传入为数组形式），数组格式如下：<code>[["bat", "winver"]]</code>
+</td>
+</tr>
+<tr>
+<td align="center"><code>wine: str</code></td>
+<td align="center">调用的 Wine</td>
+</tr>
+<tr>
+<td align="center"><code>wineprefix: str</code></td>
+<td align="center">调用的 Wine 容器</td>
+</tr>
+</tbody>
+</table>
+<h4>
+<a id="数组示例winerunneroldrunlist的command参数" class="anchor" href="#%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8Bwinerunneroldrunlist%E7%9A%84command%E5%8F%82%E6%95%B0"></a>数组示例（WineRunner.Old.runList的command参数）</h4>
+<div class="markdown-code-block">
+<pre lang="json" class="json"><code>[
+    ["bat", "winver"],
+    ["bash", "ls"],
+    ["pause"]
+]
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="bash-类内函数解释" class="anchor" href="#bash-%E7%B1%BB%E5%86%85%E5%87%BD%E6%95%B0%E8%A7%A3%E9%87%8A"></a>Bash 类内函数解释</h3>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>WineRunner.Bash().runCommand(command: str -&gt; 命令)</code></td>
+<td align="center">使用基于 Bash 的解析引擎运行指定命令（命令传入为字符串形式）</td>
+</tr>
+<tr>
+<td align="center"><code>WineRunner.Bash().runList(command: list -&gt; 命令)</code></td>
+<td align="center">使用基于 Bash 的解析引擎运行指定命令（命令传入为数组形式），数组格式如下：<code>[["bat", "winver"]]</code>
+</td>
+</tr>
+<tr>
+<td align="center"><code>wine: str</code></td>
+<td align="center">调用的 Wine</td>
+</tr>
+<tr>
+<td align="center"><code>wineprefix: str</code></td>
+<td align="center">调用的 Wine 容器</td>
+</tr>
+</tbody>
+</table>
+<h4>
+<a id="数组示例winerunnerbashrunlist的command参数" class="anchor" href="#%E6%95%B0%E7%BB%84%E7%A4%BA%E4%BE%8Bwinerunnerbashrunlist%E7%9A%84command%E5%8F%82%E6%95%B0"></a>数组示例（WineRunner.Bash.runList的command参数）</h4>
+<div class="markdown-code-block">
+<pre lang="json" class="json"><code>[
+    ["bat", "winver"],
+    ["ls"],
+    ["pause"]
+]
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h2>
+<a id="demo" class="anchor" href="#demo"></a>Demo</h2>
+<h3>
+<a id="原-bash-版" class="anchor" href="#%E5%8E%9F-bash-%E7%89%88"></a>原 Bash 版</h3>
+<div class="markdown-code-block">
+<pre lang="bash" class="bash"><code>#!/usr/bin/env deepin-wine-runner-auto-install-bash
+# 使用 Wine 运行器的 Bash 解释器运行
+#################################################################################################################
+# 作者：gfdgd xi、为什么您不喜欢熊出没和阿布呢
+# 版本：2.4.0
+# 更新时间：2022年10月30日
+# 基于 Wine 运行器
+###############################################################################################
+# 用于判断是否为 bash 解释器
+# 旧版解释器直接提示不兼容
+if [[ 1 == 2 ]]; then
+    error 错误 此脚本只支持\ Wine\ 运行器\ 2.3.0\ 及以上版本，请更新至最新版本
+    exit
+fi
+# 操作
+echo Power By $MAKER
+echo $COPYRIGHT
+rm -rfv /tmp/firefox.exe
+download https://download-origin.cdn.mozilla.net/pub/firefox/releases/105.0.2/win32/zh-CN/Firefox%20Setup%20105.0.2.exe?gfdgd-xi /tmp firefox.exe
+bat reg add 'HKEY_USERS\S-1-5-21-0-0-0-1000\Software\Wine\X11 Driver' /v Decorated /d N /f
+bat /tmp/firefox.exe
+info 提示 安装完成！
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="python-版情况1" class="anchor" href="#python-%E7%89%88%E6%83%85%E5%86%B51"></a>Python 版情况1</h3>
+<div class="markdown-code-block">
+<pre lang="python" class="python"><code>#!/usr/bin/env python3
+# 使用系统默认的 python3 运行
+#################################################################################################################
+# 作者：gfdgd xi、为什么您不喜欢熊出没和阿布呢
+# 版本：2.4.0
+# 更新时间：2022年10月30日
+# 基于 Wine 运行器
+#################################################################################################################
+#################
+# 引入所需的库
+#################
+import WineRunner
+for i in """echo Power By $MAKER
+echo $COPYRIGHT
+rm -rfv /tmp/firefox.exe
+download https://download-origin.cdn.mozilla.net/pub/firefox/releases/105.0.2/win32/zh-CN/Firefox%20Setup%20105.0.2.exe?gfdgd-xi /tmp firefox.exe
+bat reg add 'HKEY_USERS\S-1-5-21-0-0-0-1000\Software\Wine\X11 Driver' /v Decorated /d N /f
+bat /tmp/firefox.exe
+info 提示 安装完成！""".splitlines():
+    WineRunner.Bash().runCommand(i)
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div>
+<h3>
+<a id="python-版情况-2" class="anchor" href="#python-%E7%89%88%E6%83%85%E5%86%B5-2"></a>Python 版情况 2</h3>
+<div class="markdown-code-block">
+<pre lang="python" class="python"><code>#!/usr/bin/env python3
+# 使用系统默认的 python3 运行
+#################################################################################################################
+# 作者：gfdgd xi、为什么您不喜欢熊出没和阿布呢
+# 版本：2.4.0
+# 更新时间：2022年10月30日
+# 基于 Wine 运行器
+#################################################################################################################
+#################
+# 引入所需的库
+#################
+import WineRunner
+WineRunner.Bash().runList([
+    ["echo", "Power By $MAKER"],
+    ["echo", "$COPYRIGHT"],
+    ["rm", "-rfv", "/tmp/firefox.exe"],
+    ["download", "https://download-origin.cdn.mozilla.net/pub/firefox/releases/105.0.2/win32/zh-CN/Firefox%20Setup%20105.0.2.exe?gfdgd-xi", "/tmp", "firefox.exe"],
+    ["bat", "reg", "add", "HKEY_USERS\S-1-5-21-0-0-0-1000\Software\Wine\X11 Driver", "/v", "Decorated", "/d", "N", "/f"],
+    ["bat", "/tmp/firefox.exe"],
+    ["info", "提示", "安装完成"]
+])
+
+</code></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div><div class='title'>容器自动配置脚本语法（Bash引擎）</div><div class='content'><h1>
 <a id="语法" class="anchor" href="#%E8%AF%AD%E6%B3%95"></a>语法</h1>
 <p>基于 Bash 制作，需要 Wine 运行器 2.3.0 及以上版本才可使用该引擎</p>
 <h3>
@@ -2483,7 +2694,7 @@ into proprietary programs.  If your program is a subroutine library, you
 may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
-<a href="http://www.gnu.org/philosophy/why-not-lgpl.html">http://www.gnu.org/philosophy/why-not-lgpl.html</a>.</p></div>
+<a href="http://www.gnu.org/philosophy/why-not-lgpl.html">http://www.gnu.org/philosophy/why-not-lgpl.html</a>.</p></div><div class='title'>打开和下载量</div><div class='content'></div><div class='title'>下载量</div><div class='content'><p><img src="https://gfdgd-xi.github.io/images/wine-runner.svg" alt=""></p></div><div class='title'>打开量</div><div class='content'><p><img src="https://gfdgd-xi.github.io/images/wine-runner-open.svg" alt=""></p></div>
           </div>
         </div>
       </div>

@@ -22,11 +22,11 @@ var _hmt = _hmt || [];
 下面有两个源，根据自己实际情况进行选择，输入以下其中一条命令即可添加完 apt 源  
 Gitlink 源（国内推荐）：
 ```bash
-wget https://code.gitlink.org.cn/gfdgd_xi/gfdgd-xi-apt-mirrors/raw/branch/master/sources/gitlink.sh && bash gitlink.sh && rm gitlink.sh
+wget https://code.gitlink.org.cn/gfdgd_xi/gfdgd-xi-apt-mirrors/raw/branch/master/sources/gitlink.sh; bash gitlink.sh; rm gitlink.sh
 ```
-Github 源（国外推荐）：
+Github 源（国外推荐，暂时停止维护，但还可正常使用）：
 ```bash
-wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash github.sh && rm github.sh
+wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh; bash github.sh; rm github.sh
 ```
 
 # UEngine 运行器（最新版本 1.8.1-1）
