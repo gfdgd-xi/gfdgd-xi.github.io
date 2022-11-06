@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 1.8.1-1）
-- Wine 运行器（最新版本 2.4.0）
+- Wine 运行器（最新版本 2.4.1）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.4.0）
 - ……
@@ -45,7 +45,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.4.0）
+# Wine 运行器（最新版本 2.4.1）
 一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
 同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
@@ -142,19 +142,21 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 2.4.0）
-**※1、新增 VB Runtime 组件安装工具**  
-**※2、优化自动配置容器搜索功能，搜索不区分大小写**  
-**※3、新增 Wine 容器快捷键映射功能**  
-**※4、修复在 arm 架构运行 Wine 时提示无法解压资源的问题**  
-**※5、修复右键无法找到 Wine 运行器打开方式的问题**  
-**※6、修复了容器自动配置脚本 GUI 解析器无法指定 Wine、容器以及位数的功能**  
-**※7、容器自动配置脚本支持评分功能以及脚本内容介绍功能**  
-**※8、支持添加自定义安装的 Wine**  
-**※9、打包器打包的 arm 包支持同时支持 UOS 的 box86 和 exagear**  
-**※10、提供了 Python 的自动配置脚本 API**  
-![截图_选择区域_20221026213608.png](https://storage.deepin.org/thread/202210262151486316_截图_选择区域_20221026213608.png)
-![截图_选择区域_20221026213546.png](https://storage.deepin.org/thread/202210262151481582_截图_选择区域_20221026213546.png)
+## Wine 运行器（最新版本 2.4.1）
+**※1、不基于生态适配活动脚本的打包器支持只生成制作容器的 7z 包**  
+**※2、两个打包器的容器自动删除脚本添加 kill.sh**  
+**※3、Wine 运行器支持杀死对应容器进程**  
+**※4、容器自动配置脚本和 Wine 安装器支持切换源**  
+5、非生态适配脚本打包器追加运行参数改为 --uri XXX 而非直接 XXX  
+6、两个打包器新增星火应用商店投稿入口  
+7、优化开启 Windows 虚拟机功能在未安装 VirtualBox 时的提示  
+8、Reg Shot 版本从 1.8.3-beta1V5 升级到 1.9.0  
+9、Geek Uninstaller 版本从 1.5.1.161 升级到 1.5.1.163  
+10、容器自动配置脚本添加 installother 命令、修复返回值传递问题  
+11、不显示 pip 安装库的提示信息（因为不是很核心的库）  
+12、非基于生态适配活动脚本的打包器默认勾选卸载该 deb 后自动删除容器、使用统信活动容器清理脚本、使用星火 wine helper  
+13、优化文案  
+![image.png](https://storage.deepin.org/thread/202211061755115167_image.png)
 ![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
