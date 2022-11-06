@@ -24,7 +24,7 @@ Gitlink 源（国内推荐）：
 ```bash
 wget https://code.gitlink.org.cn/gfdgd_xi/gfdgd-xi-apt-mirrors/raw/branch/master/sources/gitlink.sh; bash gitlink.sh; rm gitlink.sh
 ```
-Github 源（国外推荐，暂时停止维护，但还可正常使用）：
+Github 源（国外推荐）：
 ```bash
 wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh; bash github.sh; rm github.sh
 ```
