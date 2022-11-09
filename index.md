@@ -186,12 +186,39 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 <th align="center">23</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
+<td align="center">1.6.0</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1.5.0</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
 <td align="center">1.4.0</td>
 <td align="center">●</td>
 <td align="center">●</td>
 <td align="center">●</td>
-<td align="center">●</td>
+<td align="center"></td>
 <td align="center">●</td>
 <td align="center">●</td>
 <td align="center">●</td>
