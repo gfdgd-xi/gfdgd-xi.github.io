@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 1.8.1-1）
-- Wine 运行器（最新版本 2.4.1）
+- Wine 运行器（最新版本 2.5.0.1）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.4.0）
 - ……
@@ -45,9 +45,14 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.4.1）
-一个能让Linux用户更加方便运行Windows应用的程序，内置了对wine图形话的支持和各种Wine工具和自制Wine程序打包器、运行库安装工具等等  
-同时也内置了基于VirtualBox制作的小白Windows虚拟机安装工具，可以做到只需要用户下载系统镜像并点击安装即可，无需顾及虚拟机安装、创建、虚拟机的分区等等  
+# Wine 运行器（最新版本 2.5.0.1）
+Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
+它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
+此外，它还简化了如下命令，让你可以更简便地使用Wine：  
+```bash
+env WINEPREFIX=容器路径 wine（wine的路径） 可执行文件路径
+```
+让你可以简易方便的使用 wine。  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
@@ -142,21 +147,25 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 2.4.1）
-**※1、不基于生态适配活动脚本的打包器支持只生成制作容器的 7z 包**  
-**※2、两个打包器的容器自动删除脚本添加 kill.sh**  
-**※3、Wine 运行器支持杀死对应容器进程**  
-**※4、容器自动配置脚本和 Wine 安装器支持切换源**  
-5、非生态适配脚本打包器追加运行参数改为 --uri XXX 而非直接 XXX  
-6、两个打包器新增星火应用商店投稿入口  
-7、优化开启 Windows 虚拟机功能在未安装 VirtualBox 时的提示  
-8、Reg Shot 版本从 1.8.3-beta1V5 升级到 1.9.0  
-9、Geek Uninstaller 版本从 1.5.1.161 升级到 1.5.1.163  
-10、容器自动配置脚本添加 installother 命令、修复返回值传递问题  
-11、不显示 pip 安装库的提示信息（因为不是很核心的库）  
-12、非基于生态适配活动脚本的打包器默认勾选卸载该 deb 后自动删除容器、使用统信活动容器清理脚本、使用星火 wine helper  
-13、优化文案  
-![image.png](https://storage.deepin.org/thread/202211061755115167_image.png)
+## Wine 运行器（最新版本 2.5.0.1）
+### 2.5.0.1
+**※1、修复已知问题**  
+
+### 2.5.0
+**※1、容器自动配置脚本 GUI 查看介绍使用 QWebEngineWidget，支持图片（非强制依赖，只做推荐）；**  
+**※2、不基于生态适配活动脚本打包器跟进 arm 架构 2022年11月11日的 Wine 微信打包方式；**  
+**※3、支持多图标的程序打包；**  
+**※4、修复了安装更多 Wine 换源换了个寂寞的问题；**  
+**※5、修复安装更多 Wine 重新安装后列表丢失的问题；**  
+**※6、新增了对 Deepin 23 Alpha 优化的 Wine 安装器；**  
+**※7、新增 Dll 名称查询功能，可以查询对应 Dll 的作用；**  
+**※8、支持静态获取可执行文件可以调用的 Dll 并提供解决方案；**  
+**※9、支持移除指定的 .desktop 快捷方式；**  
+**※10、新增日志分析功能以及导出、上传日志功能；**  
+11、修复了不基于生态适配活动脚本打包器在选择 arm 打包架构下容器自动删除脚本取消勾选无用的问题；  
+12、优化文案、新增友链；  
+13、提供了部分组件的测试功能。  
+![image.png](https://storage.deepin.org/thread/202211250932168081_image.png) 
 ![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
