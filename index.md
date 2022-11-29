@@ -10,7 +10,7 @@ var _hmt = _hmt || [];
 
 # 作品列表
 - 自建 apt 软件源
-- UEngine 运行器（最新版本 1.8.1-1）
+- UEngine 运行器（最新版本 1.8.2）
 - Wine 运行器（最新版本 2.5.0.1）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.4.0）
@@ -29,7 +29,7 @@ Github 源（国外推荐）：
 wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh; bash github.sh; rm github.sh
 ```
 
-# UEngine 运行器（最新版本 1.8.1-1）
+# UEngine 运行器（最新版本 1.8.2）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 UEngine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/uengine-runner-info](uengine-runner-info)**  
@@ -132,19 +132,15 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ## UEngine 运行器
 ![](https://gfdgd-xi.github.io/images/uengine-runner-open.svg)
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 1.8.1-1）
-### 1.8.1-1 更新内容
-**※1、修复缺失依赖 python3-matplotlib 导致程序无法开启的问题**  
-**※2、移除在 Ubuntu 上用于安装 UEngine 的安装工具**  
-**※3、解决了未输入密码自动回车的 bug**  
-
-### 1.8.1 更新内容
-**※1、修复在 APK 详细信息中图标可能过大导致无法正常使用的问题**  
-**※2、修复 APK 路径带空格无法正常安装的问题**  
-3、修复打包器打包的 APK 带下划线“_”无法正常打包的问题  
-4、修复打包器下方命令返回过多空白行的问题  
-5、修复程序生成的默认图标任然是旧版图标的问题  
-![image.png](https://storage.deepin.org/thread/202208302154473781_image.png)  
+## UEngine 运行器（最新版本 1.8.2）
+**※1、重新恢复 uengine-installer For Ubuntu**  
+**※2、修复 postrm 的问题**  
+**※3、修复“添加UEngine应用快捷方式出现问题”的问题**  
+**※4、修复打包器无参数问题**  
+**※5、打包器默认勾选“使用 uengine-dc 前缀”**  
+6、修复Python主版本号判断时潜在的问题（By Bail）  
+7、新增部分资源入口  
+![image.png](https://storage.deepin.org/thread/202211282224306611_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
 ## Wine 运行器（最新版本 2.5.0.1）
