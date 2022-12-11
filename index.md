@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 1.8.2）
-- Wine 运行器（最新版本 2.5.0.1）
+- Wine 运行器（最新版本 3.0.0）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.4.0）
 - ……
@@ -46,7 +46,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 2.5.0.1）
+# Wine 运行器（最新版本 3.0.0）
 Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
 它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
 此外，它还简化了如下命令，让你可以更简便地使用Wine：  
@@ -59,7 +59,7 @@ Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[ht
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
 **程序 Wiki 可见：[https://gfdgd-xi.github.io/wine-runner-wiki](wine-runner-wiki)**  
 [![gfdgd xi/wine 运行器](https://gitee.com/gfdgd-xi/deep-wine-runner/widgets/widget_card.svg?colors=eae9d7,2e2f29,272822,484a45,eae9d7,747571)](https://gitee.com/gfdgd-xi/deep-wine-runner)  
-![image.png](https://storage.deepin.org/thread/202210022215217037_%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20221002221112.png)  
+![image.png](https://storage.deepin.org/thread/202212102108356218_image.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 # 在 Openkylin 如何安装？
@@ -145,25 +145,28 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202211282224306611_image.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 2.5.0.1）
-### 2.5.0.1
-**※1、修复已知问题**  
-
-### 2.5.0
-**※1、容器自动配置脚本 GUI 查看介绍使用 QWebEngineWidget，支持图片（非强制依赖，只做推荐）；**  
-**※2、不基于生态适配活动脚本打包器跟进 arm 架构 2022年11月11日的 Wine 微信打包方式；**  
-**※3、支持多图标的程序打包；**  
-**※4、修复了安装更多 Wine 换源换了个寂寞的问题；**  
-**※5、修复安装更多 Wine 重新安装后列表丢失的问题；**  
-**※6、新增了对 Deepin 23 Alpha 优化的 Wine 安装器；**  
-**※7、新增 Dll 名称查询功能，可以查询对应 Dll 的作用；**  
-**※8、支持静态获取可执行文件可以调用的 Dll 并提供解决方案；**  
-**※9、支持移除指定的 .desktop 快捷方式；**  
-**※10、新增日志分析功能以及导出、上传日志功能；**  
-11、修复了不基于生态适配活动脚本打包器在选择 arm 打包架构下容器自动删除脚本取消勾选无用的问题；  
-12、优化文案、新增友链；  
-13、提供了部分组件的测试功能。  
-![image.png](https://storage.deepin.org/thread/202211250932168081_image.png) 
+## Wine 运行器（最新版本 3.0.0）
+**※1、支持使用 Qemu + Chroot 跨运行 Wine 以及指定程序的功能；**  
+**※2、提供了简易打包器以用于打包简易 deb；**  
+**※3、支持下载配置过的 Qemu + Chroot 容器；**  
+**※4、支持在隔离的 Chroot 容器内运行 Wine；**  
+**※5、支持解压指定 deb 的内打包好的容器；**  
+**※6、优化 Wine 列表显示；**  
+**※7、新增程序论坛和教程入口；**  
+**※8、程序公告功能；**  
+**※9、新增程序评分功能；**  
+**※10、新增解包 deb 内 Wine 容器功能；**  
+**※11、新增 Vkd3d Proton 安装功能，更新 dxvk 版本至 2.0.0；**  
+**※12、新增程序菜单栏部分栏目图标；**  
+**※13、打包器支持按下 Shift + F1 查看指定选项提示；**  
+14、优化非基于生态适配脚本的打包器内容自动填充功能；  
+15、优化程序文案；  
+16、新增日志翻译功能；  
+17、程序进一步完善英语翻译（机翻）；  
+18、优化程序更新策略；  
+19、优化日志分析功能；  
+20、优化程序 UI。  
+![image.png](https://storage.deepin.org/thread/202212102108356218_image.png)  
 ![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
