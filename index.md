@@ -13,7 +13,7 @@ var _hmt = _hmt || [];
 - UEngine 运行器（最新版本 1.8.2）
 - Wine 运行器（最新版本 3.0.0）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
-- Deepin Community Live CD（最新版本 1.4.0）
+- Deepin Community Live CD（最新版本 1.7.0）
 - ……
 
 # 自建 apt 软件源
@@ -125,14 +125,14 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202206051230073378_image.png)
 # 程序下载量
 ## Wine 运行器
-![](https://gfdgd-xi.github.io/images/wine-runner.svg)
+![](images/wine-runner.svg)
 ## UEngine 运行器
-![](https://gfdgd-xi.github.io/images/uengine-runner.svg)
+![](images/uengine-runner.svg)
 # 程序打开量
 ## Wine 运行器
-![](https://gfdgd-xi.github.io/images/wine-runner-open.svg)
+![](images/wine-runner-open.svg)
 ## UEngine 运行器
-![](https://gfdgd-xi.github.io/images/uengine-runner-open.svg)
+![](images/uengine-runner-open.svg)
 # 程序最新版本更新日志
 ## UEngine 运行器（最新版本 1.8.2）
 **※1、重新恢复 uengine-installer For Ubuntu**  
@@ -178,7 +178,7 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 1、升级为基于 20.7，支持最新的 5.18.4-amd-desktop-hwe 内核  
 2、修复星火源签名问题（且换成镜像源以提高安装速度）  
 3、新增 15.11 版本  
-**full最新 1.4.0，install 最新 1.2.1，mini最新1.2.1-1，tiny最新1.2.0-1，install版暂未更新**  
+**full最新 1.7.0，install 最新 1.7.0，mini最新1.7.0，tiny最新1.2.0-1，install版暂未更新**  
 # Deepin Community Live CD 版本列表
 <table>
 <thead>
@@ -197,6 +197,19 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 </tr>
 </thead>
 <tbody>
+<tr>
+<td align="center">1.7.0</td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center">●</td>
+<td align="center"></td>
+</tr>
 <tr>
 <td align="center">1.6.0</td>
 <td align="center">●</td>
