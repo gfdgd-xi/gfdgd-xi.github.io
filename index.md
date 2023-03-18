@@ -10,8 +10,8 @@ var _hmt = _hmt || [];
 
 # 作品列表
 - 自建 apt 软件源
-- UEngine 运行器（最新版本 1.8.2）
-- Wine 运行器（最新版本 3.0.0）
+- UEngine 运行器（最新版本 2.0.0）
+- Wine 运行器（最新版本 3.1.0）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.7.0）
 - ……
@@ -29,13 +29,13 @@ Github 源（国外推荐）：
 wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh; bash github.sh; rm github.sh
 ```
 
-# UEngine 运行器（最新版本 1.8.2）
+# UEngine 运行器（最新版本 2.0.0）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 UEngine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/uengine-runner-info](uengine-runner-info)**  
 程序的部分工作原理可见：[https://www.52pojie.cn/thread-1672077-1-1.html](https://www.52pojie.cn/thread-1672077-1-1.html)  
 [![gfdgd xi/uengine 运行器](https://gitee.com/gfdgd-xi/uengine-runner/widgets/widget_card.svg?colors=eae9d7,2e2f29,272822,484a45,eae9d7,747571)](https://gitee.com/gfdgd-xi/deep-wine-runner)  
-![image.png](https://storage.deepin.org/thread/202208140944423790_image.png)  
+![image.png](https://storage.deepin.org/thread/202301211303181171_%E5%9B%BE%E7%89%87.png)  
 [点此查看更多关于这个程序的介绍](https://gfdgd-xi.github.io/uengine-runner/)和[这个程序的帮助](https://gfdgd-xi.github.io/uengine-runner/Help)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 ## 下载链接
@@ -46,7 +46,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 3.0.0）
+# Wine 运行器（最新版本 3.1.0）
 Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
 它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
 此外，它还简化了如下命令，让你可以更简便地使用Wine：  
@@ -59,7 +59,7 @@ Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[ht
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
 **程序 Wiki 可见：[https://gfdgd-xi.github.io/wine-runner-wiki](wine-runner-wiki)**  
 [![gfdgd xi/wine 运行器](https://gitee.com/gfdgd-xi/deep-wine-runner/widgets/widget_card.svg?colors=eae9d7,2e2f29,272822,484a45,eae9d7,747571)](https://gitee.com/gfdgd-xi/deep-wine-runner)  
-![image.png](https://storage.deepin.org/thread/202212102108356218_image.png)  
+![image.png](https://storage.deepin.org/thread/202301061133232305_%E5%9B%BE%E7%89%87.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 # 在 Openkylin 如何安装？
@@ -97,7 +97,7 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner)  
 蓝奏云：[https://gfdgdxi.lanzouj.com/b01nzcuqd](https://gfdgdxi.lanzouj.com/b01nzcuqd)，密码:[awcg](https://gfdgdxi.lanzouj.com/b01nzcuqd)  
 星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
-# Deepin Community Live CD（最新版本 1.4.0）
+# Deepin Community Live CD（最新版本 1.7.0）
 此 Live CD 基于 deepin 20.7 和原 Live CD 2.0 制作，安装部分维护工具（如果还有需要添加的就说），感谢 [https://bbs.deepin.org/post/166409](https://bbs.deepin.org/post/166409) 的作者   [@xchngg](https://bbs.deepin.org/user/108842)的参考文档，本 Live CD 1.2.1 及以前版本使用该方案打包，测试 Ventoy 在 Legacy 和 UEFT 模式下均可运行此 Live CD，有常用驱动（网卡、显卡、声卡），理论上能运行 deepin 20.7 均可运行  
 同时也借鉴了以下文章的内容：  
 [https://bbs.deepin.org/post/228930](https://bbs.deepin.org/post/228930) [@deepin-superuser](https://bbs.deepin.org/user/278484)  
@@ -134,47 +134,76 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ## UEngine 运行器
 ![](images/uengine-runner-open.svg)
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 1.8.2）
-**※1、重新恢复 uengine-installer For Ubuntu**  
-**※2、修复 postrm 的问题**  
-**※3、修复“添加UEngine应用快捷方式出现问题”的问题**  
-**※4、修复打包器无参数问题**  
-**※5、打包器默认勾选“使用 uengine-dc 前缀”**  
-6、修复Python主版本号判断时潜在的问题（By Bail）  
-7、新增部分资源入口  
-![image.png](https://storage.deepin.org/thread/202211282224306611_image.png)  
+## UEngine 运行器（最新版本 2.0.0）
+**※1、内置微型应用商店，支持评论、评分功能；**
+
+**※2、修复 UEngine 安装器在 Wayland 下无法正常运行的问题；**
+
+**※3、更新 UEngine 安装器安装的 UEngine 版本；**
+
+**※4、修复 UEngine 安装器安装后的 UEngine 无法正常安装 APK 的问题（包括从运行器和 deb 包安装）；**
+
+**※5、UEngine 安装器支持安装使用 SuperSU Root 的镜像；**
+
+**※6、UEngine 安装器安装后的 UEngine 支持开机后自动加载运行环境，无需人手动打开终端运行；**
+
+**※7、放开原先程序内的程序安装量查询功能，并新增打开量查询功能（在程序的关于窗口里打开）；**
+
+**※8、程序更新时不需要关闭所有 Python3 程序，只会关闭自己；**
+
+**※9、新增彩蛋（只在2023年1月22日生效）；**
+
+**※10、修复 UEngine 打包器在部分系统无法打开的问题；**
+
+**※11、新增程序公告功能；**
+
+**※12、修复了程序更新功能从高版本降级到低版本的问题；**
+
+**※13、不强制依赖 Deepin 终端；**
+
+**※14、新增 UEngine 打包器（高级版）；**
+
+15、更改程序论坛网址；
+
+16、新增程序评分功能；
+
+17、修复 UEngine 打包器在打包时无法正确禁用所有选项；
+
+18、UEngine 打包器打包的 deb 不再指定 deepin-elf-verify 依赖版本；
+
+19、“更多帮助”功能支持访问云端的帮助内容；
+
+20、更换程序接口；
+
+21、优化菜单栏分类，菜单栏新增图标；
+
+22、程序关于可以查看程序使用的开源协议；
+
+23、修复在 Ubuntu 下安装后启动器没有图标的问题。  
+![图片.png](https://storage.deepin.org/thread/202301211303181171_图片.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 3.0.0）
-**※1、支持使用 Qemu + Chroot 跨运行 Wine 以及指定程序的功能；**  
-**※2、提供了简易打包器以用于打包简易 deb；**  
-**※3、支持下载配置过的 Qemu + Chroot 容器；**  
-**※4、支持在隔离的 Chroot 容器内运行 Wine；**  
-**※5、支持解压指定 deb 的内打包好的容器；**  
-**※6、优化 Wine 列表显示；**  
-**※7、新增程序论坛和教程入口；**  
-**※8、程序公告功能；**  
-**※9、新增程序评分功能；**  
-**※10、新增解包 deb 内 Wine 容器功能；**  
-**※11、新增 Vkd3d Proton 安装功能，更新 dxvk 版本至 2.0.0；**  
-**※12、新增程序菜单栏部分栏目图标；**  
-**※13、打包器支持按下 Shift + F1 查看指定选项提示；**  
-14、优化非基于生态适配脚本的打包器内容自动填充功能；  
-15、优化程序文案；  
-16、新增日志翻译功能；  
-17、程序进一步完善英语翻译（机翻）；  
-18、优化程序更新策略；  
-19、优化日志分析功能；  
-20、优化程序 UI。  
-![image.png](https://storage.deepin.org/thread/202212102108356218_image.png)  
-![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
+## Wine 运行器（最新版本 3.1.0）
+**※1、不基于生态适配脚本打包器支持禁用 Mono/Gecko 打包器；**  
+**※2、自动容器配置脚本新增命令 decompressionbottle、programforum、installmsi 以及上述命令的帮助；**  
+**※3、自动容器配置脚本新增评论功能；**  
+**※4、自动容器配置脚本新增许多应用安装脚本；**  
+**※5、安装 Windows 虚拟机功能更换应答镜像图标并添加常用 Windows 组件安装功能；**  
+**※6、安装 Windows 虚拟机功能提供镜像下载的网盘链接；**  
+**※7、简易打包器支持自动添加宋体；**  
+8、修复 installfont 命令下载的字体目录错误问题；  
+9、修复提交日志功能在提交成功时依旧提示提交失败问题；  
+10、支持强制启用所有被禁用的组件（不推荐）。  
+
+![图片.png](https://storage.deepin.org/thread/202301061133232305_图片.png)  
+[![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
 ※1、程序全部重构，语言从 Python 转 C++、GUI 从 Tkinter 转 DTK、布局大改，参考了 sgb76 大佬的 Wine 运行器设计图、zty79的桌面快捷方式编辑器的参考布局  
 ※2、程序新增打包功能  
 ![截图_选择区域_20220808172505.png](https://storage.deepin.org/thread/202208081725151597_截图_选择区域_20220808172505.png)   
 [![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
-### Deepin Community Live CD（最新版本 1.4.0）
+### Deepin Community Live CD（最新版本 1.7.0）
 1、升级为基于 20.7，支持最新的 5.18.4-amd-desktop-hwe 内核  
 2、修复星火源签名问题（且换成镜像源以提高安装速度）  
 3、新增 15.11 版本  
