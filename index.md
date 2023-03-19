@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 2.0.0）
-- Wine 运行器（最新版本 3.1.0）
+- Wine 运行器（最新版本 3.2.0）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.7.0）
 - ……
@@ -46,7 +46,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 3.1.0）
+# Wine 运行器（最新版本 3.2.0）
 Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
 它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
 此外，它还简化了如下命令，让你可以更简便地使用Wine：  
@@ -59,7 +59,7 @@ Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[ht
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
 **程序 Wiki 可见：[https://gfdgd-xi.github.io/wine-runner-wiki](wine-runner-wiki)**  
 [![gfdgd xi/wine 运行器](https://gitee.com/gfdgd-xi/deep-wine-runner/widgets/widget_card.svg?colors=eae9d7,2e2f29,272822,484a45,eae9d7,747571)](https://gitee.com/gfdgd-xi/deep-wine-runner)  
-![image.png](https://storage.deepin.org/thread/202301061133232305_%E5%9B%BE%E7%89%87.png)  
+![图片.png](https://storage.deepin.org/thread/202303191608011688_图片.png)  
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 # 在 Openkylin 如何安装？
@@ -183,17 +183,26 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![图片.png](https://storage.deepin.org/thread/202301211303181171_图片.png)  
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 3.1.0）
-**※1、不基于生态适配脚本打包器支持禁用 Mono/Gecko 打包器；**  
-**※2、自动容器配置脚本新增命令 decompressionbottle、programforum、installmsi 以及上述命令的帮助；**  
-**※3、自动容器配置脚本新增评论功能；**  
-**※4、自动容器配置脚本新增许多应用安装脚本；**  
-**※5、安装 Windows 虚拟机功能更换应答镜像图标并添加常用 Windows 组件安装功能；**  
-**※6、安装 Windows 虚拟机功能提供镜像下载的网盘链接；**  
-**※7、简易打包器支持自动添加宋体；**  
-8、修复 installfont 命令下载的字体目录错误问题；  
-9、修复提交日志功能在提交成功时依旧提示提交失败问题；  
-10、支持强制启用所有被禁用的组件（不推荐）。  
+## Wine 运行器（最新版本 3.2.0）
+**※1、Windows 应用适配工具新增系统资源显示；**  
+**※2、Windows 应用适配工具使用 C++ 重写；**  
+**※3、修复打包器（基于官方生态适配脚本）无法打开的问题；**  
+**※4、新增运行库功能安装，以实现使用 Qemu User 跨架构运行 Wine 的功能（理论上支持 3a4000 了，但没试过）；**  
+**※5、修复 Chroot 容器的一些问题；**  
+**※6、修复在 Debian11 安装时缺失依赖 rar 的问题；**  
+**※7、新增安装 box86、box64 的功能；**  
+**※8、修复故障反馈功能错误的问题；**  
+**※9、支持调用 Flatpak 安装的 Wine；**  
+10、修改程序内的部分网址；  
+11、作者信息变更；  
+12、支持禁用程序的多语言支持（默认禁用，因为是机翻的）；  
+13、支持在程序本地翻译缺失的情况下自动机翻缺失语句；  
+14、从此版本开始不再区分吾爱版、Spark 版和 UOS 版；  
+15、新增下载量查询；  
+16、更新程序公告；  
+17、新增断网彩蛋。  
+
+![图片.png](https://storage.deepin.org/thread/202303191608011688_图片.png)
 
 ![图片.png](https://storage.deepin.org/thread/202301061133232305_图片.png)  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
