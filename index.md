@@ -232,6 +232,10 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 <th align="center">install(本地版本)</th>
 <th align="center">15.11</th>
 <th align="center">23</th>
+<th align="center">debian11-i386</th>
+<th align="center">debian11-amd64</th>
+<th align="center">debian11-armhf</th>
+<th align="center">debian11-arm64</th>
 </tr>
 </thead>
 <tbody>
