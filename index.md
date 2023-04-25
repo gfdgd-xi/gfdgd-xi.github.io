@@ -503,8 +503,8 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ![image.png](https://storage.deepin.org/thread/202209112157046137_image.png)
 
 
-<h1 id="copyright">©2020~Now gfdgd xi、为什么您不喜欢熊出没和阿布呢</h1>
+<h1 id="copyright">©2020~Now gfdgd xi</h1>
 <script>
 var d = new Date();
-document.getElementById("copyright").innerHTML="©2020~" + d.getFullYear() + " gfdgd xi、为什么您不喜欢熊出没和阿布呢";
+document.getElementById("copyright").innerHTML="©2020~" + d.getFullYear() + " gfdgd xi";
 </script>
