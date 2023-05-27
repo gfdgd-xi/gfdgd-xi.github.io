@@ -10,20 +10,19 @@ var _hmt = _hmt || [];
 
 # 作品列表
 - 自建 apt 软件源
-- UEngine 运行器（最新版本 2.0.1）
-- Wine 运行器（最新版本 3.2.1）
+- UEngine 运行器（最新版本 2.1.0）
+- Wine 运行器（最新版本 3.2.2）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.7.0）
 - ……
 
 # 自建 apt 软件源
-详细可见：https://gitee.com/gfdgd-xi/apt-packages-websize-program/issues  
 ## 如何添加该 apt 源？
 ```bash
-wget https://code.gitlink.org.cn/gfdgd_xi/apt-packages-program/raw/branch/master/sources/gitlink.sh; bash gitlink.sh; rm gitlink.sh
+wget http://apt.gfdgdxi.top/sources/gitlink.sh; bash gitlink.sh; rm gitlink.sh
 ```
 
-# UEngine 运行器（最新版本 2.0.1）
+# UEngine 运行器（最新版本 2.1.0）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 UEngine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/uengine-runner-info](uengine-runner-info)**  
@@ -46,7 +45,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 3.2.1）
+# Wine 运行器（最新版本 3.2.2）
 Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
 它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
 此外，它还简化了如下命令，让你可以更简便地使用Wine：  
@@ -59,15 +58,23 @@ Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[ht
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
 **程序 Wiki 可见：[https://gfdgd-xi.github.io/wine-runner-wiki](wine-runner-wiki)**  
 [![gfdgd xi/wine 运行器](https://gitee.com/gfdgd-xi/deep-wine-runner/widgets/widget_card.svg?colors=eae9d7,2e2f29,272822,484a45,eae9d7,747571)](https://gitee.com/gfdgd-xi/deep-wine-runner)  
-![图片.png](https://storage.deepin.org/thread/202303191608011688_图片.png)  
+![图片.png](https://storage.deepin.org/thread/202305131320341501_图片.png)
+
+
+
+![微信图片_20230502211631.png](https://storage.deepin.org/thread/202305022117208736_微信图片_20230502211631.png)  
+![微信图片_20230502211624.png](https://storage.deepin.org/thread/202305022117206682_微信图片_20230502211624.png)  
+
+![2023-05-03_08-46.png](https://storage.deepin.org/thread/202305031117201797_2023-05-03_08-46.png)
+
+![2023-05-03 07-09-02 的屏幕截图.png](https://storage.deepin.org/thread/202305031117196454_2023-05-0307-09-02的屏幕截图.png)
+
+
+![微信图片_20230502211613.jpg](https://storage.deepin.org/thread/202305022117207441_微信图片_20230502211613.jpg)    
 更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 # 在 Openkylin 如何安装？
 首先添加作者的源：  
-Gitlink 源（国内推荐）：  
-```bash
-wget https://code.gitlink.org.cn/gfdgd_xi/gfdgd-xi-apt-mirrors/raw/branch/master/sources/gitlink.sh && bash gitlink.sh && rm gitlink.sh
-```
 Github 源（国外推荐）：  
 ```bash
 wget https://gfdgd-xi.github.io/gfdgd-xi-apt-mirrors/sources/github.sh && bash github.sh && rm github.sh
@@ -134,36 +141,34 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ## UEngine 运行器
 ![](images/uengine-runner-open.svg)
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 2.0.1）
-**※1、新增移除在 Ubuntu 上安装的 UEngine 及其附属脚本的功能**  
-**※2、优化 Ubuntu 安装器启用和安装逻辑，不允许在 UOS/Deepin 安装移植的 Ubuntu UEngine**  
-**※3、Ubuntu 安装器不允许在非 X86 架构上使用**  
-**※4、在升级/安装运行器的 deb 时会自动移除安装错误的 UEngine 生成的脚本**  
-**※5、Ubuntu 安装器进行环境监测**  
-**※6、修复应用商店换源问题（由@Bail修复）**  
-7、修改作者信息  
-8、更新使用帮助  
-9、关于窗口修复系统失败错误的问题并新增安装包构建时间  
-10、移除赞赏功能  
-11、微型应用商店适配了更新关闭进程（由@Bail实现）  
+## UEngine 运行器（最新版本 2.1.0）
+**※1、修复源地址（迁出 Gitlink）；**  
+**※2、优化 UEngine 安装器，可以在 Debian/Ubuntu 使用（Debian11/Debian10/Ubuntu20.04 需要安装 dtk（≥5.5），dtk 可以从 https://gitee.com/gfdgd-xi/dtk-sources-for-uos-apt/releases 获取）；**  
+**※3、UEngine 安装器不再强制安装 5.17.3 内核以运行 UEngine 运行环境，只要当前使用内核支持 binder 模块即可继续（安装前会进行检测，如果用 2.0.0/2.0.1 安装了 5.17.3 内核也可以继续使用该内核）；**  
+**※4、修复 uengine-loading-ubuntu 的问题（参考 #I6CKHB:Ubuntu 22.04 LTS安装运行器并按提示安装UEngine后UEngine服务持续崩溃无法使用 ）以及 binder 模块调用问题。**  
 
 
-![图片.png](https://storage.deepin.org/thread/202304291552541379_图片.png)  
+![图片.png](https://storage.deepin.org/thread/202305131320341501_图片.png)
+
+
+
+![微信图片_20230502211631.png](https://storage.deepin.org/thread/202305022117208736_微信图片_20230502211631.png)  
+![微信图片_20230502211624.png](https://storage.deepin.org/thread/202305022117206682_微信图片_20230502211624.png)  
+
+![2023-05-03_08-46.png](https://storage.deepin.org/thread/202305031117201797_2023-05-03_08-46.png)
+
+![2023-05-03 07-09-02 的屏幕截图.png](https://storage.deepin.org/thread/202305031117196454_2023-05-0307-09-02的屏幕截图.png)
+
+
+![微信图片_20230502211613.jpg](https://storage.deepin.org/thread/202305022117207441_微信图片_20230502211613.jpg)    
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 3.2.1）
-**※1、Windows 虚拟机安装工具支持非 X86 架构；**  
-**※2、应用打包器可以与星火应用商店配合构建 arm/all 全架构的 Wine 包；**  
-**※3、Windows 虚拟机安装工具支持调用 Qemu；**  
-**※4、新增 Qemu User 运行 Wine 的帮助入口；**  
-**※5、修复 Windows 虚拟机的自动配置镜像缺少 aria2c.exe 的故障；**  
-**※6、支持在更新程序版本时自动关闭程序进程；**  
-7、运行器和打包器支持调用 spark-wine8；  
-8、修改作者信息；  
-9、新增安装包构建时间；  
-10、优化 Wine 运行器更新策略。  
+## Wine 运行器（最新版本 3.2.2）
+**※1. 修改源地址（迁出 Gitlink）；**  
+**※2. 修复非 X86 架构运行器主页面虚拟机工具禁用的问题；**  
+3、部分组件支持选择最优源。  
 
-![图片.png](https://storage.deepin.org/thread/20230429210452509_图片.png)  
+![图片.png](https://storage.deepin.org/thread/202305122231441391_图片.png)  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
