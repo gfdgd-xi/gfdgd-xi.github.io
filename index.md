@@ -10,7 +10,7 @@ var _hmt = _hmt || [];
 
 # 作品列表
 - 自建 apt 软件源
-- UEngine 运行器（最新版本 2.1.0）
+- UEngine 运行器（最新版本 2.1.1）
 - Wine 运行器（最新版本 3.2.2）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.7.0）
@@ -19,10 +19,10 @@ var _hmt = _hmt || [];
 # 自建 apt 软件源
 ## 如何添加该 apt 源？
 ```bash
-wget http://apt.gfdgdxi.top/sources/gitlink.sh; bash gitlink.sh; rm gitlink.sh
+wget http://apt.gfdgdxi.top/sources/github.sh; bash github.sh; rm github.sh
 ```
 
-# UEngine 运行器（最新版本 2.1.0）
+# UEngine 运行器（最新版本 2.1.1）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 UEngine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/uengine-runner-info](uengine-runner-info)**  
@@ -71,7 +71,7 @@ Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[ht
 
 
 ![微信图片_20230502211613.jpg](https://storage.deepin.org/thread/202305022117207441_微信图片_20230502211613.jpg)    
-更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
+更多软件介绍均可见下方 Gitee、Github 下载链接  
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 # 在 Openkylin 如何安装？
 首先添加作者的源：  
@@ -87,7 +87,6 @@ sudo apt install spark-deepin-wine-runner
 ## 下载链接
 Gitee：[https://gitee.com/gfdgd-xi/deep-wine-runner](https://gitee.com/gfdgd-xi/deep-wine-runner)  
 Github：[https://github.com/gfdgd-xi/deep-wine-runner](https://github.com/gfdgd-xi/deep-wine-runner)  
-Gitlink：[https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner](https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner)  
 蓝奏云：[https://gfdgdxi.lanzouj.com/b01nz7y3e](https://gfdgdxi.lanzouj.com/b01nz7y3e)，密码:[7oii](https://gfdgdxi.lanzouj.com/b01nz7y3e)  
 软件源更新：使用方法见下  
 星火应用商店：[spk://store/tools/spark-deepin-wine-runner](spk://store/tools/spark-deepin-wine-runner)  
@@ -96,12 +95,11 @@ Gitlink：[https://www.gitlink.org.cn/gfdgd_xi/deep-wine-runner](https://www.git
 一个 spark-webapp-runtime（星火网页应用运行环境）图形化运行器，可以让你更加方便的使用星火网页应用运行环境  
 **本程序依照 GPLV3 协议开源**  
 ![image.png](https://storage.deepin.org/thread/202208140957462252_image.png)   
-更多软件介绍均可见下方 Gitee、Github、Gitlink 下载链接  
+更多软件介绍均可见下方 Gitee、Github 下载链接  
 [![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
 ## 下载链接
 Gitee：[https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner)  
 Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://github.com/gfdgd-xi/spark-webapp-runtime-runner)  
-Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner)  
 蓝奏云：[https://gfdgdxi.lanzouj.com/b01nzcuqd](https://gfdgdxi.lanzouj.com/b01nzcuqd)，密码:[awcg](https://gfdgdxi.lanzouj.com/b01nzcuqd)  
 星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
 # Deepin Community Live CD（最新版本 1.7.0）
@@ -141,14 +139,21 @@ Gitlink：[https://gitlink.org.cn/gfdgd_xi/spark-webapp-runtime-runner](https://
 ## UEngine 运行器
 ![](images/uengine-runner-open.svg)
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 2.1.0）
-**※1、修复源地址（迁出 Gitlink）；**  
-**※2、优化 UEngine 安装器，可以在 Debian/Ubuntu 使用（Debian11/Debian10/Ubuntu20.04 需要安装 dtk（≥5.5），dtk 可以从 https://gitee.com/gfdgd-xi/dtk-sources-for-uos-apt/releases 获取）；**  
-**※3、UEngine 安装器不再强制安装 5.17.3 内核以运行 UEngine 运行环境，只要当前使用内核支持 binder 模块即可继续（安装前会进行检测，如果用 2.0.0/2.0.1 安装了 5.17.3 内核也可以继续使用该内核）；**  
-**※4、修复 uengine-loading-ubuntu 的问题（参考 #I6CKHB:Ubuntu 22.04 LTS安装运行器并按提示安装UEngine后UEngine服务持续崩溃无法使用 ）以及 binder 模块调用问题。**  
+## UEngine 运行器（最新版本 2.1.1）
+**※1、修复在 Ubuntu/Debian 安装 UEngine 时提示“该脚本不支持 deepin”的问题；**  
+**※2、修复 UEngine 在 debian12 安装无法正常开启 UEngine 的问题；**  
+**※3、修复在 UEngine 程序菜单检查到 UEngine 不存在但是无法安装的问题；**  
+**※4、修复了 https://gitee.com/gfdgd-xi/uengine-runner/issues/I6B6C8 的问题；**  
+**※5、优化了 postinst 和 postrm 脚本；**  
+6、添加 zenity 依赖；  
+7、屏蔽在更新程序过程中杀死程序中输出的错误；  
+8、修改下载 dtk 的网址。  
 
 
-![图片.png](https://storage.deepin.org/thread/202305131320341501_图片.png)
+![图片.png](https://storage.deepin.org/thread/202307061119021692_图片.png)
+
+
+![图片.png](https://storage.deepin.org/thread/202307061138408182_图片.png)
 
 
 
