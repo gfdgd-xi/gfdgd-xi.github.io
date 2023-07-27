@@ -222,6 +222,8 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 <th align="center">15.11</th>
 <th align="center">debian</th>
 <th align="center">debian-core</th>
+<th align="center">debian（本地版本）</th>
+<th align="center">debian-core（本地版本）</th>
 </tr>
 </thead>
 <tbody>
@@ -236,6 +238,8 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 <td align="center">●</td>
 <td align="center"></td>
 <td align="center">×</td>
+<td align="center">？</td>
+<td align="center">●</td>
 <td align="center">？</td>
 <td align="center">●</td>
 </tr>
