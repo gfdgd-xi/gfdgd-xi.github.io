@@ -11,7 +11,7 @@ var _hmt = _hmt || [];
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器（最新版本 2.1.1）
-- Wine 运行器（最新版本 3.2.2）
+- Wine 运行器（最新版本 3.3.0.1）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
 - Deepin Community Live CD（最新版本 1.7.0）
 - ……
@@ -45,7 +45,7 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 3.2.2）
+# Wine 运行器（最新版本 3.3.0.1）
 Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
 它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
 此外，它还简化了如下命令，让你可以更简便地使用Wine：  
@@ -58,7 +58,9 @@ Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[ht
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
 **程序 Wiki 可见：[https://gfdgd-xi.github.io/wine-runner-wiki](wine-runner-wiki)**  
 [![gfdgd xi/wine 运行器](https://gitee.com/gfdgd-xi/deep-wine-runner/widgets/widget_card.svg?colors=eae9d7,2e2f29,272822,484a45,eae9d7,747571)](https://gitee.com/gfdgd-xi/deep-wine-runner)  
-![图片.png](https://storage.deepin.org/thread/202305131320341501_图片.png)
+
+![图片.png](https://storage.deepin.org/thread/202307121216143835_图片.png)  
+![图片.png](https://storage.deepin.org/thread/202307121221299140_图片.png)  
 
 
 
@@ -168,12 +170,30 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 ![微信图片_20230502211613.jpg](https://storage.deepin.org/thread/202305022117207441_微信图片_20230502211613.jpg)    
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 3.2.2）
-**※1. 修改源地址（迁出 Gitlink）；**  
-**※2. 修复非 X86 架构运行器主页面虚拟机工具禁用的问题；**  
-3、部分组件支持选择最优源。  
+## Wine 运行器（最新版本 3.3.0.1）
+### 3.3.0.1
+**※1、修复运行器打开主界面不进行任何操作但 CPU 占用率过高的问题**  
+**※2、修复运行器运行器（局部）无法正常移除的问题**  
 
-![图片.png](https://storage.deepin.org/thread/202305122231441391_图片.png)  
+#### 3.3.0
+**※1、简易打包器支持选择 Wine 版本以及修改打包生成的 deb 包的架构为 all；**  
+**※2、修改容器自动配置脚本的 Gitlink 源为 Gitee 源**  
+**※3、在安装更多 Wine 处安装 Wine 后主窗口 Wine 版本下拉框自动更新**  
+**※4、设置打包器在 Ubuntu 依旧打包 xz 格式的 deb 包**  
+**※5、修复 Wine 简易打包器 control 文件 Installed-Size 格式不规范的问题**  
+**※6、更换 Box86 源并支持安装 Box64（如果为 aarch64 架构）**  
+**※7、新增 Wine 自建源（支持 Debian10、Deepin20）**  
+**※8、修改 WineHQ 安装器使其支持选择国内清华大学镜像源或 WineHQ 官方源**  
+**※9、新增 Visual FoxPro 安装器**  
+**※10、新增安装局部运行库以解决部分低版本系统运行高版本 Wine 的问题且不与其他运行库和兼容层冲突**  
+**※11、支持调用原版的 Exagear 以及 Qemu User（i386、x86_64） 运行 Wine**  
+12、新增自动构建：https://github.com/gfdgd-xi/deep-wine-runner/actions/workflows/auto-building.yml（只供尝鲜）  
+13、新增 Wine 日构建（在“安装更多 Wine”处可以获取，目前有 i386、amd64、i386+amd64、amd64+wow64 mode、aarch64）  
+14、优化容器清理脚本  
+15、修复部分组件没完全换源的问题，部分组件支持自动换可用源  
+![图片.png](https://storage.deepin.org/thread/202307121216143835_图片.png)  
+![图片.png](https://storage.deepin.org/thread/202307121221299140_图片.png)  
+
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
 ### spark-webapp-runtime-runner 运行器（最新版本1.1.0）
@@ -200,14 +220,25 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 <th align="center">full(本地版本)</th>
 <th align="center">install(本地版本)</th>
 <th align="center">15.11</th>
-<th align="center">23</th>
-<th align="center">debian11-i386</th>
-<th align="center">debian11-amd64</th>
-<th align="center">debian11-armhf</th>
-<th align="center">debian11-arm64</th>
+<th align="center">debian</th>
+<th align="center">debian-core</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td align="center">2.0.0（未发布）</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">？</td>
+<td align="center">？</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center">●</td>
+<td align="center"></td>
+<td align="center">×</td>
+<td align="center">？</td>
+<td align="center">●</td>
+</tr>
 <tr>
 <td align="center">1.7.0</td>
 <td align="center"></td>
@@ -258,7 +289,7 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 <td align="center">●</td>
 <td align="center"></td>
 <td align="center">●</td>
-<td align="center">×</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="center">1.3.0</td>
