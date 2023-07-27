@@ -229,7 +229,7 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 <td align="center">2.0.0（未发布）</td>
 <td align="center">●</td>
 <td align="center">●</td>
-<td align="center">？</td>
+<td align="center">●</td>
 <td align="center">？</td>
 <td align="center">●</td>
 <td align="center">●</td>
