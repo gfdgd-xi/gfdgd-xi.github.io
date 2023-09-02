@@ -10,10 +10,10 @@ var _hmt = _hmt || [];
 
 # 作品列表
 - 自建 apt 软件源
-- UEngine 运行器（最新版本 2.1.1）
-- Wine 运行器（最新版本 3.3.0.1）
+- UEngine 运行器（最新版本 2.1.2）
+- Wine 运行器（最新版本 3.4.0.1）
 - spark-webapp-runtime-runner 运行器（最新版本 1.1.0）
-- Deepin Community Live CD（最新版本 1.7.0）
+- Deepin Community Live CD（最新版本 2.0.0）
 - ……
 
 # 自建 apt 软件源
@@ -22,7 +22,7 @@ var _hmt = _hmt || [];
 wget http://apt.gfdgdxi.top/sources/github.sh; bash github.sh; rm github.sh
 ```
 
-# UEngine 运行器（最新版本 2.1.1）
+# UEngine 运行器（最新版本 2.1.2）
 新版本Deepin/UOS发布后，可以在应用商店安装部分官方已适配的安卓应用，对爱好者来说，不能自己安装APK软件包始终差点意思，本程序可以为Deepin/UOS上的UEngine安卓运行环境安装自定义APK软件包，并能发送安装的APK包启动菜单到桌面或系统菜单。   
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 UEngine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/uengine-runner-info](uengine-runner-info)**  
@@ -45,14 +45,11 @@ Gitee：[https://gitee.com/gfdgd-xi/uengine-runner](https://gitee.com/gfdgd-xi/u
 软件源更新：使用方法见下  
 UEngine 运行器内部更新：可以使用 UEngine 运行器自带的更新程序进行更新（只支持 1.6.0 及以上版本）  
 
-# Wine 运行器（最新版本 3.3.0.1）
-Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序，内置了对Wine图形化的支持、各种Wine工具、自制的Wine程序打包器和运行库安装工具等。  
-它同时还内置了基于VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作。  
-此外，它还简化了如下命令，让你可以更简便地使用Wine：  
-```bash
-env WINEPREFIX=容器路径 wine（wine的路径） 可执行文件路径
-```
-让你可以简易方便的使用 wine。  
+# Wine 运行器（最新版本 3.4.0.1）
+Wine运行器是一个能让Linux用户更加方便地运行Windows应用的程序。原版的 Wine 只能使用命令操作，且安装过程较为繁琐，对小白不友好。于是该运行器为了解决该痛点，内置了对Wine图形化的支持、Wine 安装器、微型应用商店、各种Wine工具、自制的Wine程序打包器、运行库安装工具等。  
+它同时还内置了基于Qemu/VirtualBox制作的、专供小白使用的Windows虚拟机安装工具，可以做到只需下载系统镜像并点击安装即可，无需考虑虚拟机的安装、创建、分区等操作，也能在非 X86 架构安装 X86 架构的 Windows 操作系统（但是效率较低，可以运行些老系统）。  
+而且对于部分 Wine 应用适配者来说，提供了图形化的打包工具，以及提供了一些常用工具以及运行库的安装方式，以及能安装多种不同的 Wine 以测试效果，能极大提升适配效率。  
+且对于 Deepin23 用户做了特别优化，以便能在缺少 i386 运行库的情况下运行 Wine32。同时也为非 X86 架构用户提供了 Box86/64、Qemu User 的安装方式  
 Wine 运行器吾爱专版和 Wine 运行器部分组件工作原理可见：[https://www.52pojie.cn/thread-1675552-1-1.html](https://www.52pojie.cn/thread-1675552-1-1.html)  
 **本程序依照 GPLV3 协议开源**  
 **想要在线获取 Wine 运行器评分功能的结果？可见：[https://gfdgd-xi.github.io/wine-runner-info](wine-runner-info)**  
@@ -104,12 +101,8 @@ Gitee：[https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner](https://gitee.c
 Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://github.com/gfdgd-xi/spark-webapp-runtime-runner)  
 蓝奏云：[https://gfdgdxi.lanzouj.com/b01nzcuqd](https://gfdgdxi.lanzouj.com/b01nzcuqd)，密码:[awcg](https://gfdgdxi.lanzouj.com/b01nzcuqd)  
 星火应用商店：[spk://store/tools/spark-webapp-runtime-runner](spk://store/tools/spark-webapp-runtime-runner)
-# Deepin Community Live CD（最新版本 1.7.0）
-此 Live CD 基于 deepin 20.7 和原 Live CD 2.0 制作，安装部分维护工具（如果还有需要添加的就说），感谢 [https://bbs.deepin.org/post/166409](https://bbs.deepin.org/post/166409) 的作者   [@xchngg](https://bbs.deepin.org/user/108842)的参考文档，本 Live CD 1.2.1 及以前版本使用该方案打包，测试 Ventoy 在 Legacy 和 UEFT 模式下均可运行此 Live CD，有常用驱动（网卡、显卡、声卡），理论上能运行 deepin 20.7 均可运行  
-同时也借鉴了以下文章的内容：  
-[https://bbs.deepin.org/post/228930](https://bbs.deepin.org/post/228930) [@deepin-superuser](https://bbs.deepin.org/user/278484)  
-
-[https://bbs.deepin.org/post/228568](https://bbs.deepin.org/post/228568)  [@木一明](https://bbs.deepin.org/user/160805)  
+# Deepin Community Live CD（最新版本 2.0.0）
+Deepin Community Live CD 是一个让用户能够在系统出现问题时进行临时的维护和工作的镜像，预装了较为常用的维护工具，部分安装镜像还带系统安装功能。   
 
 **full 用户密码（包括root密码）为：123456**  
 **tiny、mini、install root 密码未知**  
@@ -141,18 +134,12 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 ## UEngine 运行器
 ![](images/uengine-runner-open.svg)
 # 程序最新版本更新日志
-## UEngine 运行器（最新版本 2.1.1）
-**※1、修复在 Ubuntu/Debian 安装 UEngine 时提示“该脚本不支持 deepin”的问题；**  
-**※2、修复 UEngine 在 debian12 安装无法正常开启 UEngine 的问题；**  
-**※3、修复在 UEngine 程序菜单检查到 UEngine 不存在但是无法安装的问题；**  
-**※4、修复了 https://gitee.com/gfdgd-xi/uengine-runner/issues/I6B6C8 的问题；**  
-**※5、优化了 postinst 和 postrm 脚本；**  
-6、添加 zenity 依赖；  
-7、屏蔽在更新程序过程中杀死程序中输出的错误；  
-8、修改下载 dtk 的网址。  
+## UEngine 运行器（最新版本 2.1.2）
+**※1、修复 https://gitee.com/gfdgd-xi/uengine-runner/issues/I6ZRZX**  
+**※2、修复添加应用图标时activity名称错误的问题**  
+**※3、修复 UEngine 运行器在 23 运行时提示缺失 PIL.Image 库的问题**  
 
-
-![图片.png](https://storage.deepin.org/thread/202307061119021692_图片.png)
+![图片.png](https://storage.deepin.org/thread/202308141701411843_图片.png)
 
 
 ![图片.png](https://storage.deepin.org/thread/202307061138408182_图片.png)
@@ -170,29 +157,34 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 ![微信图片_20230502211613.jpg](https://storage.deepin.org/thread/202305022117207441_微信图片_20230502211613.jpg)    
 [![star](https://gitee.com/gfdgd-xi/uengine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/uengine-runner/stargazers)  
 
-## Wine 运行器（最新版本 3.3.0.1）
-### 3.3.0.1
-**※1、修复运行器打开主界面不进行任何操作但 CPU 占用率过高的问题**  
-**※2、修复运行器运行器（局部）无法正常移除的问题**  
+## Wine 运行器（最新版本 3.4.0.1）
+### 3.4.0.1 更新内容
+**※1、修复部分高性能机器打包器提示“无效的压缩参数”：https://gitee.com/gfdgd-xi/deep-wine-runner/issues/I7SMTJ**  
+**※2、支持设置程序字体大小：https://gitee.com/gfdgd-xi/deep-wine-runner/issues/I7SAYE**  
 
-#### 3.3.0
-**※1、简易打包器支持选择 Wine 版本以及修改打包生成的 deb 包的架构为 all；**  
-**※2、修改容器自动配置脚本的 Gitlink 源为 Gitee 源**  
-**※3、在安装更多 Wine 处安装 Wine 后主窗口 Wine 版本下拉框自动更新**  
-**※4、设置打包器在 Ubuntu 依旧打包 xz 格式的 deb 包**  
-**※5、修复 Wine 简易打包器 control 文件 Installed-Size 格式不规范的问题**  
-**※6、更换 Box86 源并支持安装 Box64（如果为 aarch64 架构）**  
-**※7、新增 Wine 自建源（支持 Debian10、Deepin20）**  
-**※8、修改 WineHQ 安装器使其支持选择国内清华大学镜像源或 WineHQ 官方源**  
-**※9、新增 Visual FoxPro 安装器**  
-**※10、新增安装局部运行库以解决部分低版本系统运行高版本 Wine 的问题且不与其他运行库和兼容层冲突**  
-**※11、支持调用原版的 Exagear 以及 Qemu User（i386、x86_64） 运行 Wine**  
-12、新增自动构建：https://github.com/gfdgd-xi/deep-wine-runner/actions/workflows/auto-building.yml（只供尝鲜）  
-13、新增 Wine 日构建（在“安装更多 Wine”处可以获取，目前有 i386、amd64、i386+amd64、amd64+wow64 mode、aarch64）  
-14、优化容器清理脚本  
-15、修复部分组件没完全换源的问题，部分组件支持自动换可用源  
-![图片.png](https://storage.deepin.org/thread/202307121216143835_图片.png)  
-![图片.png](https://storage.deepin.org/thread/202307121221299140_图片.png)  
+### 3.4.0 更新内容
+**※1、修复简易打包器无法打开的问题以及 Wine 识别错误的问题**  
+**※2、高级打包器支持多 .desktop 分别设置不同的 MimeType**  
+**※3、修复运行器在 Ubuntu 23 的安装问题**  
+**※4、高级打包器支持导出/导入填写信息**  
+**※5、Deepin 23 支持使用 Winetricks**  
+**※6、新增视频教程**  
+**※7、修复虚拟机工具在检测到 Qemu 磁盘但没有安装 Qemu 时无法启动的问题**  
+**※8、修复虚拟机工具的一些问题并调整部分设置**  
+**※9、虚拟机工具支持设置 UEFI 启动**  
+**※10、虚拟机安装工具提供 LoongArch 新世界版本**  
+11、高级打包器支持隐藏输入框以及使用小字体  
+12、打包器提供 bcm 和 dcm wine 支持  
+13、修复星火 wine 配置错误问题  
+14、打包器支持多线程打包  
+15、修复升级工具问题：https://gitee.com/gfdgd-xi/uengine-runner/issues/I6ZRZX  
+16、跟进打包器 run.sh 模板  
+17、云沙箱新增 cloud.vdnel.cn  
+18、打包器新增分类 Game、System、AudioVideo  
+19、修复安装 Box64 时源里没有 libc6:armhf 导致无法安装的问题  
+
+
+![图片.png](https://storage.deepin.org/thread/2023081111212518_图片.png)
 
 [![star](https://gitee.com/gfdgd-xi/deep-wine-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/deep-wine-runner/stargazers)  
 
@@ -201,11 +193,16 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 ※2、程序新增打包功能  
 ![截图_选择区域_20220808172505.png](https://storage.deepin.org/thread/202208081725151597_截图_选择区域_20220808172505.png)   
 [![star](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/badge/star.svg?theme=dark)](https://gitee.com/gfdgd-xi/spark-webapp-runtime-runner/stargazers)  
-### Deepin Community Live CD（最新版本 1.7.0）
-1、升级为基于 20.7，支持最新的 5.18.4-amd-desktop-hwe 内核  
-2、修复星火源签名问题（且换成镜像源以提高安装速度）  
-3、新增 15.11 版本  
-**full最新 1.7.0，install 最新 1.7.0，mini最新1.7.0，tiny最新1.2.0-1，install版暂未更新**  
+### Deepin Community Live CD（最新版本 2.0.0）
+***该版本更新的系列：tiny、mini、full、install、debian-gui、debian-core***
+
+1. 新增 `debian`（全称为 `debian-gui`）、`debian-core` 系列
+2. 更新至 6.1.11 内核（arm 为 4.19 内核），`full`、`install` 版升级为 Deepin 20.9
+3. 移除有问题的 gitlink 源并更新预装软件
+4. 新增 arm 支持（只限 `debian-gui`、`debian-core`）
+5. 修复 Full 版无法从 UEFI 启动的问题
+6. 更换 squashfs 的压缩参数，使其体积更小
+7. 预装星火应用商店终端版
 # Deepin Community Live CD 版本列表
 <table>
 <thead>
@@ -228,19 +225,19 @@ Github：[https://github.com/gfdgd-xi/spark-webapp-runtime-runner](https://githu
 </thead>
 <tbody>
 <tr>
-<td align="center">2.0.0（未发布）</td>
+<td align="center">2.0.0</td>
 <td align="center">●</td>
 <td align="center">●</td>
 <td align="center">●</td>
-<td align="center">？</td>
+<td align="center">●</td>
 <td align="center">●</td>
 <td align="center">●</td>
 <td align="center">●</td>
 <td align="center"></td>
 <td align="center">×</td>
-<td align="center">？</td>
 <td align="center">●</td>
-<td align="center">？</td>
+<td align="center">●</td>
+<td align="center">●</td>
 <td align="center">●</td>
 </tr>
 <tr>
