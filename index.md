@@ -7,7 +7,8 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739155456234286"
+     crossorigin="anonymous"></script>
 # 作品列表
 - 自建 apt 软件源
 - UEngine 运行器
