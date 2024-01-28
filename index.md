@@ -53,6 +53,8 @@ https://github.com/gfdgd-xi/waydroid-runner
 Deepin Community Live CD 是一个让用户能够在系统出现问题时进行临时的维护和工作的镜像，预装了较为常用的维护工具，部分安装镜像还带系统安装功能。  
 ## 地址
 https://gitee.com/gfdgd-xi/deepin-community-live-cd/  
+## QQ 交流群
+881201853
 
 <h1 id="copyright">©2020~Now gfdgd xi</h1>
 <script>
