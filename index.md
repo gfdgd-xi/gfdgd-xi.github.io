@@ -10,18 +10,29 @@ var _hmt = _hmt || [];
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739155456234286"
      crossorigin="anonymous"></script>
 # 作品列表
-- 自建 apt 软件源
 - UEngine 运行器
 - Wine 运行器
 - Deepin Community Live CD
 - Waydroid 运行器
+- DebianDDE
 - ……
 
-# 自建 apt 软件源
-## 如何添加该 apt 源？
-```bash
-wget http://apt.gfdgdxi.top/sources/github.sh; bash github.sh; rm github.sh
-```
+# DebianDDE
+> 深度桌面环境是深度科技自主开发的美观易用、极简操作的桌面环境，主要由桌面、启动器、任务栏、控制中心、窗口管理器等组成，系统中预装了深度特色应用，它既能让您体验到丰富多彩的娱乐生活，也可以满足您的日常工作需要。相信随着功能的不断升级和完善，将会被越来越多的用户所喜爱和使用。  
+
+DebianDDE 项目旨在可以在 Debian 上使用 DDE 桌面环境，这个项目可以让你可以在比 deepin 基础库更高的 Debian 上使用 DDE 桌面环境  
+
+![图片.png](https://storage.deepin.org/thread/202309290906088844_图片.png)  
+## 项目地址
+https://gitee.com/gfdgd-xi/debiandde  
+https://github.com/gfdgd-xi/debiandde  
+https://sourceforge.net/projects/debiandde  
+
+## ISO 下载链接
+123盘：https://www.123pan.com/s/pDSKVv-RJBWv.html  
+百度网盘: https://pan.baidu.com/s/1u0aILMc72YbWJIurmEhsWA?pwd=scm9  
+诚通网盘: http://ctfile.gfdgdxi.top/d/31540479-58655689-601126?p=2061 (访问密码: 2061)    
+Sourceforge：https://sourceforge.net/projects/debiandde/
 
 # UEngine 运行器
 虽然通过Deepin/UOS应用商店已经能够安装部分安卓应用，但对于安卓应用爱好者来说，不能自由地安装任意APK软件包实在是不尽如人意。本软件可以实现在Deepin/UOS上安装任意APK软件包，并能将其启动图标发送到系统桌面或启动器中，方便用户快速启动它。  
@@ -56,6 +67,16 @@ Deepin Community Live CD 是一个让用户能够在系统出现问题时进行�
 https://gitee.com/gfdgd-xi/deepin-community-live-cd/  
 ## QQ 交流群
 881201853
+
+# 请作者喝杯茶
+如果您觉得对你有帮助，可以请作者喝杯茶  
+<img src="Icon/QR/Wechat.png" width="250"  /> 
+<img src="Icon/QR/Alipay.jpg" width="250"  />
+<img src="Icon/QR/QQ.png" width="250" >
+
+## 广告
+支付宝官方活动，扫描获得支付红包！  
+<p><img src="Icon/QR/advertisement0.jpg" width="250" ></p>
 
 <h1 id="copyright">©2020~Now gfdgd xi</h1>
 <script>
