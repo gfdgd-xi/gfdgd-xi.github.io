@@ -10,12 +10,60 @@ var _hmt = _hmt || [];
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1739155456234286"
      crossorigin="anonymous"></script>
 # 作品列表
+- GXDE OS
 - UEngine 运行器
 - Wine 运行器
 - Deepin Community Live CD
 - Waydroid 运行器
 - DebianDDE
 - ……
+
+# GXDE OS
+
+## 简介
+
+GXDE OS 是一个基于 Debian 的 Linux 发行版，采用 GXDE 桌面环境。它提供了优雅、美观、轻量化的开箱即用体验。
+
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+
+### 经典且扩展的 deepin 桌面体验
+
+GXDE 桌面环境源自 deepin 15 时代的重生，不仅带回了经典体验，还引入了多种多样的扩展组件、体验优化和问题修复。它兼具经典与创新，确保了更流畅且更丰富的用户体验。
+
+GXDE (Gorgeous eXtended Deepin Environment)
+
+### 多种多样的组件和体验
+
+GXDE OS 集成了多个社区的开源项目，包括顶栏、全局菜单、Spark 应用商店、AmberCE 兼容环境和 Fantascene 动态壁纸。它还支持 deepin Linyaps 包。
+
+### 一键安装应用程序，无需输入命令
+
+GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，使用户能够轻松发现和安装所需应用程序，而无需使用命令行。
+
+此外，只需将 `apt` 替换为 `aptss`，即可加速下载速度。
+
+### 沟通渠道
+
+QQ 群：881201853  
+Discord：https://discord.gg/t5Uf2xYpvA  
+
+![1](https://www.gxde.org/1.png)
+
+![2](https://www.gxde.org/2.png)
+
+![3](https://www.gxde.org/3.png)
+
+![4](https://www.gxde.org/4.png)
+
+![5](https://www.gxde.org/5.png)  
+
+## 项目地址：
+官网：  
+https://www.gxde.top  
+代码仓库：  
+https://gitee.com/GXDE-OS/  
+https://github.com/GXDE-OS/   
+
 
 # DebianDDE
 > 深度桌面环境是深度科技自主开发的美观易用、极简操作的桌面环境，主要由桌面、启动器、任务栏、控制中心、窗口管理器等组成，系统中预装了深度特色应用，它既能让您体验到丰富多彩的娱乐生活，也可以满足您的日常工作需要。相信随着功能的不断升级和完善，将会被越来越多的用户所喜爱和使用。  
