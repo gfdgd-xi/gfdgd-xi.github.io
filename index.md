@@ -24,7 +24,7 @@ var _hmt = _hmt || [];
 
 GXDE OS 是一个基于 Debian 的 Linux 发行版，采用 GXDE 桌面环境。它提供了优雅、美观、轻量化的开箱即用体验。
 
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></a>
 
 ### 经典且扩展的 deepin 桌面体验
 
@@ -45,7 +45,7 @@ GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，�
 ### 沟通渠道
 
 QQ 群：881201853  
-Discord：https://discord.gg/t5Uf2xYpvA  
+Discord：[https://discord.gg/t5Uf2xYpvA](https://discord.gg/t5Uf2xYpvA)  
 
 ![1](https://www.gxde.org/1.png)
 
@@ -59,10 +59,10 @@ Discord：https://discord.gg/t5Uf2xYpvA
 
 ## 项目地址：
 官网：  
-https://www.gxde.top  
+[https://www.gxde.top](https://www.gxde.top)  
 代码仓库：  
-https://gitee.com/GXDE-OS/  
-https://github.com/GXDE-OS/   
+[https://gitee.com/GXDE-OS/](https://gitee.com/GXDE-OS/)  
+[https://github.com/GXDE-OS/](https://github.com/GXDE-OS/)   
 
 
 # DebianDDE
