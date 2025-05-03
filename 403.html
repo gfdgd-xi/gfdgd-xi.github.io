@@ -64,12 +64,12 @@
             zh: { title: "访问被拒绝", desc: "您没有权限访问此资源<br>请联系系统管理员获取帮助", btn: "返回首页" },
             en: { title: "Access Denied", desc: "You don't have permission to access this resource<br>Contact administrator for assistance", btn: "Back to Home" }
         };
-        window.onload = () => {
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('title').textContent = i18n[userLang].title;
             document.getElementById('desc').innerHTML = i18n[userLang].desc;
             document.getElementById('homeBtn').textContent = i18n[userLang].btn;
             document.title = i18n[userLang].title;
-        };
+        });
     </script>
 </head>
 <body>

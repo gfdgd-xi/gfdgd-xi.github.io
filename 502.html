@@ -70,13 +70,13 @@
             zh: { title: "网关错误", desc: "服务器遇到临时性问题<br>建议稍后刷新页面或返回首页", btnRefresh: "刷新页面", btnHome: "返回首页" },
             en: { title: "Bad Gateway", desc: "The server encountered a temporary error<br>Please try again later or return to homepage", btnRefresh: "Refresh Page", btnHome: "Back to Home" }
         };
-        window.onload = () => {
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('title').textContent = i18n[userLang].title;
             document.getElementById('desc').innerHTML = i18n[userLang].desc;
             document.getElementById('refreshBtn').textContent = i18n[userLang].btnRefresh;
             document.getElementById('homeBtn').textContent = i18n[userLang].btnHome;
             document.title = i18n[userLang].title;
-        };
+        });
     </script>
 </head>
 <body>

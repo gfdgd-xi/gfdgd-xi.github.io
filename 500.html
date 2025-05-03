@@ -80,13 +80,13 @@
                 btnHome: "Back to Home"
             }
         };
-        window.onload = () => {
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('title').textContent = i18n[userLang].title;
             document.getElementById('desc').innerHTML = i18n[userLang].desc;
             document.getElementById('refreshBtn').textContent = i18n[userLang].btnRefresh;
             document.getElementById('homeBtn').textContent = i18n[userLang].btnHome;
             document.title = i18n[userLang].title;
-        };
+        });
     </script>
 </head>
 <body>

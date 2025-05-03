@@ -65,12 +65,12 @@
             zh: { title: "页面不存在", desc: "您访问的地址可能已失效或输入有误<br>请检查URL或返回首页", btn: "返回首页" },
             en: { title: "Page Not Found", desc: "The requested URL was not found<br>Please check the address or return to homepage", btn: "Back to Home" }
         };
-        window.onload = () => {
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('title').textContent = i18n[userLang].title;
             document.getElementById('desc').innerHTML = i18n[userLang].desc;
             document.getElementById('homeBtn').textContent = i18n[userLang].btn;
             document.title = i18n[userLang].title;
-        };
+        });
     </script>
 </head>
 <body>
