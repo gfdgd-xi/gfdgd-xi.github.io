@@ -24,7 +24,11 @@ var _hmt = _hmt || [];
 
 GXDE OS 是一个基于 Debian 的 Linux 发行版，采用 GXDE 桌面环境。它提供了优雅、美观、轻量化的开箱即用体验。
 
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></a>
+<a href='https://github.com/GXDE-OS'><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/GXDE-OS?style=flat&logo=github"></a>
+<a href='https://github.com/orgs/GXDE-OS/followers'><img alt="GitHub followers" src="https://img.shields.io/github/followers/GXDE-OS?style=flat&logo=github"></a>
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
+<img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
+<a href='https://sourceforge.net/projects/gxde-os/'><img src='https://img.shields.io/sourceforge/dw/gxde-os?style=flat&logo=sourceforge' alt='Sourceforge'></img></a>
 
 ### 经典且扩展的 deepin 桌面体验
 
@@ -47,15 +51,15 @@ GXDE OS 内置 [星火应用商店](https://gitee.com/spark-store-project/)，�
 QQ 群：881201853  
 Discord：[https://discord.gg/t5Uf2xYpvA](https://discord.gg/t5Uf2xYpvA)  
 
-![1](https://www.gxde.org/1.png)
+![1](https://www.gxde.top/1.png)
 
-![2](https://www.gxde.org/2.png)
+![2](https://www.gxde.top/2.png)
 
-![3](https://www.gxde.org/3.png)
+![3](https://www.gxde.top/3.png)
 
-![4](https://www.gxde.org/4.png)
+![4](https://www.gxde.top/4.png)
 
-![5](https://www.gxde.org/5.png)  
+![5](https://www.gxde.top/5.png)  
 
 ## 项目地址：
 官网：  
@@ -118,9 +122,7 @@ https://gitee.com/gfdgd-xi/deepin-community-live-cd/
 
 # 请作者喝杯茶
 如果您觉得对你有帮助，可以请作者喝杯茶  
-<img src="Icon/QR/Wechat.png" width="250"  /> 
-<img src="Icon/QR/Alipay.jpg" width="250"  />
-<img src="Icon/QR/QQ.png" width="250" >
+<img src="Icon/QR/gf.jpg" /> 
 
 ## 广告
 支付宝官方活动，扫描获得支付红包！  
