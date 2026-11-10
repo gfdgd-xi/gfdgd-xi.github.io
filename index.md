@@ -26,8 +26,8 @@ GXDE OS 是一个基于 Debian 的 Linux 发行版，采用 GXDE 桌面环境。
 
 <a href='https://github.com/GXDE-OS'><img alt="GitHub Org's stars" src="https://img.shields.io/github/stars/GXDE-OS?style=flat&logo=github"></a>
 <a href='https://github.com/orgs/GXDE-OS/followers'><img alt="GitHub followers" src="https://img.shields.io/github/followers/GXDE-OS?style=flat&logo=github"></a>
-<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></img></a>
-<img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'></img>
+<a href='https://gitee.com/GXDE-OS/GXDE/stargazers'><img src='https://gitee.com/GXDE-OS/GXDE/badge/star.svg?theme=dark' alt='star'></a>
+<img src='https://gitcode.com/GXDE-OS/GXDE/star/badge.svg' alt='G-Star'>
 <a href='https://sourceforge.net/projects/gxde-os/'><img src='https://img.shields.io/sourceforge/dw/gxde-os?style=flat&logo=sourceforge' alt='Sourceforge'></img></a>
 
 ### 经典且扩展的 deepin 桌面体验
